@@ -14,10 +14,18 @@
     "prisma:studio": "dotenv -e .env.local prisma studio"
   },
   "dependencies": {
+    "@prisma/client": "^5.13.0",
+    "@types/bcrypt": "^5.0.2",
+    "bcrypt": "^5.1.1",
+    "class-variance-authority": "^0.7.0",
+    "cloudinary": "^2.2.0",
+    "clsx": "^2.1.1",
     "dotenv-cli": "^7.4.1",
     "next": "14.2.3",
+    "next-auth": "^4.24.7",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
