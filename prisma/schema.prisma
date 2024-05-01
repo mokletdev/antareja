@@ -1,0 +1,102 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Jenjang {
+  SMP
+  SMA
+}
+
+enum Kelas {
+  VII
+  VIII
+  IX
+  X
+  XI
+  XII
+}
+
+enum Role {
+  USER
+  JURI
+  ADMIN
+}
+
+enum StatusPembayaran {
+  PROSES
+  TERBAYARKAN
+  GAGAL
+}
+
+enum Posisi {
+  OFFICIAL
+  DANTON
+}
+
+model User {
+  id         String       @id @default(uuid())
+  nama       String
+  email      String       @unique
+  password   String
+  role       Role
+  penilaian  Penilaian?
+  pembayaran Pembayaran[]
+}
+
+model Anggota {
+  id     String  @id @default(uuid())
+  nama   String
+  email  String  @unique
+  telp   String
+  foto   String
+  posisi Posisi
+  nisn   String?
+  kelas  Kelas
+  Tim    Tim?    @relation(fields: [timId], references: [id])
+  timId  String?
+}
+
+model Penilaian {
+  id         String    @id @default(uuid())
+  created_at DateTime? @default(now())
+  updated_at DateTime  @updatedAt
+  user       User      @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user_id    String    @unique
+  tim        Tim[]
+}
+
+model Tim {
+  id           String           @id @default(uuid())
+  nama_tim     String
+  updated_at   DateTime         @updatedAt
+  penilaian    Penilaian        @relation(fields: [penilaian_id], references: [id], onDelete: Cascade)
+  penilaian_id String           @unique
+  pelatih      String
+  anggota      Anggota[]
+  jenjang      Jenjang
+  pembayaran   Pembayaran?
+  status       StatusPembayaran
+}
+
+model Pembayaran {
+  id       String @id @default(uuid())
+  user     User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user_id  String @unique
+  tim      Tim    @relation(fields: [tim_id], references: [id], onDelete: Cascade)
+  tim_id   String @unique
+  bukti_tf String
+  bank     String
+  nama_rek String
+}
