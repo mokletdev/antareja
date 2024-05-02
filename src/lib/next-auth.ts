@@ -1,13 +1,14 @@
-import type { AuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
-import { findUser, createUser, updateUser } from "@/queries/user.query";
-import { Role } from "@prisma/client";
-import prisma from "./prisma";
-import { type DefaultSession } from "next-auth";
-import type { DefaultJWT } from "next-auth/jwt";
-import { getServerSession as nextAuthGetServerSession } from "next-auth";
 import { validateHash } from "@/lib/hash";
+import { findUser } from "@/queries/user.query";
+import { Role } from "@prisma/client";
+import {
+  getServerSession as nextAuthGetServerSession,
+  type DefaultSession,
+  type AuthOptions,
+} from "next-auth";
+import type { DefaultJWT } from "next-auth/jwt";
+import CredentialsProvider from "next-auth/providers/credentials";
+import prisma from "./prisma";
 
 declare module "next-auth" {
   /**
@@ -103,19 +104,19 @@ export const authOptions: AuthOptions = {
     },
     async jwt({ token, user }) {
       if (user?.email) {
-        let userInDb = await findUser({ email: user?.email! });
-        token.id = userInDb?.id || "";
-        token.role = userInDb?.role || "USER";
-        token.nama = userInDb?.nama || token.nama!;
-        token.email = userInDb?.email || token.email;
+        let userInDb = await findUser({ email: user?.email });
+        token.id = userInDb?.id ?? "";
+        token.role = userInDb?.role ?? "USER";
+        token.nama = userInDb?.nama ?? token.nama;
+        token.email = userInDb?.email ?? token.email;
       }
       return token;
     },
     async session({ session, token }) {
       if (token.email && session.user) {
         session.user.role = token?.role || "USER";
-        session.user.id = token?.id!;
-        session.user.nama = token?.nama!;
+        session.user.id = token?.id;
+        session.user.nama = token?.nama;
       }
       return session;
     },
