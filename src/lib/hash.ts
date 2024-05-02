@@ -1,7 +1,7 @@
-import { compare, hashSync } from "bcrypt";
+import { compareSync, hashSync } from "bcrypt";
 
 export function validateHash(value: string, hash: string) {
-  return compare(value, hash);
+  return compareSync(value, hash);
 }
 
 export function generateHash(value: string) {

@@ -3,8 +3,8 @@ import { findUser } from "@/queries/user.query";
 import { Role } from "@prisma/client";
 import {
   getServerSession as nextAuthGetServerSession,
-  type DefaultSession,
   type AuthOptions,
+  type DefaultSession,
 } from "next-auth";
 import type { DefaultJWT } from "next-auth/jwt";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -44,6 +44,7 @@ export const authOptions: AuthOptions = {
   },
   session: {
     strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60, // A month (in seconds)
   },
   providers: [
     CredentialsProvider({
@@ -65,10 +66,10 @@ export const authOptions: AuthOptions = {
           let findUser = await prisma.user.findUnique({
             where: { email: credentials?.email },
           });
-          if (!findUser) return null;
+          if (!findUser || !credentials?.password) return null;
 
           const comparePassword = validateHash(
-            credentials?.password!,
+            credentials.password,
             findUser.password
           );
 
@@ -96,7 +97,7 @@ export const authOptions: AuthOptions = {
         : url;
       return redirectUrl;
     },
-    async signIn({ user, profile, account }) {
+    async signIn({ user }) {
       const userInDb = await findUser({ email: user.email! });
       if (!userInDb) return false;
 
