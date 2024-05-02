@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write .",
-    "prepare": "husky install",
     "prisma": "dotenv -e .env.local prisma migrate dev",
     "prisma:push": "dotenv -e .env.local prisma db push",
     "prisma:studio": "dotenv -e .env.local prisma studio"
