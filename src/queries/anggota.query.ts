@@ -1,6 +1,11 @@
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 
+export async function createAnggota(data: Prisma.AnggotaCreateInput) {
+  const createAnggota = await prisma.anggota.create({ data });
+  return createAnggota;
+}
+
 export async function findAnggotas(where: Prisma.AnggotaWhereInput) {
   const anggotas = await prisma.anggota.findMany({ where });
   return anggotas;
