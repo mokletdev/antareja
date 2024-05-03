@@ -1,24 +1,23 @@
 "use client";
 
-import Sidebar from "./components/Sidenav";
-import { Fragment, useState } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Fragment } from "react";
+import Sidebar from "./components/Sidebar";
 
 export default function AdminLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isActive, setIsActive] = useState(false);
   const { data: session } = useSession();
   const pathname = usePathname().split("/");
   pathname.shift();
 
   return (
     <main className="flex w-full h-screen overflow-hidden bg-slate-100">
-      <Sidebar active={isActive} session={session!} />
+      <Sidebar active={false} session={session!} />
       <div
         id="main-content"
         className="relative h-full w-full overflow-y-auto ps-10 lg:ps-24 py-4 lg:ml-64"
