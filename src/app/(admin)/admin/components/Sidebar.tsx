@@ -1,7 +1,11 @@
+"use client";
+
 import { protectedRoutes } from "@/utils/protectedRoutes";
 import { Session } from "next-auth";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { FaArrowRight } from "react-icons/fa";
 import { DashboardIcon } from "./Icons";
 import { H3 } from "./global/Text";
 
@@ -53,13 +57,19 @@ export default function Sidebar({ active, session }: Readonly<Sidenavprops>) {
                     }
                   >
                     {/* <div dangerouslySetInnerHTML={{ __html: item.icon }} /> */}
-                    <p className="ml-3 whitespace-nowrap text-primary-400 font-semibold">
-                      {item.title}
+                    <p className="ml-3 whitespace-nowrap text-primary-400 font-semibold flex gap-3 items-center">
+                      <FaArrowRight /> {item.title}
                     </p>
                   </Link>
                 </li>
               ))}
             </ul>
+            <button
+              className="self-end py-3 bg-red-500 w-full rounded-full text-white hover:bg-red-300 transition-all duration-300"
+              onClick={() => signOut({ callbackUrl: "/" })}
+            >
+              Sign Out
+            </button>
           </div>
         </div>
       </div>

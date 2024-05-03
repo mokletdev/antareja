@@ -14,7 +14,7 @@ export default function SessionProvider({
     <NextAuthSessionProvider
       refetchOnWindowFocus
       refetchInterval={500}
-      basePath="/auth"
+      basePath="/api/auth"
     >
       {children}
     </NextAuthSessionProvider>
