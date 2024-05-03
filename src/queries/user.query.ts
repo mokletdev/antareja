@@ -6,7 +6,7 @@ export async function createUser(data: Prisma.UserCreateInput) {
   return createdUser;
 }
 
-export async function findUsers(where: Prisma.UserWhereInput) {
+export async function findUsers(where?: Prisma.UserWhereInput) {
   const users = await prisma.user.findMany({ where });
   return users;
 }
