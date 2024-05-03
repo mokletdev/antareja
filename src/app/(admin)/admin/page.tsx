@@ -17,21 +17,21 @@ export default async function Admin() {
     <div className="block">
       <H1 className="mb-2">Main Dashboard</H1>
       <div className="flex items-center gap-10">
-        <figure className="flex items-center bg-red-100 rounded-lg px-6 py-3 gap-4">
+        <figure className="flex items-center bg-white rounded-lg px-6 py-3 gap-4">
           <FaPerson className="w-10 h-10" />
           <div>
             <H4>User</H4>
             <P>{usersCount}</P>
           </div>
         </figure>
-        <figure className="flex items-center bg-red-100 rounded-lg px-6 py-3 gap-4">
+        <figure className="flex items-center bg-white rounded-lg px-6 py-3 gap-4">
           <FaPeopleLine className="w-10 h-10" />
           <div>
             <H4>Tim</H4>
             <P>{timsCount}</P>
           </div>
         </figure>
-        <figure className="flex items-center bg-red-100 rounded-lg px-6 py-3 gap-4">
+        <figure className="flex items-center bg-white rounded-lg px-6 py-3 gap-4">
           <FaPerson className="w-10 h-10" />
           <div>
             <H4>Anggota</H4>
