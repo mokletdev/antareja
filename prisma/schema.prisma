@@ -84,13 +84,14 @@ model Penilaian {
   user_id    String    @unique
   tim        Tim       @relation(fields: [tim_id], references: [id])
   tim_id     String    @unique
+  published  Boolean   @default(false)
 }
 
 model Tim {
   id         String      @id @default(uuid())
   nama_tim   String
   updated_at DateTime    @updatedAt
-  penilaian  Penilaian?
+  penilaian  Penilaian[]
   pelatih    String
   anggotas   Anggota[]
   jenjang    Jenjang

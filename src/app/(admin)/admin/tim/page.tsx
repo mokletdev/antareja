@@ -1,12 +1,9 @@
-import { H1 } from "../components/global/Text";
 import { findTims } from "@/queries/tim.query";
-import { createAnggota } from "@/queries/anggota.query";
-import { TimWithAnggotas } from "@/types/entityRelations";
+import { H1 } from "../components/global/Text";
 import TimTable from "./components/Table";
-// import UserTable from "./_components/Table";
 
 export default async function User() {
-  const tims = (await findTims()) as TimWithAnggotas[];
+  const tims = await findTims();
 
   return (
     <div>
