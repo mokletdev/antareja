@@ -54,13 +54,13 @@ enum Posisi {
 }
 
 model User {
-  id         String       @id @default(uuid())
-  nama       String
-  email      String       @unique
-  password   String
-  role       Role
-  penilaian  Penilaian?
-  pembayaran Pembayaran[]
+  id          String       @id @default(uuid())
+  nama        String
+  email       String       @unique
+  password    String
+  role        Role
+  penilaian   Penilaian?
+  pembayarans Pembayaran[]
 }
 
 model Anggota {
@@ -72,8 +72,8 @@ model Anggota {
   posisi Posisi
   nisn   String?
   kelas  Kelas
-  Tim    Tim?    @relation(fields: [timId], references: [id])
-  timId  String?
+  Tim    Tim     @relation(fields: [timId], references: [id], onDelete: Cascade)
+  timId  String
 }
 
 model Penilaian {
@@ -82,20 +82,20 @@ model Penilaian {
   updated_at DateTime  @updatedAt
   user       User      @relation(references: [id], fields: [user_id], onDelete: Cascade)
   user_id    String    @unique
-  tim        Tim[]
+  tim        Tim       @relation(fields: [tim_id], references: [id])
+  tim_id     String    @unique
 }
 
 model Tim {
-  id           String      @id @default(uuid())
-  nama_tim     String
-  updated_at   DateTime    @updatedAt
-  penilaian    Penilaian   @relation(fields: [penilaian_id], references: [id], onDelete: Cascade)
-  penilaian_id String      @unique
-  pelatih      String
-  anggota      Anggota[]
-  jenjang      Jenjang
-  pembayaran   Pembayaran?
-  confirmed    Boolean     @default(false)
+  id         String      @id @default(uuid())
+  nama_tim   String
+  updated_at DateTime    @updatedAt
+  penilaian  Penilaian?
+  pelatih    String
+  anggotas   Anggota[]
+  jenjang    Jenjang
+  pembayaran Pembayaran?
+  confirmed  Boolean     @default(false)
 }
 
 model Pembayaran {
