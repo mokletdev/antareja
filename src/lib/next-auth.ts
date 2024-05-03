@@ -8,7 +8,6 @@ import {
 } from "next-auth";
 import type { DefaultJWT } from "next-auth/jwt";
 import CredentialsProvider from "next-auth/providers/credentials";
-import prisma from "./prisma";
 
 declare module "next-auth" {
   /**
@@ -63,26 +62,24 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials) {
         try {
-          let findUser = await prisma.user.findUnique({
-            where: { email: credentials?.email },
-          });
-          if (!findUser || !credentials?.password) return null;
+          let user = await findUser({ email: credentials?.email });
+          if (!user || !credentials?.password) return null;
 
           const comparePassword = validateHash(
             credentials.password,
-            findUser.password
+            user.password
           );
 
           if (!comparePassword) return null;
 
-          const user = {
-            id: findUser.id,
-            role: findUser.role,
-            nama: findUser.nama,
-            email: findUser.email,
+          const authorizedUser = {
+            id: user.id,
+            role: user.role,
+            nama: user.nama,
+            email: user.email,
           };
 
-          return user;
+          return authorizedUser;
         } catch (e) {
           console.error(e);
           return null;

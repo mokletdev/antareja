@@ -52,7 +52,9 @@ export default function Sidebar({ active, session }: Readonly<Sidenavprops>) {
                   <Link
                     href={item.path}
                     className={
-                      (pathname.includes(item.path) ? "bg-red-100 " : "") +
+                      (pathname.split("/")[2] == item.path.split("/")[2]
+                        ? "bg-red-100 "
+                        : "") +
                       "group flex items-center rounded-lg p-2 text-base font-normal text-primary-400 hover:bg-red-200 transition-all"
                     }
                   >
