@@ -1,6 +1,6 @@
 import cn from "@/lib/clsx";
 import Link from "next/link";
-import { MouseEventHandler, ReactNode } from "react";
+import { ReactNode } from "react";
 
 export function PrimaryLinkButton({
   children,
@@ -10,7 +10,7 @@ export function PrimaryLinkButton({
 }: {
   children: ReactNode;
   href?: string;
-  type: "submit" | "reset" | "button" | undefined;
+  type?: "submit" | "reset" | "button";
   className?: string;
 }) {
   return (

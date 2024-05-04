@@ -1,8 +1,7 @@
 import { findUsers } from "@/queries/user.query";
-import Link from "next/link";
+import { PrimaryLinkButton } from "../components/global/LinkButton";
 import { H1 } from "../components/global/Text";
 import UserTable from "./components/Table";
-import { PrimaryLinkButton } from "../components/global/LinkButton";
 
 export default async function Users() {
   const users = await findUsers();
