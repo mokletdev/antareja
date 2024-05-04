@@ -2,7 +2,7 @@ import cn from "@/lib/clsx";
 import Link from "next/link";
 import { MouseEventHandler, ReactNode } from "react";
 
-export function PrimaryButton({
+export function PrimaryLinkButton({
   children,
   href,
   type,
