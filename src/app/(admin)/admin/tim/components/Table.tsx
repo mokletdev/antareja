@@ -1,34 +1,33 @@
 "use client";
-import { Tim } from "@prisma/client";
+import { TimWithRelations } from "@/types/entityRelations";
 import { useRouter } from "next-nprogress-bar";
 import { useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
-import { TimWithAnggotas } from "@/types/entityRelations";
 
-export default function TimTable({ data }: { data: TimWithAnggotas[] }) {
+export default function TimTable({ data }: { data: TimWithRelations[] }) {
   const [loader, setLoader] = useState(true);
   const router = useRouter();
 
-  const columns: TableColumn<TimWithAnggotas>[] = [
+  const columns: TableColumn<TimWithRelations>[] = [
     {
       name: "Nama tim",
-      selector: (row: TimWithAnggotas) => row.nama_tim,
+      selector: (row: TimWithRelations) => row.nama_tim,
       sortable: true,
     },
     {
       name: "Jenjang",
-      selector: (row: TimWithAnggotas) => row.jenjang,
+      selector: (row: TimWithRelations) => row.jenjang,
       sortable: true,
     },
     {
       name: "Pelatih",
-      selector: (row: TimWithAnggotas) => row.pelatih,
+      selector: (row: TimWithRelations) => row.pelatih,
 
       sortable: false,
     },
     {
       name: "Total Anggota",
-      cell: (row: TimWithAnggotas) => (
+      cell: (row: TimWithRelations) => (
         <span className={"bg-[#]"}>{row.anggotas.length}</span>
       ),
 
@@ -58,7 +57,7 @@ export default function TimTable({ data }: { data: TimWithAnggotas[] }) {
             },
           },
         }}
-        onRowClicked={(row: TimWithAnggotas) =>
+        onRowClicked={(row: TimWithRelations) =>
           router.push(`/admin/tim/${row.id}`)
         }
       />
