@@ -7,3 +7,7 @@ export type TimWithRelations = Prisma.TimGetPayload<{
     penilaian: true;
   };
 }>;
+
+export type PenilaianWithRelations = Prisma.PenilaianGetPayload<{
+  include: { user: true; tim: true };
+}>;
