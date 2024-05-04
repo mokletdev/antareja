@@ -1,8 +1,11 @@
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
 
-export async function findPenilaians(where: Prisma.PenilaianWhereInput) {
-  const penilaians = await prisma.penilaian.findMany({ where });
+export async function findPenilaians(where?: Prisma.PenilaianWhereInput) {
+  const penilaians = await prisma.penilaian.findMany({
+    include: { tim: true, user: true },
+    where,
+  });
   return penilaians;
 }
 
