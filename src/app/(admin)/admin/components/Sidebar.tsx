@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import { FaArrowRight } from "react-icons/fa";
 import { DashboardIcon } from "./Icons";
 import { H3 } from "./global/Text";
+import { PrimaryButton } from "./global/Button";
 
 interface Sidenavprops {
   active: boolean;
@@ -66,12 +67,13 @@ export default function Sidebar({ active, session }: Readonly<Sidenavprops>) {
                 </li>
               ))}
             </ul>
-            <button
-              className="self-end py-3 bg-red-500 w-full rounded-full text-white hover:bg-red-300 transition-all duration-300"
+            <PrimaryButton
+              type="button"
               onClick={() => signOut({ callbackUrl: "/" })}
+              className="w-full"
             >
               Sign Out
-            </button>
+            </PrimaryButton>
           </div>
         </div>
       </div>

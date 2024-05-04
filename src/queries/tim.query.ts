@@ -8,7 +8,7 @@ export async function createTim(data: Prisma.TimCreateInput) {
 
 export async function findTims(where?: Prisma.TimWhereInput) {
   const tims = await prisma.tim.findMany({
-    include: { anggotas: true },
+    include: { anggotas: true, pembayaran:true, penilaian:true },
     where,
   });
   return tims;

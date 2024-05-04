@@ -1,0 +1,66 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
+import { generateHash } from "@/lib/hash";
+import { createUser, updateUser } from "@/queries/user.query";
+import { Role } from "@prisma/client";
+import { success } from "@/utils/apiResponse";
+
+export async function createUserForm(data: FormData) {
+  const name = data.get("nama") as string;
+  const email = data.get("email") as string;
+  const password = data.get("password") as string;
+  const role = data.get("role") as Role;
+
+  try {
+    const hashedPass = generateHash(password);
+    await createUser({
+      nama: name,
+      email: email,
+      password: hashedPass,
+      role: role,
+    });
+    revalidatePath("/admin/user");
+    return { success: true };
+  } catch (e) {
+    console.log(e);
+    return { success: false };
+  }
+}
+
+export async function updateUserForm(data: FormData, id: string) {
+  const name = data.get("nama") as string;
+  const email = data.get("email") as string;
+  const password = (data.get("password") as string) || undefined;
+  const role = data.get("role") as Role;
+
+  try {
+    if (password) {
+      const hashedPass = generateHash(password);
+      await updateUser(
+        { id: id },
+        {
+          nama: name,
+          email: email,
+          password: hashedPass,
+          role: role,
+        }
+      );
+      revalidatePath("/admin/user");
+      return { success: true };
+    }
+    await updateUser(
+      { id: id },
+      {
+        nama: name,
+        email: email,
+        role: role,
+      }
+    );
+    revalidatePath("/admin/user");
+    return { success: true };
+  } catch (e) {
+    console.log(e);
+    return { success: false };
+  }
+}

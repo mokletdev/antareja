@@ -12,12 +12,13 @@ export default function ToasterProvider() {
       duration={3000}
       pauseWhenPageIsHidden
       theme="light"
-      toastOptions={{ className: "shadow-sm shadow-white bg-white/70" }}
+      toastOptions={{ className: "shadow-sm shadow-white bg-white" }}
+      position="top-right"
       icons={{
         success: <FaCheckCircle className="text-green-500" size={20} />,
-        error: <FaCircleXmark className="text-green-500" size={20} />,
-        info: <FaInfoCircle className="text-green-500" size={20} />,
-        warning: <FaExclamationCircle className="text-green-500" size={20} />,
+        error: <FaCircleXmark className="text-red-500" size={20} />,
+        info: <FaInfoCircle className="text-blue-500" size={20} />,
+        warning: <FaExclamationCircle className="text-yellow-500" size={20} />,
       }}
     />
   );
