@@ -1,8 +1,7 @@
 import { findPenilaians } from "@/queries/penilaian.query";
+import { PrimaryLinkButton } from "../components/global/LinkButton";
 import { H1 } from "../components/global/Text";
 import PenilaianTable from "./components/Table";
-import Link from "next/link";
-import { PrimaryLinkButton } from "../components/global/LinkButton";
 
 export default async function Penilaian() {
   const penilaians = await findPenilaians();
@@ -11,11 +10,7 @@ export default async function Penilaian() {
     <div>
       <div className="flex items-center justify-between">
         <H1>Penilaian</H1>
-        <PrimaryLinkButton
-          type="button"
-          href="/admin/penilaian/new"
-          className="px-5 py-3 bg-red-500 hover:bg-red-300 transition-all duration-300 rounded-full text-white"
-        >
+        <PrimaryLinkButton type="button" href="/admin/penilaian/new">
           New
         </PrimaryLinkButton>
       </div>
