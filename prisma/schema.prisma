@@ -53,13 +53,13 @@ enum Posisi {
 }
 
 model User {
-  id          String       @id @default(uuid())
-  nama        String
-  email       String       @unique
-  password    String
-  role        Role
-  penilaian   Penilaian?
-  pembayarans Pembayaran[]
+  id        String     @id @default(uuid())
+  nama      String
+  email     String     @unique
+  password  String
+  role      Role
+  penilaian Penilaian?
+  tim       Tim?
 }
 
 model Anggota {
@@ -104,12 +104,12 @@ model Tim {
   jenjang    Jenjang
   pembayaran Pembayaran?
   confirmed  Boolean     @default(false)
+  user       User        @relation(fields: [userId], references: [id])
+  userId     String      @unique
 }
 
 model Pembayaran {
   id       String @id @default(uuid())
-  user     User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  user_id  String @unique
   tim      Tim    @relation(fields: [tim_id], references: [id], onDelete: Cascade)
   tim_id   String @unique
   bukti_tf String
