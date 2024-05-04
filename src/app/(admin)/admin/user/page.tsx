@@ -10,11 +10,7 @@ export default async function Users() {
     <div>
       <div className="flex items-center justify-between">
         <H1>User</H1>
-        <PrimaryLinkButton
-          type="button"
-          href="/admin/user/new"
-          className="px-5 py-3 bg-red-500 hover:bg-red-300 transition-all duration-300 rounded-full text-white"
-        >
+        <PrimaryLinkButton type="button" href="/admin/user/new">
           New
         </PrimaryLinkButton>
       </div>
