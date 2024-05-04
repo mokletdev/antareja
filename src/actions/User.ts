@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { generateHash } from "@/lib/hash";
-import { createUser, updateUser } from "@/queries/user.query";
+import { createUser, deleteUser, updateUser } from "@/queries/user.query";
 import { Role } from "@prisma/client";
 import { success } from "@/utils/apiResponse";
 
@@ -57,6 +57,17 @@ export async function updateUserForm(data: FormData, id: string) {
         role: role,
       }
     );
+    revalidatePath("/admin/user");
+    return { success: true };
+  } catch (e) {
+    console.log(e);
+    return { success: false };
+  }
+}
+
+export async function deleteUserForm(id: string) {
+  try {
+    await deleteUser({ id: id });
     revalidatePath("/admin/user");
     return { success: true };
   } catch (e) {
