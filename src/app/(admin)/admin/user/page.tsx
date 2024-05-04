@@ -3,7 +3,7 @@ import Link from "next/link";
 import { H1 } from "../components/global/Text";
 import UserTable from "./components/Table";
 
-export default async function User() {
+export default async function Users() {
   const users = await findUsers();
 
   return (
