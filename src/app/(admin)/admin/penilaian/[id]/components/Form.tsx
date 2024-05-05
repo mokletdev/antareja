@@ -1,14 +1,14 @@
 "use client";
 
-import { Penilaian } from "@prisma/client";
+import { createPenilaianForm, updatePenilaianForm } from "@/actions/Penilaian";
 import TextField from "@/app/(admin)/admin/components/global/Input";
 import SubmitButton from "@/app/(admin)/admin/components/global/SubmitButton";
-import Select, { Options } from "react-select";
-import { toast } from "sonner";
-import { createPenilaianForm, updatePenilaianForm } from "@/actions/Penilaian";
-import { redirect } from "next/navigation";
 import { TimWithRelations } from "@/types/entityRelations";
+import { Penilaian } from "@prisma/client";
 import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+import Select from "react-select";
+import { toast } from "sonner";
 
 export default function PenilaianForm({
   data,
@@ -72,7 +72,7 @@ export default function PenilaianForm({
             }}
             options={timOptions}
             id="tim"
-            isDisabled={edit ? true : false}
+            isDisabled={edit ?? false}
             placeholder="Nama Tim"
             classNames={{
               control: () =>
@@ -96,7 +96,7 @@ export default function PenilaianForm({
           name="pbb"
           placeholder="Nilai PBB"
           value={data?.pbb}
-          required={edit ? false : true}
+          required={edit ?? false}
         />
         <TextField
           id="variasi"
@@ -105,7 +105,7 @@ export default function PenilaianForm({
           name="variasi"
           placeholder="Nilai Variasi"
           value={data?.variasi}
-          required={edit ? false : true}
+          required={edit ?? false}
         />
         <TextField
           id="formasi"
@@ -114,7 +114,7 @@ export default function PenilaianForm({
           name="formasi"
           value={data?.formasi}
           placeholder="Nilai Formasi"
-          required={edit ? false : true}
+          required={edit ?? false}
         />
         <TextField
           id="danpas"
@@ -123,7 +123,7 @@ export default function PenilaianForm({
           name="danpas"
           value={data?.danpas}
           placeholder="Nilai Danpas"
-          required={edit ? false : true}
+          required={edit ?? false}
         />
         <TextField
           id="pasukan"
@@ -132,7 +132,7 @@ export default function PenilaianForm({
           name="pasukan"
           value={data?.pasukan}
           placeholder="Nilai Pasukan"
-          required={edit ? false : true}
+          required={edit ?? false}
         />
         <TextField
           id="pbb_tambahan"
@@ -141,7 +141,7 @@ export default function PenilaianForm({
           name="pbb_tambahan"
           value={data?.pbb_tambahan}
           placeholder="Nilai PBB Tambahan"
-          required={edit ? false : true}
+          required={edit ?? false}
         />
         <TextField
           id="detail"
@@ -150,7 +150,7 @@ export default function PenilaianForm({
           name="detail"
           value={data?.detail_url}
           placeholder="https://example.com/...."
-          required={edit ? false : true}
+          required={edit ?? false}
         />
         <TextField
           id="note"
@@ -159,7 +159,7 @@ export default function PenilaianForm({
           name="note"
           value={data?.note}
           placeholder="Note Juri"
-          required={edit ? false : true}
+          required={edit ?? false}
         />
         <div className="flex flex-col gap-2">
           <label htmlFor={"publish"} className="text-[16px]">
