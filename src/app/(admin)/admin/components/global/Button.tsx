@@ -20,7 +20,7 @@ export function PrimaryButton({
       type={type}
       onClick={onClick}
       className={cn(
-        "bg-primary hover:bg-secondary duration-300 transition-all py-6 px-12 text-white rounded-[14px] ",
+        "bg-primary hover:bg-secondary duration-300 transition-all py-3 px-6 text-white rounded-full ",
         className
       )}
     >
