@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgresql://antareja_owner:Ud9M2OJciCvF@ep-steep-glade-a7xfgz2m.ap-southeast-2.aws.neon.tech/antareja?sslmode=require"
 }
 
 enum Jenjang {
@@ -95,17 +95,18 @@ model Penilaian {
 }
 
 model Tim {
-  id         String      @id @default(uuid())
-  nama_tim   String
-  updated_at DateTime    @updatedAt
-  penilaian  Penilaian[]
-  pelatih    String
-  anggotas   Anggota[]
-  jenjang    Jenjang
-  pembayaran Pembayaran?
-  confirmed  Boolean     @default(false)
-  user       User        @relation(fields: [userId], references: [id])
-  userId     String      @unique
+  id           String      @id @default(uuid())
+  nama_tim     String
+  asal_sekolah String
+  updated_at   DateTime    @updatedAt
+  penilaian    Penilaian[]
+  pelatih      String
+  anggotas     Anggota[]
+  jenjang      Jenjang
+  pembayaran   Pembayaran?
+  confirmed    Boolean     @default(false)
+  user         User        @relation(fields: [userId], references: [id])
+  userId       String      @unique
 }
 
 model Pembayaran {
