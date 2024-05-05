@@ -14,6 +14,11 @@ export async function findPenilaian(where: Prisma.PenilaianWhereUniqueInput) {
   return penilaian;
 }
 
+export async function createPenilaian(data: Prisma.PenilaianCreateInput) {
+  const penilaian = await prisma.penilaian.create({ data });
+  return penilaian;
+}
+
 export async function updatePenilaian(
   where: Prisma.PenilaianWhereUniqueInput,
   data: Prisma.PenilaianUncheckedUpdateInput

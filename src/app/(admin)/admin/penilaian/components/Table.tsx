@@ -78,7 +78,7 @@ export default function PenilaianTable({
           },
         }}
         onRowClicked={(row: PenilaianWithRelations) =>
-          router.push(row.detail_url)
+          router.push(`/admin/penilaian/${row.id}`)
         }
       />
     </div>
