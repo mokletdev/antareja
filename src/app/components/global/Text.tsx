@@ -20,7 +20,7 @@ export function H1({ children, className }: Readonly<TextProps>) {
 }
 
 export function P({ children, className }: Readonly<TextProps>) {
-  return <p className={cn("text-neutral-500 ", className)}>{children}</p>;
+  return <p className={cn("text-[#858585] ", className)}>{children}</p>;
 }
 
 export function Pblk({ children, className }: Readonly<TextProps>) {
@@ -46,7 +46,7 @@ export function H2({ children, className }: Readonly<TextProps>) {
 
 export function H3({ children, className }: Readonly<TextProps>) {
   return (
-    <h3 className={cn("text-[28px] font-bold text-black ", className)}>
+    <h3 className={cn("text-[24px] font-bold text-black ", className)}>
       {children}
     </h3>
   );

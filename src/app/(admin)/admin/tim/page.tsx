@@ -1,5 +1,5 @@
 import { findTims } from "@/queries/tim.query";
-import { H1 } from "../components/global/Text";
+import { H1 } from "@/app/components/global/Text";
 import TimTable from "./components/Table";
 
 export default async function Tim() {
