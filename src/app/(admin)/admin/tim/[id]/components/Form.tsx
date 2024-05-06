@@ -19,7 +19,7 @@ export default function TimForm({
   data?: Tim;
   edit?: boolean;
   id?: string;
-  dataAnggota?: Anggota;
+  dataAnggota?: Anggota[];
 }) {
   const options = [
     { label: "SMP", value: "SMP" },
@@ -99,9 +99,7 @@ export default function TimForm({
             }}
           />
         </div>
-        <div>
-
-        </div>
+        
         <TextField
           id="updated_at"
           type="text"

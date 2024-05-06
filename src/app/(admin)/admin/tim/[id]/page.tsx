@@ -1,24 +1,13 @@
+import { findAnggota, findAnggotas } from "@/queries/anggota.query";
+import { findTim } from "@/queries/tim.query";
+import { Anggota, Tim } from "@prisma/client";
 import { notFound } from "next/navigation";
 import TimForm from "./components/Form";
-import { toast } from "sonner";
-import { Anggota, Tim } from "@prisma/client";
-import { findTim } from "@/queries/tim.query";
-import { findAnggotas } from "@/queries/anggota.query";
 
 export default async function TimEdit({ params }: { params: { id: string } }) {
-  const trygetAnggota = await findAnggotas({ timId: params.id });
+  const trygetAnggotas = await findAnggotas({ timId: params.id });
 
-  let anggota: Anggota = {
-    id : "",
-    nama : "",
-    kelas : "X",
-    foto : "",
-    email : "",
-    nisn : "",
-    posisi:"DANTON",
-    telp : "",
-    timId: ""
-  };
+  let anggotas: Anggota[] = [];
 
   let tim: Tim = {
     id: "",
@@ -33,10 +22,11 @@ export default async function TimEdit({ params }: { params: { id: string } }) {
 
   const trygetTim = await findTim({ id: params.id });
 
-  if (trygetTim && trygetAnggota) {
+  if (trygetTim && trygetAnggotas) {
     tim = trygetTim;
-    anggota = trygetAnggota;
-    return <TimForm data={tim} edit={true} id={params.id} dataAnggota={anggota} />;
+    anggotas = trygetAnggotas;
+    return (
+      <TimForm data={tim} edit={true} id={params.id} dataAnggota={anggotas} />
+    );
   } else return notFound();
-
 }
