@@ -28,7 +28,7 @@ const SocialOptions: SocialOption[] = [
 
 export default function Footer() {
   return (
-    <footer className="mt-[56px] mb-[39px] mx-[52px] bg-white">
+    <footer className="pt-[56px] pb-[39px] px-[52px] bg-white">
       <div className="flex flex-col gap-[50px]">
         <div className="flex justify-between">
           <div className="flex flex-col gap-6 max-w-[408px]">

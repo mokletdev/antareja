@@ -5,7 +5,7 @@ export default function SectionWrapper({
   id,
 }: Readonly<{ children: ReactNode; id: string }>) {
   return (
-    <section id={id} className="mb-[146px]">
+    <section id={id} className="mb-[146px] mx-[51px]">
       {children}
     </section>
   );

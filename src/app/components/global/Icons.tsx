@@ -1,3 +1,5 @@
+import { ClassNameValue } from "tailwind-merge";
+
 export default function Spinner({
   className,
 }: Readonly<{ className: string }>) {
@@ -42,6 +44,26 @@ export default function Spinner({
           <stop offset="1" stopOpacity="0.55" />
         </linearGradient>
       </defs>
+    </svg>
+  );
+}
+
+export function Card({ className }: Readonly<{ className?: string }>) {
+  return (
+    <svg
+      className={className}
+      width="21"
+      height="15"
+      viewBox="0 0 21 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M0.501738 5H20.4983C20.4862 2.82497 20.3897 1.64706 19.6213 0.87868C18.7426 0 17.3284 0 14.5 0H6.5C3.67157 0 2.25736 0 1.37868 0.87868C0.610296 1.64706 0.513845 2.82497 0.501738 5ZM20.5 7H0.5V9C0.5 11.8284 0.5 13.2426 1.37868 14.1213C2.25736 15 3.67157 15 6.5 15H14.5C17.3284 15 18.7426 15 19.6213 14.1213C20.5 13.2426 20.5 11.8284 20.5 9V7ZM5.5 10C4.94772 10 4.5 10.4477 4.5 11C4.5 11.5523 4.94772 12 5.5 12H5.51C6.06228 12 6.51 11.5523 6.51 11C6.51 10.4477 6.06228 10 5.51 10H5.5Z"
+        fill="#E4252C"
+      />
     </svg>
   );
 }

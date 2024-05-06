@@ -46,7 +46,7 @@ export function H2({ children, className }: Readonly<TextProps>) {
 
 export function H3({ children, className }: Readonly<TextProps>) {
   return (
-    <h3 className={cn("text-[28px] font-bold text-black ", className)}>
+    <h3 className={cn("text-[24px] font-bold text-black ", className)}>
       {children}
     </h3>
   );
