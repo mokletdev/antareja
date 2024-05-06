@@ -99,7 +99,7 @@ model Tim {
   nama_tim     String
   asal_sekolah String
   updated_at   DateTime    @updatedAt
-  penilaian    Penilaian[]
+  penilaian    Penilaian?
   pelatih      String
   anggotas     Anggota[]
   jenjang      Jenjang

@@ -1,6 +1,8 @@
+"use client";
+
 import { useFormStatus } from "react-dom";
+import { PrimaryButton } from "./Button";
 import Spinner from "./Icons";
-import { PrimaryButton } from "@/app/(admin)/admin/components/global/Button";
 
 export default function SubmitButton() {
   const { pending } = useFormStatus();

@@ -18,7 +18,7 @@ export function PrimaryLinkButton({
       type={type}
       href={href!}
       className={cn(
-        "bg-primary hover:bg-secondary duration-300 transition-all py-4 px-12 text-white rounded-[14px] ",
+        "bg-primary hover:bg-secondary duration-300 transition-all py-3 px-6 text-white rounded-full ",
         className
       )}
     >
