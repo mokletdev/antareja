@@ -1,8 +1,8 @@
 "use client";
 
 import { createPenilaianForm, updatePenilaianForm } from "@/actions/Penilaian";
-import TextField from "@/app/(admin)/admin/components/global/Input";
-import SubmitButton from "@/app/(admin)/admin/components/global/SubmitButton";
+import TextField from "@/app/components/global/Input";
+import SubmitButton from "@/app/components/global/SubmitButton";
 import { TimWithRelations } from "@/types/entityRelations";
 import { Penilaian } from "@prisma/client";
 import { useSession } from "next-auth/react";

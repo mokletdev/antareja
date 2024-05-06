@@ -7,8 +7,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaArrowRight } from "react-icons/fa";
 import { DashboardIcon } from "./Icons";
-import { H3 } from "./global/Text";
-import { PrimaryButton } from "./global/Button";
+import { H3 } from "@/app/components/global/Text";
+import { PrimaryButton } from "@/app/components/global/Button";
 
 interface Sidenavprops {
   active: boolean;

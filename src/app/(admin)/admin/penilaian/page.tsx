@@ -1,6 +1,6 @@
 import { findPenilaians } from "@/queries/penilaian.query";
-import { PrimaryLinkButton } from "../components/global/LinkButton";
-import { H1 } from "../components/global/Text";
+import { PrimaryLinkButton } from "@/app/components/global/LinkButton";
+import { H1 } from "@/app/components/global/Text";
 import PenilaianTable from "./components/Table";
 
 export default async function Penilaian() {
