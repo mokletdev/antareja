@@ -1,8 +1,8 @@
 "use client";
 
 import { User } from "@prisma/client";
-import TextField from "@/app/(admin)/admin/components/global/Input";
-import SubmitButton from "@/app/(admin)/admin/components/global/SubmitButton";
+import TextField from "@/app/components/global/Input";
+import SubmitButton from "@/app/components/global/SubmitButton";
 import Select from "react-select";
 import { toast } from "sonner";
 import { createUserForm, updateUserForm } from "@/actions/User";

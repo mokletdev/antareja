@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 import { FaPeopleLine, FaPerson } from "react-icons/fa6";
-import { H1, H4, P } from "./components/global/Text";
+import { H1, H4, P } from "@/app/components/global/Text";
 
 async function getCounts() {
   const usersCount = await prisma.user.count();

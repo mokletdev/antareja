@@ -27,8 +27,8 @@ export default function Spinner({
           y2="2556.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E3E3E3" />
-          <stop offset="1" stop-opacity="0.55" />
+          <stop stopColor="#E3E3E3" />
+          <stop offset="1" stopOpacity="0.55" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_5_78"
@@ -38,8 +38,8 @@ export default function Spinner({
           y2="2178.1"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#B8B8B8" stop-opacity="0.32" />
-          <stop offset="1" stop-opacity="0.55" />
+          <stop stopColor="#B8B8B8" stopOpacity="0.32" />
+          <stop offset="1" stopOpacity="0.55" />
         </linearGradient>
       </defs>
     </svg>
