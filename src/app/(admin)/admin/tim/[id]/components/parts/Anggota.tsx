@@ -1,43 +1,30 @@
 "use client";
-import { TimWithRelations } from "@/types/entityRelations";
+import { Anggota as AnggotaWithRelations } from "@prisma/client";
 import { useRouter } from "next-nprogress-bar";
 import { useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
 
-export default function TimTable({ data }: { data: TimWithRelations[] }) {
+export default function AnggotaTable({ data }: { data: AnggotaWithRelations[] }) {
   const [loader, setLoader] = useState(true);
   const router = useRouter();
 
-  const columns: TableColumn<TimWithRelations>[] = [
+  const columns: TableColumn<AnggotaWithRelations>[] = [
     {
-      name: "Nama tim",
-      selector: (row: TimWithRelations) => row.nama_tim,
+      name: "Nama",
+      selector: (row: AnggotaWithRelations) => row.nama,
       sortable: true,
     },
     {
-      name: "Asal Sekolah",
-      selector: (row: TimWithRelations) => row.asal_sekolah,
+      name: "Email",
+      selector: (row: AnggotaWithRelations) => row.foto,
       sortable: true,
     },
     {
-      name: "Jenjang",
-      selector: (row: TimWithRelations) => row.jenjang,
+      name: "Posisi",
+      selector: (row: AnggotaWithRelations) => row.posisi,
       sortable: true,
     },
-    {
-      name: "Pelatih",
-      selector: (row: TimWithRelations) => row.pelatih,
 
-      sortable: false,
-    },
-    {
-      name: "Total Anggota",
-      cell: (row: TimWithRelations) => (
-        <span className={"bg-[#]"}>{row.anggotas.length}</span>
-      ),
-
-      sortable: false,
-    },
   ];
 
   useEffect(() => {
@@ -62,7 +49,7 @@ export default function TimTable({ data }: { data: TimWithRelations[] }) {
             },
           },
         }}
-        onRowClicked={(row: TimWithRelations) =>
+        onRowClicked={(row: AnggotaWithRelations) =>
           router.push(`/admin/tim/${row.id}`)
         }
       />
