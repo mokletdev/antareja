@@ -21,9 +21,18 @@ const FootOptions: FootOption[] = [
 ];
 
 const SocialOptions: SocialOption[] = [
-  { icon: <FaTiktok />, href: "#antareja" },
-  { icon: <FaInstagram />, href: "#video" },
-  { icon: <FaYoutube />, href: "#daftar" },
+  {
+    icon: <FaTiktok />,
+    href: "https://www.tiktok.com/@lpkbb.antareja?_t=8m7ZSCGDxVC&_r=1",
+  },
+  {
+    icon: <FaInstagram />,
+    href: "https://www.instagram.com/lpkbb.antareja?igsh=MWRtamhocHQ1aGt2bg==",
+  },
+  {
+    icon: <FaYoutube />,
+    href: "https://youtube.com/@lkbb.antareja?si=Rg13cGu9_Qyn2k-l",
+  },
 ];
 
 export default function Footer() {

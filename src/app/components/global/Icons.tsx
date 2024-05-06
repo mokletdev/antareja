@@ -67,3 +67,21 @@ export function Card({ className }: Readonly<{ className?: string }>) {
     </svg>
   );
 }
+
+export function RightArrow({ className }: { className?: string }) {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 22 22"
+      fill="none"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16.5 10.9999L17.1482 10.3517L17.7964 10.9999L17.1482 11.6481L16.5 10.9999ZM5.5 11.9166C4.99374 11.9166 4.58333 11.5062 4.58333 10.9999C4.58333 10.4937 4.99374 10.0833 5.5 10.0833V11.9166ZM13.4815 6.68507L17.1482 10.3517L15.8518 11.6481L12.1852 7.98143L13.4815 6.68507ZM17.1482 11.6481L13.4815 15.3148L12.1852 14.0184L15.8518 10.3517L17.1482 11.6481ZM16.5 11.9166H5.5V10.0833H16.5V11.9166Z"
+        fill="white"
+      />
+    </svg>
+  );
+}

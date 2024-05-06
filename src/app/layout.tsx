@@ -4,6 +4,7 @@ import SessionProvider from "./components/wrapper/SessionProvider";
 import "./globals.css";
 import ToasterProvider from "./components/wrapper/ToasterProvider";
 import ProgressbarProvider from "./components/wrapper/ProgressbarProvider";
+import cn from "@/lib/clsx";
 
 // Change Font
 const inter = Inter({ subsets: ["latin"] });
@@ -34,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
+      <body className={cn(inter.className + " relative")}>
         <SessionProvider>
           <ToasterProvider />
           <ProgressbarProvider>{children}</ProgressbarProvider>

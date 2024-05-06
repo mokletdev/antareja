@@ -1,6 +1,7 @@
 import { H3, P } from "@/app/components/global/Text";
 import SectionWrapper from "@/app/components/global/Wrapper";
 import PendaftaranCard from "./parts/PendaftaranCard";
+import Image from "next/image";
 
 const cards = [
   { number: "2", step: "Pilih Kategori", detail: "Pilih kategori tim anda" },
@@ -12,7 +13,14 @@ const cards = [
 export default function Video() {
   return (
     <SectionWrapper id="video">
-      <div className="w-full flex justify-between">
+      <div className="w-full relative flex gap-20">
+        <Image
+          src={"/image/kategorilogo.png"}
+          width={660}
+          height={663}
+          alt={"logo"}
+          className="absolute -z-[9999] -top-[350px] -left-[315px]"
+        />
         <div className="flex flex-wrap gap-9 mt-[10px]">
           <figure className="rounded-3xl p-[30px] bg-primary-500 h-[181px] w-[222px]">
             <div className="flex flex-col gap-6">
