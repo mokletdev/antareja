@@ -1,3 +1,7 @@
 export default function LandingPage() {
-  return <></>;
+  return (
+    <>
+      <div className="h-screen"></div>
+    </>
+  );
 }
