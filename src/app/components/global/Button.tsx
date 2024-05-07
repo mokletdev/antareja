@@ -48,7 +48,7 @@ export function SecondaryButton({
       type={type}
       onClick={onClick}
       className={cn(
-        "bg-primary-500 hover:bg-primary-300 hover:text-primary-500 duration-300 transition-all py-4 px-[30px] text-white rounded-2xl text-sm ",
+        "bg-primary-500 drop-shadow-glow hover:bg-opacity-75 hover:text-primary-500 duration-300 transition-all py-4 px-[30px] text-white rounded-2xl text-sm ",
         className
       )}
     >

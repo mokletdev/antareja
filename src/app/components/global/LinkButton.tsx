@@ -18,7 +18,7 @@ export function PrimaryLinkButton({
       type={type}
       href={href!}
       className={cn(
-        "bg-primary-500 hover:bg-secondary duration-300 transition-all py-3 px-6 text-white rounded-full ",
+        "bg-primary-500 drop-shadow-glow hover:opacity-75 duration-300 transition-all py-3 px-6 text-white rounded-full ",
         className
       )}
     >
@@ -43,7 +43,7 @@ export function SecondaryLinkButton({
       href={href}
       target={target}
       className={cn(
-        "bg-primary-500 hover:bg-primary-300 hover:text-primary-500 duration-300 transition-all py-4 px-[30px] text-white rounded-2xl text-sm ",
+        "bg-primary-500 drop-shadow-glow hover:bg-opacity-75 duration-300 transition-all py-4 px-[30px] text-white rounded-2xl text-sm ",
         className
       )}
     >

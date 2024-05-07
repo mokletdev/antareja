@@ -42,9 +42,9 @@ export default function Footer() {
         <div className="flex justify-between">
           <div className="flex flex-col gap-6 max-w-[408px]">
             <Image src={"/logo.svg"} alt="logo" width={125} height={44} />
-            <P className="text-base text-wrap">
+            <P className="text-base text-wrap text-neutral-200">
               Website resmi LKBB Antareja tingkat Jawa Timur yang
-              diselenggarakan oleh SMK Telkom malang
+              diselenggarakan oleh SMK Telkom Malang.
             </P>
           </div>
           <div className="flex flex-col gap-[72px] items-end">

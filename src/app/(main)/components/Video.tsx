@@ -1,4 +1,4 @@
-import { H3, P } from "@/app/components/global/Text";
+import { H3, P, SmallP } from "@/app/components/global/Text";
 import SectionWrapper from "@/app/components/global/Wrapper";
 import PendaftaranCard from "./parts/PendaftaranCard";
 import Image from "next/image";
@@ -22,14 +22,14 @@ export default function Video() {
           className="absolute -z-[9999] -top-[350px] -left-[315px]"
         />
         <div className="flex flex-wrap gap-9 mt-[10px]">
-          <figure className="rounded-3xl p-[30px] bg-primary-500 h-[181px] w-[222px]">
+          <figure className="rounded-3xl p-[30px] bg-primary-500 h-[181px] w-[222px] drop-shadow-glow">
             <div className="flex flex-col gap-6">
               <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center">
                 <P className="text-primary-500 font-bold">1</P>
               </div>
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1 w-[180px]">
                 <P className="text-white font-bold">Daftar Akun</P>
-                <P className="text-white text-sm">Klik tombol daftar diatas</P>
+                <SmallP className="text-white">Klik tombol daftar</SmallP>
               </div>
             </div>
           </figure>
