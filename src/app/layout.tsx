@@ -1,13 +1,10 @@
-import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
-import SessionProvider from "./components/wrapper/SessionProvider";
-import "./globals.css";
-import ToasterProvider from "./components/wrapper/ToasterProvider";
-import ProgressbarProvider from "./components/wrapper/ProgressbarProvider";
 import cn from "@/lib/clsx";
-
-// Change Font
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata, Viewport } from "next";
+import ProgressbarProvider from "./components/wrapper/ProgressbarProvider";
+import SessionProvider from "./components/wrapper/SessionProvider";
+import ToasterProvider from "./components/wrapper/ToasterProvider";
+import "./globals.css";
+import basierFont from "./font";
 
 export const metadata: Metadata = {
   title: "LKBB Antareja",
@@ -35,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={cn(inter.className + " relative")}>
+      <body className={cn(basierFont.className + " relative")}>
         <SessionProvider>
           <ToasterProvider />
           <ProgressbarProvider>{children}</ProgressbarProvider>
