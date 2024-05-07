@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { H1, P, LargeP, H3, H2, H5 } from "@/app/components/global/Text";
-import { SecondaryLinkButton } from "@/app/components/global/LinkButton";
 import { RightArrow } from "@/app/components/global/Icons";
+import { SecondaryLinkButton } from "@/app/components/global/LinkButton";
+import { H1, H3, LargeP, P } from "@/app/components/global/Text";
+import Image from "next/image";
 
 import dynamic from "next/dynamic";
 

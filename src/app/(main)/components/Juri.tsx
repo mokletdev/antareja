@@ -1,3 +1,4 @@
+import { Person } from "@/app/components/global/Icons";
 import { H3, P } from "@/app/components/global/Text";
 import SectionWrapper from "@/app/components/global/Wrapper";
 import Image from "next/image";
@@ -16,15 +17,24 @@ interface JuriCardProps {
 
 export function JuriCard({ image, name, title }: Readonly<JuriCardProps>) {
   return (
-    <figure className="">
-      <div className="relative bg-primary-500 w-[191px] h-[258px] rounded-[24px] overflow-x-hidden overflow-y-visible">
+    <figure className="relative w-[294px] flex items-center justify-center">
+      <div className="relative bg-primary-500 w-[191px] h-[258px] rounded-[24px]">
         <Image
           src={image}
           alt={`${name}'s Photo`}
           width={274.68}
           height={416.7}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 object-cover"
+          className="absolute -bottom-[1px] left-1/2 -translate-x-1/2 w-[160%] h-[160%] object-cover"
         />
+      </div>
+      <div className="absolute rounded-3xl p-5 bg-white drop-shadow-md flex items-center justify-between gap-6 -bottom-4">
+        <div className="p-[14px] rounded-2xl bg-primary-500 drop-shadow-glow">
+          <Person />
+        </div>
+        <div className="block text-start">
+          <P className="font-bold text-black mb-1">{name}</P>
+          <P>{title}</P>
+        </div>
       </div>
     </figure>
   );
@@ -34,7 +44,7 @@ export default function Juri() {
   return (
     <SectionWrapper id="juri">
       <div className="w-full flex flex-col gap-[40px] text-end">
-        <div>
+        <div className="mb-24">
           <H3 className="text-[#272727] font-bold">
             Juri LKBB <span className="text-primary-500">Antareja 2024</span>
           </H3>
@@ -42,7 +52,11 @@ export default function Juri() {
             Yuk kenalan dulu dengan tim juri LKBB Antareja tahun 2024
           </P>
         </div>
-        <div className="relative w-full rounded-[30px] bg-white min-h-[293px]">
+        <div className="relative flex justify-center items-center gap-4">
+          <div className="absolute w-full rounded-[30px] bg-white min-h-[293px] -top-14"></div>
+
+          <JuriCard image={dummy.image} name={dummy.name} title={dummy.title} />
+          <JuriCard image={dummy.image} name={dummy.name} title={dummy.title} />
           <JuriCard image={dummy.image} name={dummy.name} title={dummy.title} />
         </div>
       </div>
