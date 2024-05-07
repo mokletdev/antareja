@@ -1,8 +1,8 @@
+import { RightArrow } from "@/app/components/global/Icons";
+import { SecondaryLinkButton } from "@/app/components/global/LinkButton";
+import { H2 } from "@/app/components/global/Text";
 import SectionWrapper from "@/app/components/global/Wrapper";
 import Image from "next/image";
-import { H2 } from "@/app/components/global/Text";
-import { SecondaryLinkButton } from "@/app/components/global/LinkButton";
-import { RightArrow } from "@/app/components/global/Icons";
 
 export default function Daftar() {
   return (
