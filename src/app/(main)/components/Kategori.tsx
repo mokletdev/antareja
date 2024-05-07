@@ -14,7 +14,7 @@ export default function Kategori() {
           <P>Antareja memiliki 2 kategori perlombaan</P>
         </div>
         <div className="flex gap-10">
-          <figure className="bg-primary-500 p-[30px] rounded-3xl shadow-sm shadow-primary-500/80">
+          <figure className="bg-primary-500 p-[30px] rounded-3xl drop-shadow-glow">
             <div className="flex flex-col gap-6">
               <div className="flex gap-6 items-center">
                 <div className="p-[19px] bg-white rounded-2xl w-[62px] h-[62px] flex justify-center items-center">
@@ -34,7 +34,7 @@ export default function Kategori() {
               </P>
             </div>
           </figure>
-          <figure className="bg-primary-500 p-[30px] rounded-3xl shadow-sm shadow-primary-500/80">
+          <figure className="bg-primary-500 p-[30px] rounded-3xl drop-shadow-glow">
             <div className="flex flex-col gap-6">
               <div className="flex gap-6 items-center">
                 <div className="p-[19px] bg-white rounded-2xl w-[62px] h-[62px] flex justify-center items-center">

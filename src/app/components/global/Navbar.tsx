@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { TertiaryButton, SecondaryButton } from "./Button";
+import { TertiaryLinkButton, SecondaryLinkButton } from "./LinkButton";
 import { signIn } from "next-auth/react";
 
 interface NavOption {
@@ -34,20 +34,15 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex gap-3">
-          <SecondaryButton
-            type="button"
-            onClick={() => signIn()}
-            className="shadow-lg shadow-primary-500/80 font-bold hover:shadow-none"
+          <SecondaryLinkButton
+            href="/login"
+            className="font-bold drop-shadow-glow"
           >
             Log in
-          </SecondaryButton>
-          <TertiaryButton
-            type="button"
-            onClick={() => {}}
-            className="font-bold"
-          >
+          </SecondaryLinkButton>
+          <TertiaryLinkButton href="/register" className="font-bold">
             Sign up
-          </TertiaryButton>
+          </TertiaryLinkButton>
         </div>
       </div>
     </nav>

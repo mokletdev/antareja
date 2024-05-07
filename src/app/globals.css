@@ -5,3 +5,9 @@
 :root {
   @apply bg-neutral-300;
 }
+
+p,
+span,
+a {
+  @apply tracking-wider;
+}
