@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { TertiaryLinkButton, SecondaryLinkButton } from "./LinkButton";
-import { signIn } from "next-auth/react";
+import { SecondaryLinkButton, TertiaryLinkButton } from "./LinkButton";
 
 interface NavOption {
   label: string;
@@ -15,6 +14,8 @@ const NavOptions: NavOption[] = [
   { label: "Antareja", href: "#antareja" },
   { label: "Video", href: "#video" },
   { label: "Pendaftaran", href: "#daftar" },
+  { label: "Juri", href: "#juri" },
+  { label: "Throwback", href: "#throwback" },
 ];
 
 export default function Navbar() {

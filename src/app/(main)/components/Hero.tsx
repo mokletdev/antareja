@@ -38,7 +38,10 @@ export default function Hero() {
       />
       <Countdown />
       <figure className="flex absolute w-screen px-[50px] items-center -bottom-[200px] justify-center">
-        <div className="bg-white rounded-[30px] z-[99] w-full py-[50px] px-[88px]">
+        <div
+          className="bg-white rounded-[30px] z-[99] w-full py-[50px] px-[88px]"
+          id="antareja"
+        >
           <div className="w-full flex gap-[95px] items-center justify-between">
             <div className="flex gap-6 max-h-[100px]">
               <div className="flex items-center justify-center py-[20px] px-6 bg-primary-500 drop-shadow-glow rounded-2xl">
