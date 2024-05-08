@@ -36,12 +36,12 @@ export default function Navbar() {
         </div>
         <div className="flex gap-3">
           <SecondaryLinkButton
-            href="/login"
+            href="/auth/login"
             className="font-bold drop-shadow-glow"
           >
             Log in
           </SecondaryLinkButton>
-          <TertiaryLinkButton href="/register" className="font-bold">
+          <TertiaryLinkButton href="/auth/register" className="font-bold">
             Sign up
           </TertiaryLinkButton>
         </div>
