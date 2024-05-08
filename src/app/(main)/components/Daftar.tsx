@@ -26,7 +26,7 @@ export default function Daftar() {
         </div>
         <div className="absolute w-full h-full bg-gradient-to-r from-primary-700/90 to-30% to-transparent object-cover">
           <Image
-            src={"/image/paski.jpg"}
+            src={"/image/paskidaftar.jpg"}
             width={1341}
             height={345}
             alt="paski"
