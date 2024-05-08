@@ -59,17 +59,17 @@ export function H3({ children, className }: Readonly<TextProps>) {
 }
 
 export function H4({ children, className }: Readonly<TextProps>) {
-  return (
-    <h4 className={cn("text-2xl font-bold text-black ", className)}>
-      {children}
-    </h4>
-  );
+  return <h4 className={cn("text-2xl text-black ", className)}>{children}</h4>;
 }
 
 export function H5({ children, className }: Readonly<TextProps>) {
   return (
-    <h4 className={cn("text-[20px] font-bold text-black ", className)}>
-      {children}
-    </h4>
+    <h4 className={cn("text-[20px] text-black ", className)}>{children}</h4>
+  );
+}
+
+export function H6({ children, className }: Readonly<TextProps>) {
+  return (
+    <h4 className={cn("text-[18px] text-black ", className)}>{children}</h4>
   );
 }

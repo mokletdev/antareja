@@ -14,8 +14,8 @@ export default function LandingPage() {
       <Kategori />
       <Video />
       <Timeline />
-      <Throwback />
       <Juri />
+      <Throwback />
       <Daftar />
       <Sponsor />
     </>
