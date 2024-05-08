@@ -68,7 +68,7 @@ function GalleryItem({ item }: Readonly<{ item: GalleryItemProps }>) {
           alt={item.title}
           width={450}
           height={240}
-          className="object-cover w-full"
+          className="object-cover w-full h-full"
         />
       </div>
       <div className="h-[59px] flex flex-col gap-2">
