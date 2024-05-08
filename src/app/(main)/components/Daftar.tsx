@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Daftar() {
   return (
-    <SectionWrapper id={"daftar"}>
+    <SectionWrapper>
       <div className="w-full"></div>
       <div className="relative w-full h-[425px] rounded-[30px] overflow-hidden text-wrap flex items-center">
         <div className="w-[378px] flex flex-col gap-6 z-10 ms-[86px]">
@@ -26,7 +26,7 @@ export default function Daftar() {
         </div>
         <div className="absolute w-full h-full bg-gradient-to-r from-primary-700/90 to-30% to-transparent object-cover">
           <Image
-            src={"/image/paski.jpg"}
+            src={"/image/paskidaftar.jpg"}
             width={1341}
             height={345}
             alt="paski"

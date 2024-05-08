@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Timeline() {
   return (
-    <SectionWrapper id="timeline">
+    <SectionWrapper id="daftar">
       <div className="relative w-full flex flex-col gap-10">
         <div className="flex flex-col gap-3">
           <H3 className="text-[#272727] font-bold">

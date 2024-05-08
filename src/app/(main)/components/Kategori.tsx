@@ -1,6 +1,6 @@
-import SectionWrapper from "@/app/components/global/Wrapper";
-import { H2, H3, P } from "@/app/components/global/Text";
 import { Card } from "@/app/components/global/Icons";
+import { H3, P } from "@/app/components/global/Text";
+import SectionWrapper from "@/app/components/global/Wrapper";
 
 export default function Kategori() {
   return (
@@ -30,7 +30,7 @@ export default function Kategori() {
                 </div>
               </div>
               <P className="text-white">
-                *Pendaftaran 22 Januari 2024 - 2 Maret 2024*
+                *Pendaftaran 20 Mei 2024 - 7 September 2024*
               </P>
             </div>
           </figure>
@@ -50,7 +50,7 @@ export default function Kategori() {
                 </div>
               </div>
               <P className="text-white">
-                *Pendaftaran 22 Januari 2024 - 2 Maret 2024*
+                *Pendaftaran 20 Mei 2024 - 7 September 2024*
               </P>
             </div>
           </figure>
