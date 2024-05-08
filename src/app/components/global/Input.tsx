@@ -14,7 +14,7 @@ export default function TextField({
 }: {
   type: HTMLInputTypeAttribute;
   id: string;
-  label: string;
+  label?: string;
   required?: boolean;
   name: string;
   placeholder: string;
@@ -23,9 +23,9 @@ export default function TextField({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="text-[16px]">
+      {label ? <label htmlFor={id} className="text-[16px]">
         {label}
-      </label>
+      </label> : ""}
       <input
         id={id}
         type={type}
@@ -40,7 +40,7 @@ export default function TextField({
       />
       {required ? (
         <p className="ms-5 text-[#DC3545] text-sm">
-          *Jangan lupa masukin {label} kamu
+          *Jangan lupa masukin {id} kamu
         </p>
       ) : (
         ""
