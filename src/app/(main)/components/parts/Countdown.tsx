@@ -11,7 +11,7 @@ export default function Countdown() {
   return (
     <figure
       suppressHydrationWarning
-      className="absolute w-[510px] h-[210px] flex flex-col justify-center items-center gap-4 left-1/2 -translate-x-1/2 top-[131px]"
+      className="absolute w-[510px] h-[210px] flex flex-col justify-center items-center gap-4 left-1/2 -translate-x-1/2 top-[20%]"
     >
       <H2 className="text-white">Close Registrasi</H2>
       <div className="flex gap-[17px]">
