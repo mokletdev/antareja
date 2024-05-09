@@ -60,7 +60,7 @@ const galleryItems: GalleryItemProps[] = [
 
 function GalleryItem({ item }: Readonly<{ item: GalleryItemProps }>) {
   return (
-    <figure className="relative h-full !w-[406px] keen-slider__slide flex flex-col gap-7">
+    <figure className="relative keen-slider__slide flex flex-col gap-7">
       <div className="relative rounded-xl w-full h-[232px] overflow-hidden">
         <div className="absolute w-full h-full bg-gradient-to-t from-primary-700/80 to-transparent bottom-0 object-cover to-25%"></div>
         <Image

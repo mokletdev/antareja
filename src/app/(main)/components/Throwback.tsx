@@ -10,7 +10,7 @@ const thisYear = new Date().getFullYear();
 export default function Throwback() {
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
     slides: {
-      perView: 4,
+      perView: 3,
       spacing: 38,
     },
     loop: true,
@@ -26,8 +26,8 @@ export default function Throwback() {
         <P>Kami kembali untukmu di tahun {thisYear}!</P>
       </div>
       <div className="relative w-full">
-        <div className="relative w-[97.8%]">
-          <div ref={ref} className="keen-slider w-full h-[120%] mx-[21px]">
+        <div className="relative w-[97.1%]">
+          <div ref={ref} className="keen-slider w-full mx-[21px]">
             <Carousel />
           </div>
         </div>
