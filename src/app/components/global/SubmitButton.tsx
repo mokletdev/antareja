@@ -15,8 +15,18 @@ export default function SubmitButton({
   const { pending } = useFormStatus();
 
   return (
-    <PrimaryButton disabled={pending} className={cn(className)} type="submit">
-      {pending ? <Spinner className="animate-spin" /> : text}
+    <PrimaryButton
+      disabled={pending}
+      className={cn("relative ", className)}
+      type="submit"
+    >
+      {pending ? (
+        <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+          <Spinner className="animate-spin" />
+        </div>
+      ) : (
+        text
+      )}
     </PrimaryButton>
   );
 }

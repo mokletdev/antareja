@@ -8,10 +8,8 @@ declare global {
       NEXTAUTH_URL: string;
       CLOUDINARY_URL: string;
       DATABASE_URL: string;
-      GOOGLE_CLIENT_ID: string;
-      GOOGLE_CLIENT_SECRET: string;
-      GOOGLE_REDIRECT_URI: string;
-      GOOGLE_REFRESH_TOKEN: string;
+      GOOGLE_APP_PASSWORD: string;
+      GOOGLE_EMAIL: string;
     }
   }
 }

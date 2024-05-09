@@ -12,7 +12,7 @@ export default async function Verification({
 }>) {
   const token = params.token;
   const session = await getServerSession();
-  if (!session) return signIn();
+  if (!session) return redirect("/auth/login");
 
   const user = await findUser({ id: session.user?.id });
   if (user?.token !== token || user?.verified || session.user?.role !== "USER")
@@ -23,7 +23,7 @@ export default async function Verification({
   return (
     <div className="flex justify-center items-center text-center flex-col h-screen gap-5">
       <H1>Berhasil memverifikasi akun {session.user?.email}!</H1>
-      <SecondaryLinkButton href="/">Kembali</SecondaryLinkButton>
+      <SecondaryLinkButton href="/auth/login">Login</SecondaryLinkButton>
     </div>
   );
 }

@@ -4,8 +4,8 @@ import SectionWrapper from "@/app/components/global/Wrapper";
 import Image from "next/image";
 
 const dummy = {
-  image: "/image/girl1.png",
-  name: "Sucipto S.Pd",
+  image: "/image/juri1.png",
+  name: "Adi prasetyo utomo",
   title: "Professional cummer",
 };
 
