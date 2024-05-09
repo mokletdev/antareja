@@ -1,9 +1,9 @@
-import { H1, H3, H4, P } from "@/app/components/global/Text";
+import { H1, H3, P } from "@/app/components/global/Text";
 import TextField from "@/app/components/global/Input";
 import SubmitButton from "@/app/components/global/SubmitButton";
 import Image from "next/image";
 
-export default function Login() {
+export default function Register() {
   return (
     <form className="flex justify-between my-[54px] mx-[108px]">
       <div className="max-w-[635px] text-wrap flex flex-col gap-6 justify-center relative">
