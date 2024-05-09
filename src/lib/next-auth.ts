@@ -87,6 +87,9 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
+  pages: {
+    signIn: "/auth/login",
+  },
   callbacks: {
     async redirect({ url, baseUrl }) {
       const redirectUrl = url.startsWith("/")

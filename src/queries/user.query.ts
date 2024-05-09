@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 
 export async function createUser(data: Prisma.UserCreateInput) {
   const createdUser = await prisma.user.create({
-    data: { ...data, AuthToken: { create: true } },
+    data,
   });
   return createdUser;
 }

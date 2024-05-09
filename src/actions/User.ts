@@ -4,7 +4,6 @@ import { revalidatePath } from "next/cache";
 import { generateHash } from "@/lib/hash";
 import { createUser, deleteUser, updateUser } from "@/queries/user.query";
 import { Role } from "@prisma/client";
-import { success } from "@/utils/apiResponse";
 
 export async function createUserForm(data: FormData) {
   const name = data.get("nama") as string;
@@ -19,6 +18,7 @@ export async function createUserForm(data: FormData) {
       email: email,
       password: hashedPass,
       role: role,
+      token: "tod",
     });
     revalidatePath("/admin/user");
     return { success: true };
