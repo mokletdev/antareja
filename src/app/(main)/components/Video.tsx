@@ -57,7 +57,7 @@ export default function Video() {
           <iframe
             width="500"
             height="276"
-            src="https://www.youtube.com/embed/Wocch2vTOd4?si=OaTXL4N8FDIoKABV"
+            src="https://www.youtube.com/embed/MGh3e1AQRK0?si=YTTEeWeJ4qVEQ3em"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"

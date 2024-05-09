@@ -1,11 +1,32 @@
+"use client";
+
 import { H1, H3, P } from "@/app/components/global/Text";
 import TextField from "@/app/components/global/Input";
 import SubmitButton from "@/app/components/global/SubmitButton";
 import Image from "next/image";
+import signUp from "@/actions/Signup";
+import { useState } from "react";
+import { Eye } from "@/app/components/global/Icons";
+import { toast } from "sonner";
+import { redirect } from "next/navigation";
+import { signIn } from "next-auth/react";
+
+async function submit(data: FormData) {
+  const toastId = toast.loading("Membuat akun...");
+  const result = await signUp(data);
+  if (result.success) {
+    toast.success("Berhasil membuat akun!", { id: toastId });
+    redirect("/confirmation");
+  } else {
+    toast.error("Akun sudah terdaftar!", { id: toastId });
+  }
+}
 
 export default function Register() {
+  const [isShown, setIsShown] = useState(false);
+
   return (
-    <form className="flex justify-between my-[54px] mx-[108px]">
+    <form className="flex justify-between my-[54px] mx-[108px]" action={submit}>
       <div className="max-w-[635px] text-wrap flex flex-col gap-6 justify-center relative">
         <Image
           src={"/image/kategorilogo.png"}
@@ -37,6 +58,16 @@ export default function Register() {
           </div>
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
+              <P className="font-bold text-black">Nama</P>
+              <TextField
+                id="Nama"
+                placeholder="Nama"
+                name="nama"
+                type="text"
+                required
+              />
+            </div>
+            <div className="flex flex-col gap-2">
               <P className="font-bold text-black">Email</P>
               <TextField
                 id="Email"
@@ -48,23 +79,27 @@ export default function Register() {
             </div>
             <div className="flex flex-col gap-2">
               <P className="font-bold text-black">Password</P>
-              <TextField
-                id="Password"
-                placeholder="Password"
-                name="password"
-                type="password"
-                required
-              />
+              <div className="relative w-full">
+                <TextField
+                  id="Password"
+                  placeholder="Password"
+                  name="password"
+                  type={isShown ? "text" : "password"}
+                  className={"pe-[54px]"}
+                  required
+                />
+                <div className="h-[27px] w-[27px] flex justify-center items-center absolute p-1 right-5 top-1/2 -translate-y-1/2">
+                  <button type="button" onClick={() => setIsShown(!isShown)}>
+                    <Eye />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           <div className="flex flex-col gap-6">
             <SubmitButton
               text={"Daftar"}
               className="w-[398px] h-[60px] bg-primary-500 rounded-[14px]"
-            />
-            <SubmitButton
-              text={"Masuk dengan Google"}
-              className="w-[398px] h-[60px] bg-primary-300 rounded-[14px] text-primary-500"
             />
             <div className="w-full flex justify-center items-center">
               <P>
