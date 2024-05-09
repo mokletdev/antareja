@@ -1,15 +1,15 @@
 "use client";
 
-import { H1, H3, P } from "@/app/components/global/Text";
+import signUp from "@/actions/Signup";
+import { Eye } from "@/app/components/global/Icons";
 import TextField from "@/app/components/global/Input";
 import SubmitButton from "@/app/components/global/SubmitButton";
+import { H1, H3, P } from "@/app/components/global/Text";
 import Image from "next/image";
-import signUp from "@/actions/Signup";
-import { useState } from "react";
-import { Eye } from "@/app/components/global/Icons";
-import { toast } from "sonner";
+import Link from "next/link";
 import { redirect } from "next/navigation";
-import { signIn } from "next-auth/react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 async function submit(data: FormData) {
   const toastId = toast.loading("Membuat akun...");
@@ -104,7 +104,13 @@ export default function Register() {
             <div className="w-full flex justify-center items-center">
               <P>
                 Sudah Punya Akun?
-                <span className="text-primary-500 font-bold"> Login</span>
+                <Link
+                  href={"/auth/login"}
+                  className="text-primary-500 font-bold"
+                >
+                  {" "}
+                  Login
+                </Link>
               </P>
             </div>
           </div>
