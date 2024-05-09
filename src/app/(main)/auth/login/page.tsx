@@ -6,6 +6,7 @@ import { LoginButton } from "@/app/components/global/SubmitButton";
 import { H1, H3, P } from "@/app/components/global/Text";
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
@@ -116,7 +117,13 @@ export default function Login() {
               <div className="w-full flex justify-center items-center">
                 <P>
                   Sudah Punya Akun?
-                  <span className="text-primary-500 font-bold"> Daftar</span>
+                  <Link
+                    href={"/auth/register"}
+                    className="text-primary-500 font-bold"
+                  >
+                    {" "}
+                    Daftar
+                  </Link>
                 </P>
               </div>
             </div>

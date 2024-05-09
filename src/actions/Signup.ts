@@ -11,7 +11,7 @@ export default async function signUp(data: FormData) {
   const nama = data.get("nama") as string;
   const password = data.get("password") as string;
   const token = [uuidv1(), uuidv4()].join("-");
-  const html = verifyEmailTemplate(
+  const htmlMailBody = verifyEmailTemplate(
     email,
     process.env.NEXTAUTH_URL + "auth/verify?token=" + token
   );
@@ -25,7 +25,7 @@ export default async function signUp(data: FormData) {
       role: "USER",
       token: token,
     });
-    await sendEmail(email, html);
+    await sendEmail(email, htmlMailBody);
     return { success: true };
   } catch (e) {
     console.log(e);

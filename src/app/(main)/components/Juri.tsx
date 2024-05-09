@@ -24,7 +24,7 @@ export function JuriCard({ image, name, title }: Readonly<JuriCardProps>) {
           alt={`${name}'s Photo`}
           width={274.68}
           height={416.7}
-          className="absolute -bottom-[1px] left-1/2 -translate-x-1/2 w-[160%] h-[160%] object-cover"
+          className="absolute -bottom-[1px] left-1/2 -translate-x-1/2 w-[160%] h-[140%] object-cover"
         />
       </div>
       <div className="absolute rounded-3xl p-5 bg-white drop-shadow-md flex items-center justify-between gap-6 -bottom-4">
