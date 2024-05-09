@@ -36,9 +36,10 @@ export default function Login() {
     };
     const result = await logIn();
 
-    if (result.success)
-      return toast.success("Berhasil Login!", { id: toastId });
-    else return toast.error("Email atau Password salah!", { id: toastId });
+    if (result.success) {
+      toast.success("Berhasil Login!", { id: toastId });
+      return redirect("/confirmation");
+    } else return toast.error("Email atau Password salah!", { id: toastId });
   };
 
   if (!session)

@@ -16,9 +16,10 @@ async function submit(data: FormData) {
   const result = await signUp(data);
   if (result.success) {
     toast.success("Berhasil membuat akun!", { id: toastId });
-    redirect("/confirmation");
+    toast.warning("Silahkan masuk ke akun yang telah dibuat!", { id: toastId });
+    redirect("/auth/login");
   } else {
-    toast.error("Akun sudah terdaftar!", { id: toastId });
+    toast.error(result.message, { id: toastId });
   }
 }
 

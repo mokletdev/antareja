@@ -24,7 +24,7 @@ const NavOptions: NavOption[] = [
 
 export default function Navbar() {
   const [isOpened, setIsOpened] = useState(false);
-  const { data: Session } = useSession();
+  const { data: session } = useSession();
 
   return (
     <nav className="w-full -mt-[88px] h-[88px] bg-neutral-500 flex items-center justify-between px-[50px] py-[22px] fixed z-[999]">
@@ -42,7 +42,7 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex gap-3">
-          {Session ? (
+          {session ? (
             <button
               className="w-[40px] h-[40px] rounded-full overflow-hidden"
               onClick={() => setIsOpened(!isOpened)}
