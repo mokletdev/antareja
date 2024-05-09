@@ -104,7 +104,7 @@ export default function UserForm({
         </div>
       </div>
       <div className="float-end mt-3">
-        <SubmitButton />
+        <SubmitButton text="Create" />
       </div>
     </form>
   );

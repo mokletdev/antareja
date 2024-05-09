@@ -60,7 +60,7 @@ model User {
   role      Role
   penilaian Penilaian?
   tim       Tim?
-  AuthToken AuthToken?
+  token     String?
   verified  Boolean    @default(false)
 }
 
@@ -118,9 +118,4 @@ model Pembayaran {
   bukti_tf String
   bank     String
   nama_rek String
-}
-
-model AuthToken {
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId String @unique
 }

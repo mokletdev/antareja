@@ -1,8 +1,10 @@
 "use client";
 
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { SecondaryLinkButton, TertiaryLinkButton } from "./LinkButton";
+import { SecondaryButton } from "./Button";
+import { TertiaryLinkButton } from "./LinkButton";
 
 interface NavOption {
   label: string;
@@ -10,12 +12,12 @@ interface NavOption {
 }
 
 const NavOptions: NavOption[] = [
-  { label: "Beranda", href: "#hero" },
-  { label: "Antareja", href: "#antareja" },
-  { label: "Video", href: "#video" },
-  { label: "Pendaftaran", href: "#daftar" },
-  { label: "Juri", href: "#juri" },
-  { label: "Throwback", href: "#throwback" },
+  { label: "Beranda", href: "/#hero" },
+  { label: "Antareja", href: "/#antareja" },
+  { label: "Video", href: "/#video" },
+  { label: "Pendaftaran", href: "/#daftar" },
+  { label: "Juri", href: "/#juri" },
+  { label: "Throwback", href: "/#throwback" },
 ];
 
 export default function Navbar() {
@@ -35,12 +37,13 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex gap-3">
-          <SecondaryLinkButton
-            href="/auth/login"
+          <SecondaryButton
+            onClick={() => signIn()}
+            type="button"
             className="font-bold drop-shadow-glow"
           >
             Log in
-          </SecondaryLinkButton>
+          </SecondaryButton>
           <TertiaryLinkButton href="/auth/register" className="font-bold">
             Sign up
           </TertiaryLinkButton>
