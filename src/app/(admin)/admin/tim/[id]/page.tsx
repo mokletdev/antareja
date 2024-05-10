@@ -1,4 +1,4 @@
-import { findAnggota, findAnggotas } from "@/queries/anggota.query";
+import { findAnggotas } from "@/queries/anggota.query";
 import { findTim } from "@/queries/tim.query";
 import { Anggota, Tim } from "@prisma/client";
 import { notFound } from "next/navigation";
@@ -18,6 +18,7 @@ export default async function TimEdit({ params }: { params: { id: string } }) {
     confirmed: false,
     userId: "",
     updated_at: new Date(),
+    tipe_tim: "NORMAL",
   };
 
   const trygetTim = await findTim({ id: params.id });

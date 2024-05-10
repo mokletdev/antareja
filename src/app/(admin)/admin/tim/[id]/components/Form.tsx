@@ -1,14 +1,12 @@
 "use client";
 
+import { updateTimForm } from "@/actions/Tim";
 import { Anggota, Tim } from "@prisma/client";
-import TextField from "./parts/Input";
-import SubmitButton from "./parts/Button";
+import { redirect } from "next/navigation";
 import Select from "react-select";
 import { toast } from "sonner";
-import { redirect } from "next/navigation";
-import { updateTimForm } from "@/actions/Tim";
-import { H1 } from "../../../components/global/Text";
-import AnggotaTable from "./parts/Anggota";
+import SubmitButton from "./parts/Button";
+import TextField from "./parts/Input";
 
 export default function TimForm({
   data,
@@ -99,7 +97,7 @@ export default function TimForm({
             }}
           />
         </div>
-        
+
         <TextField
           id="updated_at"
           type="text"

@@ -11,8 +11,8 @@ export default async function Form() {
   if (timByUser) return redirect("/dashboard");
 
   return (
-    <div className="h-screen">
-      <FormComponent />
+    <div className="my-16">
+      <FormComponent id={session.user?.id!} />
     </div>
   );
 }
