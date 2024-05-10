@@ -32,6 +32,11 @@ enum Role {
   ADMIN
 }
 
+enum Tipe {
+  SMALL
+  NORMAL
+}
+
 enum Posisi {
   OFFICIAL
   DANTON
@@ -106,6 +111,7 @@ model Tim {
   anggotas     Anggota[]
   jenjang      Jenjang
   pembayaran   Pembayaran?
+  tipe_tim     Tipe
   confirmed    Boolean     @default(false)
   user         User        @relation(fields: [userId], references: [id])
   userId       String      @unique
