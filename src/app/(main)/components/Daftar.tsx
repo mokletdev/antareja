@@ -14,7 +14,7 @@ export default function Daftar() {
             Buktikan kemampuan mu bersama Antareja
           </H2>
           <SecondaryLinkButton
-            href="#"
+            href="/auth/register"
             target="_blank"
             className="group w-[190px] hover:bg-primary-500 hover:text-white py-[12px] px-[20px] flex justify-center items-center"
           >
