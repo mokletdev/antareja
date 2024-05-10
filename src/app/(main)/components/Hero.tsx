@@ -76,7 +76,7 @@ export default function Hero() {
             BARISAN <span className="italic">JAWARA</span>
           </H1>
           <SecondaryLinkButton
-            href="#"
+            href="/auth/register"
             target="_blank"
             className="group inline-flex py-[12px] px-[20px] justify-center items-center"
           >

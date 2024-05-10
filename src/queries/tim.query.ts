@@ -14,8 +14,11 @@ export async function findTims(where?: Prisma.TimWhereInput) {
   return tims;
 }
 
-export async function findTim(where: Prisma.TimWhereUniqueInput) {
-  const tim = await prisma.tim.findUnique({ where });
+export async function findTim(
+  where: Prisma.TimWhereUniqueInput,
+  include?: Prisma.TimInclude
+) {
+  const tim = await prisma.tim.findUnique({ where, include });
   return tim;
 }
 
