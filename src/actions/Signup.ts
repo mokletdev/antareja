@@ -22,11 +22,11 @@ export default async function signUp(data: FormData) {
   try {
     const hashedPass = generateHash(password);
     await createUser({
-      email: email,
-      nama: nama,
+      email,
+      nama,
       password: hashedPass,
       role: "USER",
-      token: token,
+      token,
     });
     await sendEmail(email, htmlMailBody);
     return { success: true };
