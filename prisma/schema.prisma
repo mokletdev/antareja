@@ -119,3 +119,9 @@ model Pembayaran {
   bank     String
   nama_rek String
 }
+
+model Pengumuman {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  content   String
+}

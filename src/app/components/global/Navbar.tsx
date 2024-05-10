@@ -1,12 +1,12 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { signIn, useSession, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { SecondaryButton } from "./Button";
 import { TertiaryLinkButton } from "./LinkButton";
-import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 interface NavOption {
   label: string;
@@ -24,7 +24,12 @@ const NavOptions: NavOption[] = [
 
 export default function Navbar() {
   const [isOpened, setIsOpened] = useState(false);
-  const { data: session } = useSession();
+  const { status } = useSession();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsOpened(false);
+  }, [pathname]);
 
   return (
     <nav className="w-full -mt-[88px] h-[88px] bg-neutral-500 flex items-center justify-between px-[50px] py-[22px] fixed z-[999]">
@@ -42,7 +47,7 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex gap-3">
-          {session ? (
+          {status === "authenticated" ? (
             <div className="relative">
               <button
                 className="w-[40px] h-[40px] rounded-full overflow-hidden"
@@ -59,7 +64,27 @@ export default function Navbar() {
                   className="object-cover w-full h-full"
                 />
               </button>
+              <div
+                className={`absolute w-[200px] bg-white right-0 flex flex-col rounded-2xl drop-shadow-md shadow-black py-5 px-3 gap-2 ${
+                  isOpened ? "" : "hidden"
+                }`}
+              >
+                <Link
+                  href={"/dashboard"}
+                  className="w-full text-black bg-white hover:bg-neutral-300 px-2 rounded-lg transition-all duration-300 py-3"
+                >
+                  Dashboard
+                </Link>
+                <button
+                  onClick={() => signOut()}
+                  className="w-full text-primary-500 bg-white text-start flex justify-start hover:bg-neutral-300 px-2 rounded-lg transition-all duration-300 py-3"
+                >
+                  Sign Out
+                </button>
+              </div>
             </div>
+          ) : status === "loading" ? (
+            <></>
           ) : (
             <>
               <SecondaryButton

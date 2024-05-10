@@ -1,4 +1,9 @@
-import { ChangeEventHandler, HTMLInputTypeAttribute, LegacyRef } from "react";
+import {
+  ChangeEventHandler,
+  FormEventHandler,
+  HTMLInputTypeAttribute,
+  LegacyRef,
+} from "react";
 import cn from "@/lib/clsx";
 import { ClassNameValue } from "tailwind-merge";
 
@@ -13,6 +18,7 @@ export default function TextField({
   className,
   onChange,
   botText,
+  onInput,
 }: Readonly<{
   type: HTMLInputTypeAttribute;
   id: string;
@@ -24,6 +30,7 @@ export default function TextField({
   className?: ClassNameValue;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   botText?: boolean;
+  onInput?: FormEventHandler<HTMLInputElement>;
 }>) {
   return (
     <div className="flex flex-col gap-2">
@@ -39,6 +46,7 @@ export default function TextField({
         id={id}
         type={type}
         name={name}
+        onInput={onInput}
         className={cn(
           "bg-[#FAFAFA] border border-[#E4E6EA] rounded-[14px] text-[#000000] py-[18px] px-[20px] text-[16px] focus:bg-[#F1F6F9] transition-all duration-500 placeholder:text-[#C8C8C8]",
           className

@@ -6,16 +6,21 @@ import { H1 } from "@/app/components/global/Text";
 import { SecondaryLinkButton } from "@/app/components/global/LinkButton";
 
 export default async function Verification({
-  params,
-}: Readonly<{
-  params: { token: string };
-}>) {
-  const token = params.token;
+  searchParams,
+}: {
+  searchParams?: { token: string };
+}) {
+  const token = searchParams?.token;
   const session = await getServerSession();
   if (!session) return redirect("/auth/login");
 
   const user = await findUser({ id: session.user?.id });
-  if (user?.token !== token || user?.verified || session.user?.role !== "USER")
+  if (
+    user?.token !== token ||
+    user?.verified ||
+    session.user?.role !== "USER" ||
+    !token
+  )
     return redirect("/");
 
   await updateUser({ id: session.user?.id }, { verified: true });

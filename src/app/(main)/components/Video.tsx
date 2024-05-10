@@ -2,6 +2,8 @@ import { H3, P, SmallP } from "@/app/components/global/Text";
 import SectionWrapper from "@/app/components/global/Wrapper";
 import PendaftaranCard from "./parts/PendaftaranCard";
 import Image from "next/image";
+import { PrimaryLinkButton } from "@/app/components/global/LinkButton";
+import { FaDownload } from "react-icons/fa";
 
 const cards = [
   { number: "2", step: "Pilih Kategori", detail: "Pilih kategori tim anda" },
@@ -44,7 +46,7 @@ export default function Video() {
           ))}
         </div>
         <div className="flex flex-col items-end">
-          <div className="w-[530px] text-end flex flex-col gap-3 mb-[40px]">
+          <div className="w-[530px] text-end flex flex-col gap-3 mb-3">
             <H3 className="text-[#272727] font-bold">
               Alur Pendaftaran{" "}
               <span className="text-primary-500">Antareja</span>
@@ -54,6 +56,12 @@ export default function Video() {
               rangkaian pendaftaran hingga seleksi berjalan dengan lancar.
             </P>
           </div>
+          <PrimaryLinkButton
+            href="https://drive.google.com/file/d/1-0pe9_fMHKv-33Dp0mKNF55OF1j6ptcz/view?usp=drivesdk"
+            className="inline-flex gap-2 items-center mb-[40px]"
+          >
+            Unduh buku panduan <FaDownload />
+          </PrimaryLinkButton>
           <iframe
             width="500"
             height="276"

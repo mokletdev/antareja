@@ -5,10 +5,12 @@ import { Eye } from "@/app/components/global/Icons";
 import TextField from "@/app/components/global/Input";
 import SubmitButton from "@/app/components/global/SubmitButton";
 import { H1, H3, P } from "@/app/components/global/Text";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import { FaEyeSlash } from "react-icons/fa";
 import { toast } from "sonner";
 
 async function submit(data: FormData) {
@@ -25,6 +27,9 @@ async function submit(data: FormData) {
 
 export default function Register() {
   const [isShown, setIsShown] = useState(false);
+  const { status } = useSession();
+
+  if (status === "authenticated") return redirect("/");
 
   return (
     <form className="flex justify-between my-[54px] mx-[108px]" action={submit}>
@@ -91,7 +96,7 @@ export default function Register() {
                 />
                 <div className="h-[27px] w-[27px] flex justify-center items-center absolute p-1 right-5 top-1/2 -translate-y-1/2">
                   <button type="button" onClick={() => setIsShown(!isShown)}>
-                    <Eye />
+                    {isShown ? <FaEyeSlash /> : <Eye />}
                   </button>
                 </div>
               </div>

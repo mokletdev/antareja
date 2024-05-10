@@ -9,7 +9,7 @@ export default function SectionWrapper({
   return (
     <section
       id={id}
-      className={cn("mb-[146px] mx-[51px] py-[88px]", className)}
+      className={cn("mb-[146px] mx-[51px] py-[24px]", className)}
     >
       {children}
     </section>
