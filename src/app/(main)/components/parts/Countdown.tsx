@@ -11,12 +11,12 @@ function TimeFigure({
 }: Readonly<{ time: number; title: string }>) {
   return (
     <figure className="flex flex-col items-center gap-3">
-      <div className="p-[30px] rounded-[18px] w-[108px] h-[110px] bg-white  flex flex-col justify-center items-center">
-        <span className="text-[50px] text-neutral-700 font-bold leading-[1]">
+      <div className="p-[30px] rounded-[18px] w-[108px] h-[110px] bg-white bg-opacity-60 flex flex-col justify-center items-center">
+        <span className="text-[50px] text-white font-bold leading-[1]">
           {time.toString().length >= 2 ? time : "0" + time.toString()}
         </span>
-        <H5 className="text-neutral-700">{title}</H5>
       </div>
+      <H5 className="text-white">{title}</H5>
     </figure>
   );
 }

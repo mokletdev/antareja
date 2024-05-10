@@ -43,21 +43,23 @@ export default function Navbar() {
         </div>
         <div className="flex gap-3">
           {session ? (
-            <button
-              className="w-[40px] h-[40px] rounded-full overflow-hidden"
-              onClick={() => setIsOpened(!isOpened)}
-            >
-              <Image
-                alt="User"
-                src={
-                  "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-                }
-                unoptimized
-                width={40}
-                height={40}
-                className="object-cover w-full h-full"
-              />
-            </button>
+            <div className="relative">
+              <button
+                className="w-[40px] h-[40px] rounded-full overflow-hidden"
+                onClick={() => setIsOpened(!isOpened)}
+              >
+                <Image
+                  alt="User"
+                  src={
+                    "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+                  }
+                  unoptimized
+                  width={40}
+                  height={40}
+                  className="object-cover w-full h-full"
+                />
+              </button>
+            </div>
           ) : (
             <>
               <SecondaryButton
