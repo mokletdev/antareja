@@ -7,7 +7,10 @@ export default function SectionWrapper({
   className,
 }: Readonly<{ children: ReactNode; id?: string; className?: string }>) {
   return (
-    <section id={id} className={cn("mb-[146px] mx-[51px] ", className)}>
+    <section
+      id={id}
+      className={cn("mb-[146px] mx-[51px] py-[88px]", className)}
+    >
       {children}
     </section>
   );

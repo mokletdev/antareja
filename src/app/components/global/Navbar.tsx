@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <nav className="w-full -mt-[88px] h-[88px] bg-neutral-500 flex items-center justify-between px-[50px] py-[22px] fixed z-[999]">
       <Link href={"/"}>
-        <Image src={"/logo.svg"} alt="logo" width={125} height={44} />
+        <Image src={"/logo.png"} alt="logo" width={64} height={64} />
       </Link>
       <div className="flex gap-8">
         <div className="flex gap-[30px] items-center">
