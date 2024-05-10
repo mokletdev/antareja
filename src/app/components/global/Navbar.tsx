@@ -24,12 +24,12 @@ const NavOptions: NavOption[] = [
 
 export default function Navbar() {
   const [isOpened, setIsOpened] = useState(false);
-  const { data: Session } = useSession();
+  const { data: session } = useSession();
 
   return (
     <nav className="w-full -mt-[88px] h-[88px] bg-neutral-500 flex items-center justify-between px-[50px] py-[22px] fixed z-[999]">
       <Link href={"/"}>
-        <Image src={"/logo.svg"} alt="logo" width={125} height={44} />
+        <Image src={"/logo.png"} alt="logo" width={64} height={64} />
       </Link>
       <div className="flex gap-8">
         <div className="flex gap-[30px] items-center">
@@ -42,22 +42,24 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex gap-3">
-          {Session ? (
-            <button
-              className="w-[40px] h-[40px] rounded-full overflow-hidden"
-              onClick={() => setIsOpened(!isOpened)}
-            >
-              <Image
-                alt="User"
-                src={
-                  "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-                }
-                unoptimized
-                width={40}
-                height={40}
-                className="object-cover w-full h-full"
-              />
-            </button>
+          {session ? (
+            <div className="relative">
+              <button
+                className="w-[40px] h-[40px] rounded-full overflow-hidden"
+                onClick={() => setIsOpened(!isOpened)}
+              >
+                <Image
+                  alt="User"
+                  src={
+                    "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+                  }
+                  unoptimized
+                  width={40}
+                  height={40}
+                  className="object-cover w-full h-full"
+                />
+              </button>
+            </div>
           ) : (
             <>
               <SecondaryButton

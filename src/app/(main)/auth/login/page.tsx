@@ -12,7 +12,7 @@ import { useRef, useState } from "react";
 import { toast } from "sonner";
 
 export default function Login() {
-  const { data: Session } = useSession();
+  const { data: session } = useSession();
   const email = useRef("");
   const pass = useRef("");
   const [isShown, setIsShown] = useState(false);
@@ -36,12 +36,13 @@ export default function Login() {
     };
     const result = await logIn();
 
-    if (result.success)
-      return toast.success("Berhasil Login!", { id: toastId });
-    else return toast.error("Email atau Password salah!", { id: toastId });
+    if (result.success) {
+      toast.success("Berhasil Login!", { id: toastId });
+      return redirect("/confirmation");
+    } else return toast.error("Email atau Password salah!", { id: toastId });
   };
 
-  if (!Session)
+  if (!session)
     return (
       <form
         className="flex justify-between my-[54px] mx-[108px]"
@@ -132,6 +133,6 @@ export default function Login() {
       </form>
     );
 
-  if (Session.user?.role === "ADMIN") return redirect("/admin");
+  if (session.user?.role === "ADMIN") return redirect("/admin");
   else return redirect("/");
 }
