@@ -9,7 +9,7 @@ export async function imageUploader(file: Buffer) {
       (resolve, reject) => {
         cloudinary.uploader
           .upload_stream(
-            { upload_preset: "blog_content" },
+            { upload_preset: "antareja" },
             (error, uploadResult) => {
               if (error) reject(error);
               return resolve(uploadResult);
