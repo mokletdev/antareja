@@ -28,7 +28,7 @@ export default async function TimDashboard() {
         <div className="flex items-center justify-between w-full mb-3">
           <H2 className="mb-2">Selamat Datang, {session?.user?.nama}👋</H2>
           <PrimaryLinkButton
-            href="#"
+            href="https://drive.google.com/file/d/1-0pe9_fMHKv-33Dp0mKNF55OF1j6ptcz/view?usp=drivesdk"
             className="inline-flex gap-2 items-center"
           >
             Unduh buku panduan <FaDownload />

@@ -57,7 +57,7 @@ export default function Video() {
             </P>
           </div>
           <PrimaryLinkButton
-            href="#"
+            href="https://drive.google.com/file/d/1-0pe9_fMHKv-33Dp0mKNF55OF1j6ptcz/view?usp=drivesdk"
             className="inline-flex gap-2 items-center mb-[40px]"
           >
             Unduh buku panduan <FaDownload />
