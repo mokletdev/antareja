@@ -7,7 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/admin/", "/juri/"],
     },
-    // TODO: Put the actual domain here
-    sitemap: "https://acme.com/sitemap.xml",
+    sitemap: "https://antareja.smktelkom-mlg.sch.id/sitemap.xml",
   };
 }
