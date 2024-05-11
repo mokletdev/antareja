@@ -23,6 +23,11 @@ export const protectedRoutes: ProtectedRoutes[] = [
     roles: "ADMIN",
   },
   {
+    title: "Pembayaran",
+    path: "/admin/pembayaran",
+    roles: "ADMIN",
+  },
+  {
     title: "Penilaian",
     path: "/admin/penilaian",
     roles: "ADMIN",
