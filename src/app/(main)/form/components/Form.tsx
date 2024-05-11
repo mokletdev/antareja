@@ -1,14 +1,13 @@
 "use client";
 
+import submitFormRegistrasi from "@/actions/registrationForm";
 import TextField from "@/app/components/global/Input";
 import SubmitButton from "@/app/components/global/SubmitButton";
 import { H2, H3, P } from "@/app/components/global/Text";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Select from "react-select";
-import submitFormRegistrasi from "@/actions/registrationForm";
-import { useSession } from "next-auth/react";
 import { toast } from "sonner";
-import { redirect } from "next/navigation";
 
 const jenjang = [
   { label: "SMA/Sederajat", value: "SMA" },
@@ -21,12 +20,15 @@ const size = [
 ];
 
 export default function FormComponent({ id }: { id: string }) {
+  const router = useRouter();
+
   async function submitForm(data: FormData) {
     const toastId = toast.loading("Membuat tim....");
     const result = await submitFormRegistrasi(data, id);
+
     if (result.success) {
       toast.success(result.message, { id: toastId });
-      redirect("/dashboard");
+      router.refresh();
     } else {
       toast.error(result.message, { id: toastId });
     }
