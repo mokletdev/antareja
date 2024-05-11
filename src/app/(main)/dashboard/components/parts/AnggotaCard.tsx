@@ -26,7 +26,7 @@ export function AnggotaCard({
         alt={`${name}'s Photo`}
         width={150}
         height={200}
-        className="w-full h-[200%] object-cover rounded-3xl"
+        className="w-full object-cover rounded-3xl"
         unoptimized
       />
       <div className="absolute rounded-3xl p-5 bg-white drop-shadow-md flex items-center gap-6 -bottom-4 w-[110%]">

@@ -48,13 +48,13 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
       <div className="py-5 px-10 bg-neutral-300 rounded-lg flex flex-col gap-12">
         <div className="flex items-center justify-center gap-16">
           <AnggotaCard
-            href={`/dashboard/anggota/danton`}
+            href={`/dashboard/anggota/DANTON`}
             image={danton?.foto ?? "/placeholder-profile-picture.jpg"}
             name={danton?.nama ?? "Belum diisi"}
             posisi={danton?.posisi ?? "DANTON"}
           />
           <AnggotaCard
-            href={`/dashboard/anggota/official`}
+            href={`/dashboard/anggota/OFFICIAL`}
             image={official?.foto ?? "/placeholder-profile-picture.jpg"}
             name={official?.nama ?? "Belum diisi"}
             posisi={official?.posisi ?? "OFFICIAL"}

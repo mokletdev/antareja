@@ -145,7 +145,7 @@ export default function FormComponent({ id }: { id: string }) {
         <div className="flex flex-col gap-4">
           <input
             type="file"
-            className="border border-neutral-200 py-4 px-3 rounded-xl file:bg-secondary file:text-white file:rounded-md file:border-none file:py-1 file:hover:bg-opacity-85 file:transition-all file:duration-300 hover:cursor-pointer file:hover:cursor-pointer"
+            className="border border-neutral-200 py-4 px-3 rounded-xl file:bg-primary-500 file:text-white file:rounded-md file:border-none file:py-1 file:hover:bg-opacity-85 file:transition-all file:duration-300 hover:cursor-pointer file:hover:cursor-pointer"
             title="Pilih bukti transfer"
             accept="image/*"
             name="bukti"
