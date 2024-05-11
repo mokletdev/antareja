@@ -81,7 +81,7 @@ model Anggota {
   Tim    Tim     @relation(fields: [timId], references: [id], onDelete: Cascade)
   timId  String
 
-  @@index([posisi, timId])
+  @@unique([posisi, timId])
 }
 
 model Penilaian {
@@ -105,7 +105,7 @@ model Penilaian {
 
 model Tim {
   id           String      @id @default(uuid())
-  nama_tim     String      @unique
+  nama_tim     String
   asal_sekolah String
   updated_at   DateTime    @updatedAt
   penilaian    Penilaian?

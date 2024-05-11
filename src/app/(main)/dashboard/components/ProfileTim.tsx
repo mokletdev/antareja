@@ -36,25 +36,25 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
   return (
     <div className="block">
       <H3
-        className={`${anggotas.length !== sizeMap[tim.tipe_tim] ? "" : "mb-2"}`}
+        className={`${anggotas.length !== sizeMap[tim.tipe_tim] ? "" : "mb-4"}`}
       >
         Anggota Tim ({sizeMap[tim.tipe_tim]} Pasukan + Danton + Official)
       </H3>
       {anggotas.length !== sizeMap[tim.tipe_tim] + 2 && (
-        <P className="text-yellow-600 mb-2 animate-pulse">
+        <P className="text-yellow-600 mb-4 animate-pulse">
           (Data belum lengkap)
         </P>
       )}
-      <div className="py-5 px-10 bg-neutral-100 rounded-lg flex flex-col gap-12">
+      <div className="py-5 px-10 bg-neutral-300 rounded-lg flex flex-col gap-12">
         <div className="flex items-center justify-center gap-16">
           <AnggotaCard
-            href={`/dashboard/anggota/${tim.nama_tim}/danton`}
+            href={`/dashboard/anggota/danton`}
             image={danton?.foto ?? "/placeholder-profile-picture.jpg"}
             name={danton?.nama ?? "Belum diisi"}
             posisi={danton?.posisi ?? "DANTON"}
           />
           <AnggotaCard
-            href={`/dashboard/anggota/${tim.nama_tim}/official`}
+            href={`/dashboard/anggota/official`}
             image={official?.foto ?? "/placeholder-profile-picture.jpg"}
             name={official?.nama ?? "Belum diisi"}
             posisi={official?.posisi ?? "OFFICIAL"}
@@ -70,7 +70,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
 
                   return (
                     <AnggotaCard
-                      href={`/dashboard/anggota/${tim.nama_tim}/${pos}`}
+                      href={`/dashboard/anggota/${pos}`}
                       image={
                         anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
                       }
@@ -91,7 +91,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
 
                   return (
                     <AnggotaCard
-                      href={`/dashboard/anggota/${tim.nama_tim}/${pos}`}
+                      href={`/dashboard/anggota/${pos}`}
                       image={
                         anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
                       }
