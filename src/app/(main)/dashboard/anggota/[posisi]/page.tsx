@@ -27,7 +27,7 @@ export default async function EditAnggota({
       foto: "",
       kelas: "VII",
       nisn: "",
-      posisi: "b1s1",
+      posisi: params.posisi.toUpperCase(),
       telp: "",
       timId: "",
     } as unknown as Anggota);

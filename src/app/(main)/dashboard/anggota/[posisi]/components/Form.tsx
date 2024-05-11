@@ -4,10 +4,12 @@ import { upsertAnggotaForm } from "@/actions/Anggota";
 import TextField from "@/app/components/global/Input";
 import SubmitButton from "@/app/components/global/SubmitButton";
 import { H2 } from "@/app/components/global/Text";
-import { Anggota } from "@prisma/client";
+import { Anggota, Kelas } from "@prisma/client";
+import { useRouter } from "next/navigation";
 import Select from "react-select";
+import { toast } from "sonner";
 
-const kelas = [
+const kelas: { label: Kelas; value: Kelas }[] = [
   { label: "XII", value: "XII" },
   { label: "XI", value: "XI" },
   { label: "X", value: "X" },
@@ -19,8 +21,24 @@ const kelas = [
 export default function EditAnggotaForm({
   anggota,
 }: Readonly<{ anggota: Anggota }>) {
+  const router = useRouter();
+
+  async function submitForm(data: FormData) {
+    const toastId = toast.loading(
+      anggota.id === "" ? "Membuat anggota..." : "Memperbarui anggota..."
+    );
+    const result = await upsertAnggotaForm(data, anggota.posisi);
+
+    if (result.success) {
+      toast.success(result.message, { id: toastId });
+      router.push("/dashboard");
+    } else {
+      toast.error(result.message, { id: toastId });
+    }
+  }
+
   return (
-    <form className="mx-[100px] my-[24px]" action={upsertAnggotaForm}>
+    <form className="mx-[100px] my-[24px]" action={submitForm}>
       <H2>
         {anggota.id === ""
           ? `Buat Posisi ${anggota.posisi.toUpperCase()}`
@@ -71,7 +89,7 @@ export default function EditAnggotaForm({
         )}
         <div className="flex flex-col gap-2">
           <label htmlFor={"size"} className="text-[16px]">
-            Foto
+            Foto (3x4)
           </label>
           <input
             type="file"
@@ -80,7 +98,7 @@ export default function EditAnggotaForm({
             accept="image/*"
             name="foto"
             placeholder={`${anggota.foto === "" ? "Upload foto" : "Ubah foto"}`}
-            required
+            required={anggota.id === ""}
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -92,6 +110,10 @@ export default function EditAnggotaForm({
             unstyled
             required
             options={kelas}
+            defaultValue={{
+              label: anggota.kelas,
+              value: anggota.kelas,
+            }}
             id="kelas"
             placeholder="Pilih kelas"
             classNames={{
@@ -112,7 +134,10 @@ export default function EditAnggotaForm({
         </div>
       </div>
       <div className="w-full justify-end flex mt-4">
-        <SubmitButton text="Tambah" className="float-end mt-4" />
+        <SubmitButton
+          text={anggota.id === "" ? "Tambah" : "Ubah"}
+          className="float-end mt-4"
+        />
       </div>
     </form>
   );
