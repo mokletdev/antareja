@@ -10,22 +10,26 @@ import { findTim } from "@/queries/tim.query";
 import { Kelas, Posisi, Tim } from "@prisma/client";
 import { imageUploader } from "./fileUploader";
 
-export async function upsertAnggotaForm(data: FormData, posisi: Posisi) {
+export async function upsertAnggotaForm(
+  data: FormData,
+  posisi: Posisi,
+  id: string
+) {
   const session = await getServerSession();
 
   const nama = data.get("nama") as string;
   const email = data.get("email") as string;
   const telp = data.get("telp") as string;
   const nisn = data.get("nisn") as string | undefined;
-  const foto = data.get("foto") as File | undefined;
+  const foto = data.get("foto") as File;
   const kelas = data.get("kelas") as Kelas;
 
   const tim = (await findTim({ userId: session?.user?.id })) as Tim;
-  const tryFindAnggota = await findAnggota({ email });
+  const tryFindAnggota = await findAnggota({ id });
 
   try {
     let fotoUrl: string | undefined;
-    if (foto?.name) {
+    if (foto.name !== "undefined") {
       const fotoBuffer = await foto.arrayBuffer();
       const uploadedFoto = await imageUploader(Buffer.from(fotoBuffer));
       fotoUrl = uploadedFoto?.data?.url;
@@ -47,7 +51,7 @@ export async function upsertAnggotaForm(data: FormData, posisi: Posisi) {
       Tim: { connect: { id: tim.id } },
     };
 
-    if (tryFindAnggota) await updateAnggota({ email }, anggotaUpdate);
+    if (tryFindAnggota) await updateAnggota({ id }, anggotaUpdate);
     else await createAnggota(anggotaCreate);
 
     return { success: true, message: "Berhasil memperbarui anggota!" };

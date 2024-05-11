@@ -27,7 +27,7 @@ export default function EditAnggotaForm({
     const toastId = toast.loading(
       anggota.id === "" ? "Membuat anggota..." : "Memperbarui anggota..."
     );
-    const result = await upsertAnggotaForm(data, anggota.posisi);
+    const result = await upsertAnggotaForm(data, anggota.posisi, anggota.id);
 
     if (result.success) {
       toast.success(result.message, { id: toastId });
