@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { SecondaryButton } from "./Button";
 import { TertiaryLinkButton } from "./LinkButton";
 import { usePathname } from "next/navigation";
+import { P } from "./Text";
 
 interface NavOption {
   label: string;
@@ -24,7 +25,7 @@ const NavOptions: NavOption[] = [
 
 export default function Navbar() {
   const [isOpened, setIsOpened] = useState(false);
-  const { status } = useSession();
+  const { status, data: session } = useSession();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -65,15 +66,25 @@ export default function Navbar() {
                 />
               </button>
               <div
-                className={`absolute w-[200px] bg-white right-0 flex flex-col rounded-2xl drop-shadow-md shadow-black py-5 px-3 gap-2 ${
+                className={`absolute w-[275px] bg-white right-0 flex flex-col rounded-2xl drop-shadow-md shadow-black py-5 px-3 gap-2 ${
                   isOpened ? "" : "hidden"
                 }`}
               >
+                <div className="flw=ex flex-col gap-2 px-2 text-wrap">
+                  <P className="text-sm font-bold text-wrap line-clamp-1">
+                    {session.user?.nama}
+                  </P>
+                  <P className="text-sm text-wrap line-clamp-1">
+                    {session.user?.email}
+                  </P>
+                </div>
                 <Link
-                  href={"/dashboard"}
+                  href={
+                    session.user?.role === "ADMIN" ? "/admin" : "/dashboard"
+                  }
                   className="w-full text-black bg-white hover:bg-neutral-300 px-2 rounded-lg transition-all duration-300 py-3"
                 >
-                  Dashboard
+                  {session.user?.role === "ADMIN" ? "Admin" : "Dashboard"}
                 </Link>
                 <button
                   onClick={() => signOut()}

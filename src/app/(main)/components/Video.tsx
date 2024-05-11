@@ -20,7 +20,7 @@ const cards = [
 export default function Video() {
   return (
     <SectionWrapper id="video">
-      <div className="w-full relative flex gap-20">
+      <div className="w-full relative flex gap-20 items-center justify-between">
         <Image
           src={"/image/kategorilogo.png"}
           width={660}
@@ -28,7 +28,7 @@ export default function Video() {
           alt={"logo"}
           className="absolute -z-[9999] -top-[350px] -left-[315px]"
         />
-        <div className="flex flex-wrap gap-9 mt-[10px]">
+        <div className="max-w-[738px] flex flex-wrap gap-9 mt-[10px]">
           <figure className="rounded-3xl p-[30px] bg-primary-500 h-[181px] w-[222px] drop-shadow-glow">
             <div className="flex flex-col gap-6">
               <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center">
