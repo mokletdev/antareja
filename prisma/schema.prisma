@@ -80,6 +80,8 @@ model Anggota {
   kelas  Kelas
   Tim    Tim     @relation(fields: [timId], references: [id], onDelete: Cascade)
   timId  String
+
+  @@index([posisi, timId])
 }
 
 model Penilaian {
