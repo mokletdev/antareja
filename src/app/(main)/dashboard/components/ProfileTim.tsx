@@ -1,44 +1,28 @@
 "use client";
 
-import { H2, H3, H5, P } from "@/app/components/global/Text";
+import { H2, H3, P } from "@/app/components/global/Text";
 import SectionWrapper from "@/app/components/global/Wrapper";
 import { TimWithRelations } from "@/types/entityRelations";
-import { Anggota } from "@prisma/client";
-import Image from "next/image";
 import { useState } from "react";
+import { AnggotaCard } from "./parts/AnggotaCard";
 
 const rowsMapNormal = [
-  ["b1s1", "b2s1", "b3s1", "b4s1", "b5s1"],
-  ["b1s2", "b2s2", "b3s2", "b4s2", "b5s2"],
-  ["b1s3", "b2s3", "b3s3", "b4s3", "b5s3"],
+  ["b1s1", "b1s2", "b1s3"],
+  ["b2s1", "b2s2", "b2s3"],
+  ["b3s3", "b3s3", "b3s3"],
+  ["b4s1", "b4s2", "b4s3"],
+  ["b5s1", "b5s2", "b5s3"],
 ];
 const rowsMapSmall = [
-  ["b1s1", "b2s1", "b3s1", "b4s1"],
-  ["b1s2", "b2s2", "b3s2", "b4s2"],
-  ["b1s3", "b2s3", "b3s3", "b4s3"],
+  ["b1s1", "b1s2", "b1s3"],
+  ["b2s1", "b2s2", "b2s3"],
+  ["b3s1", "b3s2", "b3s3"],
+  ["b4s1", "b4s2", "b4s3"],
 ];
-
-function AnggotaButton({
-  anggota,
-  special,
-}: Readonly<{ anggota: Anggota; special?: boolean }>) {
-  return (
-    <button className="flex flex-col">
-      <Image
-        src={anggota.foto}
-        alt={`Foto ${anggota.nama}`}
-        width={120}
-        height={160}
-        unoptimized
-        className="rounded-lg mb-1"
-      />
-      {special && (
-        <H5 className="text-center w-full font-semibold">{anggota.posisi}</H5>
-      )}
-      <P className="text-center w-full line-clamp-1">{anggota.nama}</P>
-    </button>
-  );
-}
+const sizeMap = {
+  SMALL: 12,
+  NORMAL: 15,
+};
 
 function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
   const [anggotas] = useState(tim.anggotas);
@@ -51,11 +35,30 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
 
   return (
     <div className="block">
-      <H3 className="mb-2">Anggota Tim</H3>
-      <div className="py-5 px-10 bg-neutral-100 rounded-lg flex flex-col gap-8">
+      <H3
+        className={`${anggotas.length !== sizeMap[tim.tipe_tim] ? "" : "mb-2"}`}
+      >
+        Anggota Tim ({sizeMap[tim.tipe_tim]} Pasukan + Danton + Official)
+      </H3>
+      {anggotas.length !== sizeMap[tim.tipe_tim] + 2 && (
+        <P className="text-yellow-600 mb-2 animate-pulse">
+          (Data belum lengkap)
+        </P>
+      )}
+      <div className="py-5 px-10 bg-neutral-100 rounded-lg flex flex-col gap-12">
         <div className="flex items-center justify-center gap-16">
-          <AnggotaButton anggota={danton!} special />
-          <AnggotaButton anggota={official!} special />
+          <AnggotaCard
+            href={`/dashboard/anggota/edit/${tim.id}/danton`}
+            image={danton?.foto ?? "/placeholder-profile-picture.jpg"}
+            name={danton?.nama ?? "Belum diisi"}
+            posisi={danton?.posisi ?? "DANTON"}
+          />
+          <AnggotaCard
+            href={`/dashboard/anggota/edit/${tim.id}/official`}
+            image={official?.foto ?? "/placeholder-profile-picture.jpg"}
+            name={official?.nama ?? "Belum diisi"}
+            posisi={official?.posisi ?? "OFFICIAL"}
+          />
         </div>
         {tim.tipe_tim === "NORMAL"
           ? rowsMapNormal.map((row, i) => (
@@ -63,9 +66,19 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
                 {row.map((pos, i) => {
                   const anggotaInPos = anggotas.find(
                     (value) => value.posisi === pos
-                  ) as Anggota;
+                  );
 
-                  return <AnggotaButton anggota={anggotaInPos} key={i} />;
+                  return (
+                    <AnggotaCard
+                      href={`/dashboard/anggota/edit/${tim.id}/${pos}`}
+                      image={
+                        anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
+                      }
+                      name={anggotaInPos?.nama ?? "Belum diisi"}
+                      posisi={"Posisi " + (anggotaInPos?.posisi ?? pos)}
+                      key={anggotaInPos?.id ?? i}
+                    />
+                  );
                 })}
               </div>
             ))
@@ -74,9 +87,19 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
                 {row.map((pos, i) => {
                   const anggotaInPos = anggotas.find(
                     (value) => value.posisi === pos
-                  ) as Anggota;
+                  );
 
-                  return <AnggotaButton anggota={anggotaInPos} key={i} />;
+                  return (
+                    <AnggotaCard
+                      href={`/dashboard/anggota/edit/${tim.id}/${pos}`}
+                      image={
+                        anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
+                      }
+                      name={anggotaInPos?.nama ?? "Belum diisi"}
+                      posisi={anggotaInPos?.posisi ?? pos}
+                      key={anggotaInPos?.id ?? i}
+                    />
+                  );
                 })}
               </div>
             ))}
