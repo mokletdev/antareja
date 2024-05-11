@@ -10,7 +10,11 @@ const cards = [
   { number: "3", step: "Isi Profile Tim", detail: "Isi administrasi Tim" },
   { number: "4", step: "Bukti Pembayaran", detail: "Unggah bukti" },
   { number: "5", step: "Kirim", detail: "Pendaftaran berhasil!" },
-  { number: "6", step: "Selesai", detail: "Tunggu pengumuman selanjutnya" },
+  {
+    number: "6",
+    step: "Selesai",
+    detail: "Tunggu pengumuman selanjutnya di dashboard!",
+  },
 ];
 
 export default function Video() {
