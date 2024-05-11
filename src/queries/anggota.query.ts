@@ -28,3 +28,8 @@ export async function deleteAnggota(where: Prisma.AnggotaWhereUniqueInput) {
   const deletedAnggota = await prisma.anggota.delete({ where });
   return deletedAnggota;
 }
+
+export async function upsertAnggota(args: Prisma.AnggotaUpsertArgs) {
+  const upsertedAnggota = await prisma.anggota.upsert(args);
+  return upsertedAnggota;
+}

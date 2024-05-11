@@ -3,7 +3,7 @@
 import { H2, H3, P } from "@/app/components/global/Text";
 import SectionWrapper from "@/app/components/global/Wrapper";
 import { TimWithRelations } from "@/types/entityRelations";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { AnggotaCard } from "./parts/AnggotaCard";
 
 const rowsMapNormal = [
@@ -23,6 +23,12 @@ const sizeMap = {
   SMALL: 12,
   NORMAL: 15,
 };
+
+function AnggotaCardsWrapper({ children }: Readonly<{ children: ReactNode }>) {
+  return (
+    <div className="flex items-center justify-center gap-16">{children}</div>
+  );
+}
 
 function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
   const [anggotas] = useState(tim.anggotas);
@@ -46,7 +52,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
         </P>
       )}
       <div className="py-5 px-10 bg-neutral-300 rounded-lg flex flex-col gap-12">
-        <div className="flex items-center justify-center gap-16">
+        <AnggotaCardsWrapper>
           <AnggotaCard
             href={`/dashboard/anggota/danton`}
             image={danton?.foto ?? "/placeholder-profile-picture.jpg"}
@@ -59,10 +65,10 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
             name={official?.nama ?? "Belum diisi"}
             posisi={official?.posisi ?? "OFFICIAL"}
           />
-        </div>
+        </AnggotaCardsWrapper>
         {tim.tipe_tim === "NORMAL"
           ? rowsMapNormal.map((row, i) => (
-              <div className="flex items-center justify-center gap-16" key={i}>
+              <AnggotaCardsWrapper key={i}>
                 {row.map((pos, i) => {
                   const anggotaInPos = anggotas.find(
                     (value) => value.posisi === pos
@@ -80,10 +86,10 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
                     />
                   );
                 })}
-              </div>
+              </AnggotaCardsWrapper>
             ))
           : rowsMapSmall.map((row, i) => (
-              <div className="flex items-center justify-center gap-16" key={i}>
+              <AnggotaCardsWrapper key={i}>
                 {row.map((pos, i) => {
                   const anggotaInPos = anggotas.find(
                     (value) => value.posisi === pos
@@ -101,7 +107,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
                     />
                   );
                 })}
-              </div>
+              </AnggotaCardsWrapper>
             ))}
       </div>
     </div>

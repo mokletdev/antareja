@@ -1,6 +1,6 @@
 "use client";
 
-import konfirmasiPembayaran from "@/actions/pembayaran";
+import konfirmasiPembayaran from "@/actions/Pembayaran";
 import { H1, P } from "@/app/components/global/Text";
 import { TimWithPembayaran } from "@/types/entityRelations";
 import Image from "next/image";

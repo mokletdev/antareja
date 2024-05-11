@@ -1,8 +1,7 @@
 "use server";
-import { imageUploader } from "./fileUploader";
 import { createTim } from "@/queries/tim.query";
-import { Jenjang } from "@prisma/client";
-import { Tipe } from "@prisma/client";
+import { Jenjang, Tipe } from "@prisma/client";
+import { imageUploader } from "./fileUploader";
 
 export default async function submitFormRegistrasi(
   data: FormData,

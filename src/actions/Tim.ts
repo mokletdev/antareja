@@ -8,9 +8,9 @@ export async function updateTimForm(data: FormData, id: string) {
 
   try {
     await updateTim(
-      { id: id },
+      { id },
       {
-        asal_sekolah:asal_sekolah,
+        asal_sekolah: asal_sekolah,
       }
     );
     revalidatePath("/admin/tim");
@@ -23,7 +23,7 @@ export async function updateTimForm(data: FormData, id: string) {
 
 export async function deleteTimForm(id: string) {
   try {
-    await deleteTim({ id: id });
+    await deleteTim({ id });
     revalidatePath("/admin/tim");
     return { success: true };
   } catch (e) {

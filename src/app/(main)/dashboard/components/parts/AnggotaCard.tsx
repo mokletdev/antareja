@@ -19,14 +19,14 @@ export function AnggotaCard({
   return (
     <Link
       href={href}
-      className="relative w-1/5 flex items-center justify-center hover:scale-105 transition-all duration-300"
+      className="relative flex w-1/6 items-center justify-center hover:scale-105 transition-all duration-300"
     >
       <Image
         src={image}
         alt={`${name}'s Photo`}
         width={150}
         height={200}
-        className="w-full h-[200%] object-cover rounded-3xl"
+        className="w-full h-[320px] object-cover rounded-3xl"
         unoptimized
       />
       <div className="absolute rounded-3xl p-5 bg-white drop-shadow-md flex items-center gap-6 -bottom-4 w-[110%]">
