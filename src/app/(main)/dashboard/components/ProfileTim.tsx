@@ -48,13 +48,13 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
       <div className="py-5 px-10 bg-neutral-100 rounded-lg flex flex-col gap-12">
         <div className="flex items-center justify-center gap-16">
           <AnggotaCard
-            href={`/dashboard/anggota/edit/${tim.id}/danton`}
+            href={`/dashboard/anggota/${tim.nama_tim}/danton`}
             image={danton?.foto ?? "/placeholder-profile-picture.jpg"}
             name={danton?.nama ?? "Belum diisi"}
             posisi={danton?.posisi ?? "DANTON"}
           />
           <AnggotaCard
-            href={`/dashboard/anggota/edit/${tim.id}/official`}
+            href={`/dashboard/anggota/${tim.nama_tim}/official`}
             image={official?.foto ?? "/placeholder-profile-picture.jpg"}
             name={official?.nama ?? "Belum diisi"}
             posisi={official?.posisi ?? "OFFICIAL"}
@@ -70,7 +70,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
 
                   return (
                     <AnggotaCard
-                      href={`/dashboard/anggota/edit/${tim.id}/${pos}`}
+                      href={`/dashboard/anggota/${tim.nama_tim}/${pos}`}
                       image={
                         anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
                       }
@@ -91,7 +91,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
 
                   return (
                     <AnggotaCard
-                      href={`/dashboard/anggota/edit/${tim.id}/${pos}`}
+                      href={`/dashboard/anggota/${tim.nama_tim}/${pos}`}
                       image={
                         anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
                       }
