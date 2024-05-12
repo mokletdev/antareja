@@ -8,7 +8,10 @@ import {
   stringifyDate,
   stringifyTime,
 } from "@/utils/utilities";
+import dynamic from "next/dynamic";
 import { FaDownload } from "react-icons/fa";
+
+const Countdown = dynamic(() => import("./parts/Countdown"), { ssr: false });
 
 export default async function Heading() {
   const session = await getServerSession();
@@ -25,7 +28,7 @@ export default async function Heading() {
           Unduh buku panduan <FaDownload />
         </PrimaryLinkButton>
       </div>
-      <div className="block w-full bg-white rounded-lg p-5">
+      <div className="block w-full bg-white rounded-lg p-5 mb-8">
         <H3 className="mb-8">Pengumuman Dari Panitia</H3>
         <div className="flex flex-col gap-6">
           {pengumumans.map((pengumuman) => (
@@ -48,6 +51,7 @@ export default async function Heading() {
           ))}
         </div>
       </div>
+      <Countdown />
     </SectionWrapper>
   );
 }
