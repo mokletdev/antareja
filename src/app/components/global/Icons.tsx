@@ -127,3 +127,34 @@ export function Eye() {
     </svg>
   );
 }
+
+export function HamburgerIcon() {
+  return (
+    <svg
+      width="18"
+      height="25"
+      viewBox="0 0 18 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.50293 7.16638H19.5029"
+        stroke="#33363F"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M5.50293 12.1664H19.5029"
+        stroke="#33363F"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M5.50293 17.1664H19.5029"
+        stroke="#33363F"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}

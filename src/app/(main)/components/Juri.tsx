@@ -17,7 +17,7 @@ interface JuriCardProps {
 
 export function JuriCard({ image, name, title }: Readonly<JuriCardProps>) {
   return (
-    <figure className="relative w-[294px] flex items-center justify-center">
+    <figure className="relative w-full lg:w-[294px] flex items-center justify-center bg-white rounded-[20px] lg:bg-none lg:rounded-none py-6 lg:py-0">
       <div className="relative bg-primary-500 w-[191px] h-[258px] rounded-[24px]">
         <Image
           src={image}
@@ -44,17 +44,16 @@ export default function Juri() {
   return (
     <SectionWrapper id="juri">
       <div className="w-full flex flex-col gap-[40px] text-end">
-        <div className="mb-24">
+        <div className="mb-24 w-full flex flex-col items-end">
           <H3 className="text-[#272727] font-bold">
             Juri LKBB <span className="text-primary-500">Antareja 2024</span>
           </H3>
-          <P className="text-wrap text-neutral-200">
+          <P className="text-wrap text-neutral-200 max-w-[300px] lg:max-w-none">
             Yuk kenalan dulu dengan tim juri LKBB Antareja tahun 2024
           </P>
         </div>
-        <div className="relative flex justify-center items-center gap-4">
-          <div className="absolute w-full rounded-[30px] bg-white min-h-[293px] -top-14"></div>
-
+        <div className="relative flex justify-center items-center gap-28 lg:gap-4 flex-col lg:flex-row">
+          <div className="absolute w-full rounded-[30px] bg-white min-h-[293px] -top-14 hidden lg:block"></div>
           <JuriCard image={dummy.image} name={dummy.name} title={dummy.title} />
           <JuriCard image={dummy.image} name={dummy.name} title={dummy.title} />
           <JuriCard image={dummy.image} name={dummy.name} title={dummy.title} />

@@ -16,7 +16,7 @@ function TimeFigure({
           {time.toString().length >= 2 ? time : "0" + time.toString()}
         </span>
       </div>
-      <H5 className="text-white">{title}</H5>
+      <H5>{title}</H5>
     </figure>
   );
 }

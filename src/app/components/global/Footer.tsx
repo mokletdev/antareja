@@ -38,16 +38,22 @@ const SocialOptions: SocialOption[] = [
 export default function Footer() {
   return (
     <footer className="pt-[56px] pb-[39px] px-[52px] bg-white">
-      <div className="flex flex-col gap-[50px]">
-        <div className="flex justify-between">
-          <div className="flex flex-col gap-6 max-w-[408px]">
-            <Image src={"/logo.svg"} alt="logo" width={125} height={44} />
+      <div className="flex flex-col gap-6 lg:gap-[50px]">
+        <div className="flex justify-normal lg:justify-between lg:flex-row flex-col lg:gap-0 gap-6">
+          <div className="flex flex-col gap-[10px] lg:gap-6 max-w-[408px]">
+            <Image
+              src={"/logo.svg"}
+              alt="logo"
+              width={125}
+              height={44}
+              className="w-14 h-[19px] lg:w-[125px] lg:h-[44px]"
+            />
             <P className="text-base text-wrap text-neutral-200">
               Website resmi LKBB Antareja tingkat Jawa Timur yang
               diselenggarakan oleh SMK Telkom Malang.
             </P>
           </div>
-          <div className="flex flex-col gap-[72px] items-end">
+          <div className="flex flex-col gap-6 lg:gap-[72px] items-start lg:items-end">
             <div className="flex gap-10">
               {FootOptions.map((nav) => (
                 <Link href={nav.href} key={nav.label}>
