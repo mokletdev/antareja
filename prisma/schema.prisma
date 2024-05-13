@@ -40,7 +40,6 @@ enum Tipe {
 enum Posisi {
   OFFICIAL
   DANTON
-  MASCOT
   B1S1
   B1S2
   B1S3
@@ -118,6 +117,7 @@ model Tim {
   confirmed    Boolean     @default(false)
   user         User        @relation(fields: [userId], references: [id])
   userId       String      @unique
+  foto_mascot  String?
 }
 
 model Pembayaran {

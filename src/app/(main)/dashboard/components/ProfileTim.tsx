@@ -65,6 +65,14 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
             name={official?.nama ?? "Belum diisi"}
             posisi={official?.posisi ?? "OFFICIAL"}
           />
+          {tim.jenjang === "SMA" && (
+            <AnggotaCard
+              href={`/dashboard/mascot`}
+              image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
+              name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum diisi"}
+              posisi={"MASCOT"}
+            />
+          )}
         </AnggotaCardsWrapper>
         {tim.tipe_tim === "NORMAL"
           ? rowsMapNormal.map((row, i) => (
