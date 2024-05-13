@@ -9,11 +9,15 @@ const thisYear = new Date().getFullYear();
 
 export default function Throwback() {
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
-    slides: {
-      perView: 3,
-      spacing: 38,
-    },
     loop: true,
+    breakpoints: {
+      "(min-width: 300px)": {
+        slides: { perView: 1, spacing: 38 },
+      },
+      "(min-width: 768px)": {
+        slides: { perView: 3, spacing: 38 },
+      },
+    },
   });
 
   return (
@@ -27,11 +31,14 @@ export default function Throwback() {
       </div>
       <div className="relative w-full">
         <div className="relative w-[97.1%]">
-          <div ref={ref} className="keen-slider w-full mx-[21px]">
+          <div
+            ref={ref}
+            className="keen-slider w-full mx-[21px] max-h-[294px] md:max-h-none"
+          >
             <Carousel />
           </div>
         </div>
-        <div className="absolute flex justify-between w-full top-20">
+        <div className="absolute flex justify-between w-full top-16">
           <GalleryNav
             onClick={(e) => {
               instanceRef.current?.prev();

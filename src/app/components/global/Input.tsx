@@ -48,7 +48,7 @@ export default function TextField({
         name={name}
         onInput={onInput}
         className={cn(
-          "bg-[#FAFAFA] border border-[#E4E6EA] rounded-[14px] text-[#000000] py-[18px] px-[20px] text-[16px] focus:bg-[#F1F6F9] transition-all duration-500 placeholder:text-[#C8C8C8]",
+          "bg-[#FAFAFA] border focus:outline-none border-[#E4E6EA] rounded-[14px] text-[#000000] py-[18px] px-[20px] text-[16px] focus:bg-[#F1F6F9] transition-all duration-500 placeholder:text-[#C8C8C8]",
           className
         )}
         required={required}

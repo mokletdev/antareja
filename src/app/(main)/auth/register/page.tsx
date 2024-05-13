@@ -32,31 +32,39 @@ export default function Register() {
   if (status === "authenticated") return redirect("/");
 
   return (
-    <form className="flex justify-between my-[54px] mx-[108px]" action={submit}>
-      <div className="max-w-[635px] text-wrap flex flex-col gap-6 justify-center relative">
+    <form
+      className="flex lg:justify-between gap-[60px] lg:gap-0 my-[54px] mx-[40px] lg:mx-[108px] flex-col lg:flex-row items-center justify-center"
+      action={submit}
+    >
+      <div className="w-full xl:w-[635px] text-wrap flex flex-col gap-1 lg:gap-6 justify-center relative">
         <Image
           src={"/image/kategorilogo.png"}
           width={659}
           height={662}
           alt={"logo"}
-          className="absolute -z-[9999] -left-[375px]"
+          className="absolute -z-[9999] -left-[235px] top-[100px] lg:top-0 lg:-left-[375px]"
         />
-        <div className="bg-primary-500 w-[76.15px] h-[71.31px] flex flex-col justify-center items-center rounded-xl">
-          <Image src={"/logomin.svg"} width={55} height={57} alt="logo" />
+        <div className="bg-primary-500 w-[48px] h-[45px] lg:w-[76.15px] lg:h-[71.31px] flex flex-col justify-center items-center rounded-xl drop-shadow-glow">
+          <Image
+            src={"/logomin.svg"}
+            width={55}
+            height={57}
+            alt="logo"
+            className="lg:w-[55px] lg:h-[57px] h-[26px] w-[25px]"
+          />
         </div>
         <H1>
           Buktikan Kemampuanmu
-          <span className="text-primary-500">
-            {" "}
-            Bersama Aksi Telkom Barisan Jawara
-          </span>
+          <span className="text-primary-500"> Bersama Antareja</span>
         </H1>
-        <P>Sudah siap menjadi pemenang Antareja?</P>
+        <P className="text-sm sm:text-base">
+          Sudah siap menjadi pemenang Antareja?
+        </P>
       </div>
-      <div className="bg-white w-[458px]  rounded-[24px] ">
+      <div className="bg-white w-full sm:w-[458px] rounded-[24px] ">
         <div className="p-[30px] flex flex-col gap-[30px]">
           <div className="w-[65px] h-[32px] bg-primary-300 flex justify-center items-center py-1 px-2 rounded-2xl">
-            <P className="rounded-[16px] text-primary-500">Daftar</P>
+            <P className="rounded-[16px] text-primary-500 font-bold">Daftar</P>
           </div>
           <div className="flex flex-col gap-3 max-w-[325px] text-wrap">
             <H3>Selamat Datang!</H3>
@@ -105,7 +113,7 @@ export default function Register() {
           <div className="flex flex-col gap-6">
             <SubmitButton
               text={"Daftar"}
-              className="w-[398px] h-[60px] bg-primary-500 rounded-[14px]"
+              className="w-full h-[60px] bg-primary-500 rounded-[14px]"
             />
             <div className="w-full flex justify-center items-center">
               <P>

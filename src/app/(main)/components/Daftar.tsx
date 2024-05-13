@@ -8,8 +8,8 @@ export default function Daftar() {
   return (
     <SectionWrapper>
       <div className="w-full"></div>
-      <div className="relative w-full h-[425px] rounded-[30px] overflow-hidden text-wrap flex items-center">
-        <div className="w-[378px] flex flex-col gap-6 z-10 ms-[86px]">
+      <div className="relative w-full h-[425px] rounded-[30px] overflow-hidden text-wrap flex items-center justify-center md:justify-start">
+        <div className="w-full sm:w-[378px] flex flex-col gap-6 z-10 ms-[29px] md:ms-[86px]">
           <H2 className="text-white font-bold">
             Buktikan kemampuan mu bersama Antareja
           </H2>

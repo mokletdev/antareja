@@ -29,8 +29,8 @@ export default function Countdown() {
       suppressHydrationWarning
       className="absolute w-[510px] h-[210px] flex flex-col justify-center items-center gap-4 left-1/2 -translate-x-1/2 top-[20%]"
     >
-      <H2 className="text-white">Tutup Pendaftaran</H2>
-      <div className="flex gap-[17px]">
+      <H2 className="text-white">Close Registrasi</H2>
+      <div className="flex gap-[17px] flex-wrap max-w-[233px] md:max-w-none">
         <TimeFigure time={days} title="Hari" />
         <TimeFigure time={hours} title="Jam" />
         <TimeFigure time={minutes} title="Menit" />

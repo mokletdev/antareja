@@ -10,7 +10,7 @@ export function H1({ children, className }: Readonly<TextProps>) {
   return (
     <h1
       className={cn(
-        "text-[44px] font-bold leading-[140%] sm:text-[44px] ",
+        "text-[30px] font-bold leading-[140%] sm:text-[44px] ",
         className
       )}
     >
@@ -25,12 +25,14 @@ export function LargeP({ children, className }: Readonly<TextProps>) {
 
 export function P({ children, className }: Readonly<TextProps>) {
   return (
-    <p className={cn("text-base text-neutral-200", className)}>{children}</p>
+    <p className={cn("text-xs sm:text-base text-neutral-200", className)}>
+      {children}
+    </p>
   );
 }
 
 export function SmallP({ children, className }: Readonly<TextProps>) {
-  return <p className={cn("text-sm ", className)}>{children}</p>;
+  return <p className={cn("text-[10px] sm:text-sm ", className)}>{children}</p>;
 }
 
 export function Li({ children, className }: Readonly<TextProps>) {
@@ -41,7 +43,7 @@ export function H2({ children, className }: Readonly<TextProps>) {
   return (
     <h2
       className={cn(
-        "text-[30px] md:leading-[120%] font-bold text-black ",
+        "text-[20px] sm:text-[30px] md:leading-[120%] font-bold text-black ",
         className
       )}
     >
@@ -52,7 +54,12 @@ export function H2({ children, className }: Readonly<TextProps>) {
 
 export function H3({ children, className }: Readonly<TextProps>) {
   return (
-    <h3 className={cn("text-[24px] font-bold text-black ", className)}>
+    <h3
+      className={cn(
+        "text-base sm:text-[24px] font-bold text-black ",
+        className
+      )}
+    >
       {children}
     </h3>
   );

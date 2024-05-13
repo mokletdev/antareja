@@ -9,7 +9,7 @@ export default function MainLayout({
   return (
     <>
       <Navbar />
-      <main className="mt-[88px] overflow-hidden">
+      <main className="mt-[58px] xl:mt-[88px] overflow-hidden">
         {children}
         <Footer />
       </main>

@@ -20,7 +20,7 @@ const cards = [
 export default function Video() {
   return (
     <SectionWrapper id="video">
-      <div className="w-full relative flex gap-20 items-center justify-between">
+      <div className="w-full relative flex gap-20 items-center md:items-end justify-center xl:justify-between xl:flex-row flex-col">
         <Image
           src={"/image/kategorilogo.png"}
           width={660}
@@ -28,15 +28,45 @@ export default function Video() {
           alt={"logo"}
           className="absolute -z-[9999] -top-[350px] -left-[315px]"
         />
-        <div className="max-w-[738px] flex flex-wrap gap-9 mt-[10px]">
-          <figure className="rounded-3xl p-[30px] bg-primary-500 h-[181px] w-[222px] drop-shadow-glow">
-            <div className="flex flex-col gap-6">
-              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center">
+        <div className="xl:hidden flex flex-col items-end">
+          <div className="w-full sm:w-[530px] text-end flex flex-col gap-3 mb-3">
+            <H3 className="text-[#272727] font-bold">
+              Alur Pendaftaran{" "}
+              <span className="text-primary-500">Antareja</span>
+            </H3>
+            <P className="text-wrap">
+              Terdapat beberapa step pendaftaran yang harus dipenuhi agar semua
+              rangkaian pendaftaran hingga seleksi berjalan dengan lancar.
+            </P>
+          </div>
+          <PrimaryLinkButton
+            href="https://drive.google.com/file/d/1-0pe9_fMHKv-33Dp0mKNF55OF1j6ptcz/view?usp=drivesdk"
+            className="inline-flex gap-2 items-center mb-[40px]"
+          >
+            Unduh buku panduan <FaDownload />
+          </PrimaryLinkButton>
+          <iframe
+            src="https://www.youtube.com/embed/MGh3e1AQRK0?si=YTTEeWeJ4qVEQ3em"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="object-cover rounded-[20px] sm:w-[500px] h-[200px] sm:h-[276px] w-full"
+          />
+        </div>
+        <div className="max-w-full xl:max-w-[738px] flex flex-wrap gap-1 gap-y-6 xl:gap-y0 md:gap-9 mt-[10px] justify-between sm:justify-center md:justify-normal items-center xl:justify-normal">
+          <figure className="rounded-[15px] sm:rounded-3xl p-[19px] sm:p-[30px] bg-primary-500 h-[124px] sm:h-[181px] w-[140px] sm:w-[222px] drop-shadow-glow">
+            <div className="flex flex-col gap-[15px] sm:gap-6">
+              <div className="sm:w-12 sm:h-12 w-8 h-8 rounded-[10px] sm:rounded-2xl bg-white flex items-center justify-center">
                 <P className="text-primary-500 font-bold">1</P>
               </div>
               <div className="flex flex-col gap-1 w-[180px]">
-                <P className="text-white font-bold">Daftar Akun</P>
-                <SmallP className="text-white">Klik tombol daftar</SmallP>
+                <P className="text-white font-bold text-xs sm:text-base">
+                  Daftar Akun
+                </P>
+                <SmallP className="text-white sm:text-sm text-[10px]">
+                  Klik tombol daftar
+                </SmallP>
               </div>
             </div>
           </figure>
@@ -49,7 +79,7 @@ export default function Video() {
             />
           ))}
         </div>
-        <div className="flex flex-col items-end">
+        <div className="xl:flex hidden flex-col items-end">
           <div className="w-[530px] text-end flex flex-col gap-3 mb-3">
             <H3 className="text-[#272727] font-bold">
               Alur Pendaftaran{" "}
@@ -74,7 +104,7 @@ export default function Video() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            className="object-cover rounded-[20px]"
+            className="object-cover rounded-[20px] sm:w-[500px] h-[276px] w-full"
           />
         </div>
       </div>

@@ -12,8 +12,9 @@ export const metadata: Metadata = {
   authors: [
     { name: "Ahsan Azizan", url: "https://ahsanzizan.xyz" },
     { name: "Teguh Bayu Pratama", url: "https://bayu.xtero.live" },
-    { name: "Ibani Muhamad Hillabi", url: "https://iban.com" },
+    { name: "Ibani Muhamad Hillabi", url: "" },
     { name: "Muhammad Fadhil Kholaf", url: "https://fadhilkholaf.my.id" },
+    { name: "Pradita Cleine Abadi", url: "" },
   ],
   keywords: "antareja, lkbb, moklet, SMK, malang, telkom, paskibra",
   creator: "MokletDev Team",

@@ -10,8 +10,8 @@ export default function Sponsor() {
           <H3>Sponsorship dan Media Partner</H3>
           <P>Sampai bertemu di hari perlombaan!</P>
         </div>
-        <div className="flex gap-6 justify-center items-center">
-          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col">
+        <div className="w-full flex gap-6 justify-center items-center flex-wrap">
+          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col min-w-[145px]">
             <Image
               src={"https://dummyimage.com/154x34/ff1290/fff&text=sponsor"}
               alt={"waw"}
@@ -20,7 +20,7 @@ export default function Sponsor() {
               unoptimized
             />
           </figure>
-          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col">
+          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col min-w-[145px]">
             <Image
               src={"https://dummyimage.com/154x34/ff1290/fff&text=sponsor"}
               alt={"waw"}
@@ -29,7 +29,7 @@ export default function Sponsor() {
               unoptimized
             />
           </figure>
-          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col">
+          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col min-w-[145px]">
             <Image
               src={"https://dummyimage.com/154x34/ff1290/fff&text=sponsor"}
               alt={"waw"}
@@ -38,7 +38,7 @@ export default function Sponsor() {
               unoptimized
             />
           </figure>
-          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col">
+          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col min-w-[145px]">
             <Image
               src={"https://dummyimage.com/154x34/ff1290/fff&text=sponsor"}
               alt={"waw"}
@@ -47,7 +47,7 @@ export default function Sponsor() {
               unoptimized
             />
           </figure>
-          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col">
+          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col min-w-[145px]">
             <Image
               src={"https://dummyimage.com/154x34/ff1290/fff&text=sponsor"}
               alt={"waw"}
@@ -56,7 +56,7 @@ export default function Sponsor() {
               unoptimized
             />
           </figure>
-          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col">
+          <figure className="py-[28px] px-6 bg-white rounded-[20px] justify-center items-center flex flex-col min-w-[145px]">
             <Image
               src={"https://dummyimage.com/154x34/ff1290/fff&text=sponsor"}
               alt={"waw"}
