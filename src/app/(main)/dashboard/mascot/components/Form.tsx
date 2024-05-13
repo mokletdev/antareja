@@ -10,11 +10,6 @@ import { toast } from "sonner";
 export default function EditFotoMascotForm({ tim }: Readonly<{ tim: Tim }>) {
   const router = useRouter();
 
-  if (!tim.confirmed) {
-    toast.error("Pembayaran belum terkonfirmasi");
-    router.push("/dashboard");
-  }
-
   async function submitForm(data: FormData) {
     const toastId = toast.loading(
       tim.id === "" ? "Membuat foto mascot..." : "Memperbarui foto mascot..."
