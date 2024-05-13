@@ -1,9 +1,8 @@
-import { getServerSession } from "@/lib/next-auth";
 import { findAnggota } from "@/queries/anggota.query";
 import { findTim } from "@/queries/tim.query";
 import { Anggota, Posisi, Tim } from "@prisma/client";
 import { redirect } from "next/navigation";
-import EditAnggotaForm from "./components/Form";
+import DisplayAnggota from "./components/Form";
 
 export default async function EditAnggota({
   params,
@@ -11,7 +10,6 @@ export default async function EditAnggota({
   if (Object.keys(Posisi).indexOf(params.posisi.toUpperCase()) === -1)
     return redirect("/dashboard");
 
-  const session = await getServerSession();
   const tim = (await findTim({ id:params.id })) as Tim;  
   const anggota =
     (await findAnggota({
@@ -34,7 +32,7 @@ export default async function EditAnggota({
 
   return (
     <div className="my-16">
-      <EditAnggotaForm anggota={anggota} />
+      <DisplayAnggota anggota={anggota} />
     </div>
   );
 }
