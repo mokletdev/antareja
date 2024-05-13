@@ -40,6 +40,7 @@ enum Tipe {
 enum Posisi {
   OFFICIAL
   DANTON
+  MASCOT
   B1S1
   B1S2
   B1S3
