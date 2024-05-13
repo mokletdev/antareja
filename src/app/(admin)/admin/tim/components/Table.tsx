@@ -27,7 +27,11 @@ export default function TimTable({ data }: { data: TimWithRelations[] }) {
     {
       name: "Pelatih",
       selector: (row: TimWithRelations) => row.pelatih,
-
+      sortable: false,
+    },
+    {
+      name: "Tipe",
+      selector: (row: TimWithRelations) => row.tipe_tim,
       sortable: false,
     },
     {

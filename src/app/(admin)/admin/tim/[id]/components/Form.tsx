@@ -7,6 +7,9 @@ import Select from "react-select";
 import { toast } from "sonner";
 import SubmitButton from "./parts/Button";
 import TextField from "./parts/Input";
+import { H1 } from "@/app/components/global/Text";
+import ProfileTim from "./ProfileTim";
+import { TimWithRelations } from "@/types/entityRelations";
 
 export default function TimForm({
   data,
@@ -34,9 +37,9 @@ export default function TimForm({
       redirect("/admin/tim");
     }
   }
-
   return (
     <form action={Update}>
+      <H1>Profile Tim</H1>
       <div className="flex flex-col gap-5">
         <TextField
           id="nama_tim"
@@ -108,9 +111,9 @@ export default function TimForm({
           required={edit ? false : true}
           disabled={true}
         />
-      </div>
       <div className="float-end mt-3">
         <SubmitButton />
+      </div>
       </div>
     </form>
   );

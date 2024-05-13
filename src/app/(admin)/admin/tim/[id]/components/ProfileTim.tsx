@@ -26,7 +26,7 @@ const sizeMap = {
 
 function AnggotaCardsWrapper({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <div className="flex items-center justify-center gap-16">{children}</div>
+    <div className="flex items-center justify-center gap-20">{children}</div>
   );
 }
 
@@ -38,29 +38,30 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
   const [official] = useState(
     tim.anggotas.find((value) => value.posisi === "OFFICIAL")
   );
+  const tim_id = tim.id;
 
   return (
-    <div className="block">
+    <div className="block mt-5">
       <H3
         className={`${anggotas.length !== sizeMap[tim.tipe_tim] ? "" : "mb-4"}`}
       >
-        Anggota Tim ({sizeMap[tim.tipe_tim]} Pasukan + Danton + Official)
+        Informasi Anggota ({sizeMap[tim.tipe_tim]} Pasukan + Danton + Official)
       </H3>
       {anggotas.length !== sizeMap[tim.tipe_tim] + 2 && (
         <P className="text-yellow-600 mb-4 animate-pulse">
           (Data belum lengkap)
         </P>
       )}
-      <div className="py-5 px-10 bg-neutral-300 rounded-lg flex flex-col gap-12">
+      <div className="py-5 right-0  rounded-lg flex flex-col gap-12">
         <AnggotaCardsWrapper>
           <AnggotaCard
-            href={`/dashboard/anggota/danton`}
+            href={`/admin/tim/${tim_id}/danton`}
             image={danton?.foto ?? "/placeholder-profile-picture.jpg"}
             name={danton?.nama ?? "Belum diisi"}
             posisi={danton?.posisi ?? "DANTON"}
           />
           <AnggotaCard
-            href={`/dashboard/anggota/official`}
+            href={`/admin/tim/${tim_id}/official`}
             image={official?.foto ?? "/placeholder-profile-picture.jpg"}
             name={official?.nama ?? "Belum diisi"}
             posisi={official?.posisi ?? "OFFICIAL"}
@@ -76,7 +77,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
 
                   return (
                     <AnggotaCard
-                      href={`/dashboard/anggota/${pos}`}
+                      href={`/admin/tim/${tim_id}/${pos}`}
                       image={
                         anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
                       }
@@ -92,12 +93,12 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
               <AnggotaCardsWrapper key={i}>
                 {row.map((pos, i) => {
                   const anggotaInPos = anggotas.find(
-                    (value) => value.posisi === pos.toUpperCase()
+                    (value) => value.posisi === pos
                   );
 
                   return (
                     <AnggotaCard
-                      href={`/dashboard/anggota/${pos}`}
+                      href={`/admin/tim/${pos}`}
                       image={
                         anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
                       }
@@ -117,38 +118,5 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
 export default function ProfileTim({
   tim,
 }: Readonly<{ tim: TimWithRelations }>) {
-  return (
-    <SectionWrapper id="profile-tim">
-      <H2 className="mb-2">Profil Tim Anda</H2>
-      <div className="w-full bg-white rounded-lg p-5">
-        <div className="flex flex-col gap-1 mb-4">
-          <H3>Nama Tim</H3>
-          <P>{tim.nama_tim}</P>
-        </div>
-        <div className="flex flex-col gap-1 mb-4">
-          <H3>Asal Sekolah</H3>
-          <P>{tim.asal_sekolah}</P>
-        </div>
-        <div className="flex flex-col gap-1 mb-4">
-          <H3>Jenjang</H3>
-          <P>{tim.jenjang}</P>
-        </div>
-        <div className="flex flex-col gap-1 mb-4">
-          <H3>Pelatih</H3>
-          <P>{tim.pelatih}</P>
-        </div>
-        <div className="flex flex-col gap-1 mb-4">
-          <H3>Terkonfirmasi (Pembayaran)</H3>
-          <P
-            className={`font-bold ${
-              tim.confirmed ? "text-green-600" : "text-red-600"
-            }`}
-          >
-            {tim.confirmed ? "Sudah" : "Belum"}
-          </P>
-        </div>
-        <TimLayout tim={tim} />
-      </div>
-    </SectionWrapper>
-  );
+  return <TimLayout tim={tim} />;
 }
