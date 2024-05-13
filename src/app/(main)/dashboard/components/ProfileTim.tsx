@@ -65,7 +65,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
             name={official?.nama ?? "Belum diisi"}
             posisi={official?.posisi ?? "OFFICIAL"}
           />
-          {tim.jenjang === "SMA" && (
+          {tim.confirmed && tim.jenjang === "SMA" && (
             <AnggotaCard
               href={`/dashboard/mascot`}
               image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
