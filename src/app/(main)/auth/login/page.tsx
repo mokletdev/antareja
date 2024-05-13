@@ -20,7 +20,7 @@ export default function Login() {
   const [isShown, setIsShown] = useState(false);
   const [isLoading, setisLoading] = useState(false);
 
-  if (status === "authenticated") return router.push("/");
+  if (status === "authenticated") return router.push("/dashboard");
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const toastId = toast.loading("Logging in....");

@@ -3,11 +3,18 @@ import { findTim } from "@/queries/tim.query";
 import { Anggota, Tim } from "@prisma/client";
 import { notFound } from "next/navigation";
 import TimForm from "./components/Form";
+import ProfileTim from "./components/ProfileTim";
+import { TimWithRelations } from "@/types/entityRelations";
 
 export default async function TimEdit({ params }: { params: { id: string } }) {
   const trygetAnggotas = await findAnggotas({ timId: params.id });
 
   let anggotas: Anggota[] = [];
+
+  const timByUser = (await findTim(
+    { id: params.id },
+    { anggotas: true, pembayaran: true, penilaian: true, user: true }
+  )) as TimWithRelations;
 
   let tim: Tim = {
     id: "",
@@ -27,7 +34,10 @@ export default async function TimEdit({ params }: { params: { id: string } }) {
     tim = trygetTim;
     anggotas = trygetAnggotas;
     return (
-      <TimForm data={tim} edit={true} id={params.id} dataAnggota={anggotas} />
+      <>
+        <TimForm data={tim} edit={true} id={params.id} dataAnggota={anggotas} />
+        <ProfileTim tim={timByUser} />
+      </>
     );
   } else return notFound();
 }
