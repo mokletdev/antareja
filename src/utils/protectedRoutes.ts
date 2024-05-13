@@ -32,4 +32,9 @@ export const protectedRoutes: ProtectedRoutes[] = [
     path: "/admin/penilaian",
     roles: "ADMIN",
   },
+  {
+    title: "Pengumuman",
+    path: "/admin/pengumuman",
+    roles: "ADMIN",
+  },
 ];
