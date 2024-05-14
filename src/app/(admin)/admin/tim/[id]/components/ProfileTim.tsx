@@ -42,17 +42,58 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
 
   return (
     <div className="block mt-5">
-      <H3
-        className={`${anggotas.length !== sizeMap[tim.tipe_tim] ? "" : "mb-4"}`}
-      >
-        Informasi Anggota ({sizeMap[tim.tipe_tim]} Pasukan + Danton + Official)
-      </H3>
+      {tim.jenjang === "SMA" ? (
+        <H3
+          className={`${
+            anggotas.length !== sizeMap[tim.tipe_tim] ? "" : "mb-4"
+          }`}
+        >
+          Informasi Anggota ({sizeMap[tim.tipe_tim]} Pasukan + Danton + Official
+          + Mascot)
+        </H3>
+      ) : (
+        <H3
+          className={`${
+            anggotas.length !== sizeMap[tim.tipe_tim] ? "" : "mb-4"
+          }`}
+        >
+          Informasi Anggota ({sizeMap[tim.tipe_tim]} Pasukan + Danton + Official
+          + Cerdas Cermat)
+        </H3>
+      )}
+
       {anggotas.length !== sizeMap[tim.tipe_tim] + 2 && (
         <P className="text-yellow-600 mb-4 animate-pulse">
           (Data belum lengkap)
         </P>
       )}
       <div className="py-5 right-0  rounded-lg flex flex-col gap-12">
+        {tim.jenjang === "SMA" ? (
+          <AnggotaCardsWrapper>
+            <AnggotaCard
+              href={`/admin/tim/${tim_id}`}
+              image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
+              name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum Diisi"}
+              posisi={"MASCOT"}
+            />
+          </AnggotaCardsWrapper>
+        ) : (
+          <AnggotaCardsWrapper>
+            <AnggotaCard
+              href={`/admin/tim/${tim_id}`}
+              image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
+              name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum Diisi"}
+              posisi={"Cerdas Cermat"}
+            />
+            <AnggotaCard
+              href={`/admin/tim/${tim_id}`}
+              image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
+              name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum Diisi"}
+              posisi={"Cerdas Cermat"}
+            />
+          </AnggotaCardsWrapper>
+        )}
+
         <AnggotaCardsWrapper>
           <AnggotaCard
             href={`/admin/tim/${tim_id}/danton`}
