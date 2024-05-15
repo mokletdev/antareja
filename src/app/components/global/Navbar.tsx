@@ -140,6 +140,7 @@ export default function Navbar() {
               key={navOption.label}
               href={navOption.href}
               className={`rounded-full text-center text-[16px] transition-all duration-300 hover:text-primary-400`}
+              onClick={() => setIsExpanded(false)}
             >
               {navOption.label}
             </Link>
@@ -149,6 +150,7 @@ export default function Navbar() {
               <Link
                 href={session?.user?.role === "ADMIN" ? "/admin" : "/dashboard"}
                 className={`rounded-full text-center text-[16px] transition-all duration-300 hover:text-primary-400`}
+                onClick={() => setIsExpanded(!isExpanded)}
               >
                 {session?.user?.role === "ADMIN" ? "Admin" : "Dashboard"}
               </Link>

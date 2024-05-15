@@ -1,6 +1,6 @@
 "use client";
 
-import konfirmasiPembayaran from "@/actions/Pembayaran";
+import konfirmasiPembayaran from "@/actions/pembayaran";
 import { H1, P } from "@/app/components/global/Text";
 import { TimWithPembayaran } from "@/types/entityRelations";
 import Image from "next/image";
@@ -33,7 +33,7 @@ export default function PembayaranForm({
   }
 
   return (
-    <form action={Update}>
+    <form action={Update} className="sm:pb-0 pb-6">
       <div className="flex flex-col gap-5">
         <H1>
           {data?.nama_tim}
@@ -95,7 +95,7 @@ export default function PembayaranForm({
           />
         </div>
       </div>
-      <div className="w-full my-8 justify-end flex">
+      <div className="w-full justify-end flex my-6">
         <SubmitButton />
       </div>
     </form>

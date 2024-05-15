@@ -3,6 +3,7 @@ import {
   FormEventHandler,
   HTMLInputTypeAttribute,
   LegacyRef,
+  WheelEventHandler,
 } from "react";
 import cn from "@/lib/clsx";
 import { ClassNameValue } from "tailwind-merge";
@@ -19,6 +20,7 @@ export default function TextField({
   onChange,
   botText,
   onInput,
+  onWheel,
 }: Readonly<{
   type: HTMLInputTypeAttribute;
   id: string;
@@ -31,6 +33,7 @@ export default function TextField({
   onChange?: ChangeEventHandler<HTMLInputElement>;
   botText?: boolean;
   onInput?: FormEventHandler<HTMLInputElement>;
+  onWheel?: WheelEventHandler<HTMLInputElement>;
 }>) {
   return (
     <div className="flex flex-col gap-2">
@@ -47,6 +50,7 @@ export default function TextField({
         type={type}
         name={name}
         onInput={onInput}
+        onWheel={onWheel}
         className={cn(
           "bg-[#FAFAFA] border focus:outline-none border-[#E4E6EA] rounded-[14px] text-[#000000] py-[18px] px-[20px] text-[16px] focus:bg-[#F1F6F9] transition-all duration-500 placeholder:text-[#C8C8C8]",
           className

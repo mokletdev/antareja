@@ -34,7 +34,41 @@ export default function Timeline() {
           </H3>
           <P>Timeline perlombaan Antareja 2024</P>
         </div>
-        <div className="flex items-center justify-between flex-wrap md:flex-nowrap">
+        <div className="w-full flex flex-col gap-8 xl:hidden items-center">
+          <div className="w-full flex gap-[38px] justify-center items-center">
+            <TimelineItem
+              title="Buka Pendaftaran"
+              dateString="22 Juni - 5 Agustus 2024"
+              description="Pembukaan pendaftaraan"
+            />
+            <TimelineLine />
+          </div>
+          <div className="w-full flex gap-[38px] justify-center items-center">
+            <TimelineLine />
+            <TimelineItem
+              title="Tutup Pendaftaran"
+              dateString="22 Juni - 5 Agustus 2024"
+              description="Penutupan pendaftaran"
+            />
+          </div>
+          <div className="w-full flex gap-[38px] justify-center items-center">
+            <TimelineItem
+              title="Technical Meeting"
+              dateString="22 Juni - 5 Agustus 2024"
+              description="Pelaksanaan technical meeting"
+            />
+            <TimelineLine />
+          </div>
+          <div className="w-full flex gap-[38px] justify-center items-center">
+            <TimelineLine />
+            <TimelineItem
+              title="Perlombaan"
+              dateString="22 Juni - 5 Agustus 2024"
+              description="Pelaksanaan perlombaan"
+            />
+          </div>
+        </div>
+        <div className="xl:flex items-center justify-between hidden">
           <TimelineItem
             title="Buka Pendaftaran"
             dateString="22 Juni - 5 Agustus 2024"

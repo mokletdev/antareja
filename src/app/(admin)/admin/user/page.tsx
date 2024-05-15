@@ -7,14 +7,12 @@ export default async function Users() {
   const users = await findUsers();
 
   return (
-    <div>
+    <div className="py-6">
       <div className="flex items-center justify-between">
         <H1>User</H1>
-        <PrimaryLinkButton type="button" href="/admin/user/new">
-          New
-        </PrimaryLinkButton>
+        <PrimaryLinkButton href="/admin/user/new">New</PrimaryLinkButton>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="mt-4">
         <UserTable data={users} />
       </div>
     </div>

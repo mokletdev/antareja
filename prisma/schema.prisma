@@ -58,15 +58,15 @@ enum Posisi {
 }
 
 model User {
-  id        String     @id @default(uuid())
+  id        String      @id @default(uuid())
   nama      String
-  email     String     @unique
+  email     String      @unique
   password  String
   role      Role
-  penilaian Penilaian?
+  penilaian Penilaian[]
   tim       Tim?
   token     String?
-  verified  Boolean    @default(false)
+  verified  Boolean     @default(false)
 }
 
 model Anggota {
@@ -89,7 +89,7 @@ model Penilaian {
   created_at   DateTime? @default(now())
   updated_at   DateTime  @updatedAt
   user         User      @relation(references: [id], fields: [user_id], onDelete: Cascade)
-  user_id      String    @unique
+  user_id      String
   tim          Tim       @relation(fields: [tim_id], references: [id])
   tim_id       String    @unique
   published    Boolean   @default(false)

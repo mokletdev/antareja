@@ -56,7 +56,7 @@ export default function PenilaianForm({
   }
 
   return (
-    <form action={edit ? Update : Create}>
+    <form action={edit ? Update : Create} className="py-5">
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-2">
           <label htmlFor={"tim"} className="text-[16px]">
@@ -97,6 +97,7 @@ export default function PenilaianForm({
           placeholder="Nilai PBB"
           value={data?.pbb}
           required={edit ?? false}
+          onWheel={(e) => e.currentTarget.blur()}
         />
         <TextField
           id="variasi"
@@ -106,6 +107,7 @@ export default function PenilaianForm({
           placeholder="Nilai Variasi"
           value={data?.variasi}
           required={edit ?? false}
+          onWheel={(e) => e.currentTarget.blur()}
         />
         <TextField
           id="formasi"
@@ -115,6 +117,7 @@ export default function PenilaianForm({
           value={data?.formasi}
           placeholder="Nilai Formasi"
           required={edit ?? false}
+          onWheel={(e) => e.currentTarget.blur()}
         />
         <TextField
           id="danpas"
@@ -124,6 +127,7 @@ export default function PenilaianForm({
           value={data?.danpas}
           placeholder="Nilai Danpas"
           required={edit ?? false}
+          onWheel={(e) => e.currentTarget.blur()}
         />
         <TextField
           id="pasukan"
@@ -133,6 +137,7 @@ export default function PenilaianForm({
           value={data?.pasukan}
           placeholder="Nilai Pasukan"
           required={edit ?? false}
+          onWheel={(e) => e.currentTarget.blur()}
         />
         <TextField
           id="pbb_tambahan"
@@ -142,10 +147,11 @@ export default function PenilaianForm({
           value={data?.pbb_tambahan}
           placeholder="Nilai PBB Tambahan"
           required={edit ?? false}
+          onWheel={(e) => e.currentTarget.blur()}
         />
         <TextField
           id="detail"
-          type="text"
+          type="url"
           label="URL Detail Penilaian"
           name="detail"
           value={data?.detail_url}
@@ -191,8 +197,8 @@ export default function PenilaianForm({
           />
         </div>
       </div>
-      <div className="float-end mt-3">
-        <SubmitButton />
+      <div className="w-full justify-end flex mt-5">
+        <SubmitButton text="Submit" />
       </div>
     </form>
   );

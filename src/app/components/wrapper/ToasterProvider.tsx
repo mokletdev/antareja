@@ -9,7 +9,7 @@ import { Toaster } from "sonner";
 export default function ToasterProvider() {
   return (
     <Toaster
-      duration={3000}
+      duration={1500}
       pauseWhenPageIsHidden
       theme="light"
       toastOptions={{ className: "shadow-sm shadow-white bg-white" }}

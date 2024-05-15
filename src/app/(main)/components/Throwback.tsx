@@ -30,7 +30,7 @@ export default function Throwback() {
         <P>Kami kembali untukmu di tahun {thisYear}!</P>
       </div>
       <div className="relative w-full">
-        <div className="relative w-[97.1%]">
+        <div className="relative w-[90.8%] sm:w-[97.1%]">
           <div
             ref={ref}
             className="keen-slider w-full mx-[21px] max-h-[294px] md:max-h-none"

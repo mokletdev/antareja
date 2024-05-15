@@ -10,11 +10,9 @@ export default async function Users() {
     <div>
       <div className="flex items-center justify-between">
         <H1>Pengumuman</H1>
-        <PrimaryLinkButton type="button" href="/admin/pengumuman/new">
-          New
-        </PrimaryLinkButton>
+        <PrimaryLinkButton href="/admin/pengumuman/new">New</PrimaryLinkButton>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="mt-4">
         <PengumumanTable data={pengumumans} />
       </div>
     </div>

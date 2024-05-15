@@ -9,7 +9,7 @@ export default async function Confirmation() {
   if (!session) return redirect("/");
 
   return (
-    <div className="flex h-screen justify-center items-center">
+    <div className="flex h-screen justify-center items-center px-6 sm:px-0 ">
       <div className="bg-white rounded-2xl py-10 px-7 flex flex-col items-center justify-center max-w-[500px] text-center gap-4">
         <Image
           src={"/image/email.png"}
