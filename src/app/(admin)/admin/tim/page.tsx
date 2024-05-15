@@ -8,7 +8,7 @@ export default async function Tim() {
   return (
     <div>
       <H1>Tim</H1>
-      <div className="flex flex-col gap-3">
+      <div className="mt-4">
         <TimTable data={tims} />
       </div>
     </div>

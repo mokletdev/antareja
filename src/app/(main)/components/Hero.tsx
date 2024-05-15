@@ -10,7 +10,7 @@ const Countdown = dynamic(() => import("./parts/Countdown"), { ssr: false });
 export default function Hero() {
   return (
     <section
-      className="relative w-full md:h-screen h-[175vw] mb-[550px] md:mb-[450px] xl:mb-[336px] flex flex-col justify-center"
+      className="relative w-full h-screen mb-[370px] sm:mb-[500px] md:mb-[450px] xl:mb-[336px] flex flex-col justify-center"
       id="hero"
     >
       <div className="absolute bg-gradient-to-tr from-primary-700 to-transparent to-50% w-full h-full"></div>

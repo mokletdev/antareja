@@ -6,16 +6,15 @@ import DisplayAnggota from "./components/Form";
 
 export default async function EditAnggota({
   params,
-}: Readonly<{ params: { posisi: string,id:string} }>) {
+}: Readonly<{ params: { posisi: string; id: string } }>) {
   if (Object.keys(Posisi).indexOf(params.posisi.toUpperCase()) === -1)
     return redirect("/dashboard");
 
-  const tim = (await findTim({ id:params.id })) as Tim;  
   const anggota =
     (await findAnggota({
       posisi_timId: {
         posisi: params.posisi.toUpperCase() as Posisi,
-        timId: tim?.id,
+        timId: params?.id,
       },
     })) ??
     ({
@@ -23,7 +22,7 @@ export default async function EditAnggota({
       email: "",
       nama: "",
       foto: "",
-      kelas: "VII",
+      kelas: "",
       nisn: "",
       posisi: params.posisi.toUpperCase(),
       telp: "",

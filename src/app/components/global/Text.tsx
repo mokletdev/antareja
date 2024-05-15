@@ -71,7 +71,9 @@ export function H4({ children, className }: Readonly<TextProps>) {
 
 export function H5({ children, className }: Readonly<TextProps>) {
   return (
-    <h4 className={cn("text-[20px] text-black ", className)}>{children}</h4>
+    <h4 className={cn("text-sm sm:text-[20px] text-black ", className)}>
+      {children}
+    </h4>
   );
 }
 

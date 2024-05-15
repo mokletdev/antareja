@@ -37,7 +37,7 @@ const SocialOptions: SocialOption[] = [
 
 export default function Footer() {
   return (
-    <footer className="pt-[56px] pb-[39px] px-[52px] bg-white">
+    <footer className="pt-[56px] pb-[39px] px-[21px] sm:px-[52px] bg-white">
       <div className="flex flex-col gap-6 lg:gap-[50px]">
         <div className="flex justify-normal lg:justify-between lg:flex-row flex-col lg:gap-0 gap-6">
           <div className="flex flex-col gap-[10px] lg:gap-6 max-w-[408px]">
@@ -54,7 +54,7 @@ export default function Footer() {
             </P>
           </div>
           <div className="flex flex-col gap-6 lg:gap-[72px] items-start lg:items-end">
-            <div className="flex gap-10">
+            <div className="flex gap-[17px] sm:gap-10">
               {FootOptions.map((nav) => (
                 <Link href={nav.href} key={nav.label}>
                   <p className="text-neutral-600 text-sm hover:text-neutral-400 transition-all duration-300 font-semibold">
@@ -63,7 +63,7 @@ export default function Footer() {
                 </Link>
               ))}
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               {SocialOptions.map((soc) => (
                 <Link
                   href={soc.href}

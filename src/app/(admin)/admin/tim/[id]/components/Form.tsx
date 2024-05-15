@@ -111,9 +111,9 @@ export default function TimForm({
           required={edit ? false : true}
           disabled={true}
         />
-      <div className="float-end mt-3">
-        <SubmitButton />
-      </div>
+        <div className="w-full justify-end flex mt-3">
+          <SubmitButton />
+        </div>
       </div>
     </form>
   );

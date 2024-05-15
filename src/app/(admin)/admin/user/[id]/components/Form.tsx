@@ -103,7 +103,7 @@ export default function UserForm({
           />
         </div>
       </div>
-      <div className="float-end mt-3">
+      <div className="w-full flex justify-end mt-3">
         <SubmitButton text="Create" />
       </div>
     </form>

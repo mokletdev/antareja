@@ -34,10 +34,8 @@ export default function FormComponent({ id }: { id: string }) {
     }
   }
 
-  const [selectJenjang, setSelectJenjang] = useState("");
-
   return (
-    <form className="mx-[100px] my-[24px]" action={submitForm}>
+    <form className="mx-6 sm:mx-[100px] my-[24px]" action={submitForm}>
       <H2>Form Pendaftaran</H2>
       <div className="flex flex-col gap-4 mt-4">
         <TextField
@@ -77,7 +75,6 @@ export default function FormComponent({ id }: { id: string }) {
             required
             options={jenjang}
             id="jenjang"
-            onChange={(e) => setSelectJenjang(e?.value!)}
             placeholder="Pilih Jenjang"
             classNames={{
               placeholder: () => "text-[#C8C8C8]",
@@ -127,18 +124,11 @@ export default function FormComponent({ id }: { id: string }) {
             <H3>Pembayaran</H3>
             <P>
               Lakukan pembayaran dengan nominal{" "}
-              <span className="text-black font-bold">
-                {selectJenjang
-                  ? selectJenjang === "SMA"
-                    ? "Rp. 400.000,00"
-                    : "Rp. 350.000,00"
-                  : "XXXXX"}
-              </span>{" "}
-              ke:
+              <span className="text-black font-bold">Rp. 400.000,00</span> ke:
             </P>
             <P className="text-black">
-              696969696996 <br />
-              Bank BCA <br /> A.n Sucipto
+              1410024777096 <br />
+              Bank Mandiri <br /> a.n Firman Hadi Amrullah Z
             </P>
           </div>
         </div>

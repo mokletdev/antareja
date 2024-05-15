@@ -11,12 +11,12 @@ function TimeFigure({
 }: Readonly<{ time: number; title: string }>) {
   return (
     <figure className="flex flex-col items-center gap-3">
-      <div className="p-[30px] rounded-[18px] w-[108px] h-[110px] bg-white bg-opacity-60 flex flex-col justify-center items-center">
-        <span className="text-[50px] text-white font-bold leading-[1]">
+      <div className="p-[30px] rounded-[18px] w-[76px] h-[72px] sm:w-[108px] sm:h-[110px] bg-white bg-opacity-60 flex flex-col justify-center items-center">
+        <span className="text-[30px] sm:text-[50px] text-white font-bold leading-[1]">
           {time.toString().length >= 2 ? time : "0" + time.toString()}
         </span>
       </div>
-      <H5 className="text-white">{title}</H5>
+      <H5 className="text-white sm">{title}</H5>
     </figure>
   );
 }
@@ -27,10 +27,10 @@ export default function Countdown() {
   return (
     <figure
       suppressHydrationWarning
-      className="absolute w-[510px] h-[210px] flex flex-col justify-center items-center gap-4 left-1/2 -translate-x-1/2 top-[20%]"
+      className="absolute w-[510px] h-[210px] flex flex-col justify-center items-center gap-4 left-1/2 -translate-x-1/2 top-[13%] sm:top-[20%]"
     >
       <H2 className="text-white">Close Registrasi</H2>
-      <div className="flex gap-[17px] flex-wrap max-w-[233px] md:max-w-none">
+      <div className="flex gap-[17px] flex-wrap max-w-[233px] md:max-w-none w-full justify-center">
         <TimeFigure time={days} title="Hari" />
         <TimeFigure time={hours} title="Jam" />
         <TimeFigure time={minutes} title="Menit" />

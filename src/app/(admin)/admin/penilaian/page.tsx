@@ -7,14 +7,12 @@ export default async function Penilaian() {
   const penilaians = await findPenilaians();
 
   return (
-    <div>
+    <div className="py-6">
       <div className="flex items-center justify-between">
         <H1>Penilaian</H1>
-        <PrimaryLinkButton type="button" href="/admin/penilaian/new">
-          New
-        </PrimaryLinkButton>
+        <PrimaryLinkButton href="/admin/penilaian/new">New</PrimaryLinkButton>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="mt-4">
         <PenilaianTable data={penilaians} />
       </div>
     </div>

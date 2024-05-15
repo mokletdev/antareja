@@ -51,10 +51,10 @@ export default function Video() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            className="object-cover rounded-[20px] sm:w-[500px] h-[200px] sm:h-[276px] w-full"
+            className="object-cover rounded-[20px] sm:w-[500px] h-[250px] sm:h-[276px] w-full"
           />
         </div>
-        <div className="max-w-full xl:max-w-[738px] flex flex-wrap gap-1 gap-y-6 xl:gap-y0 md:gap-9 mt-[10px] justify-between sm:justify-center md:justify-normal items-center xl:justify-normal">
+        <div className="max-w-full xl:max-w-[738px] flex flex-wrap gap-6 gap-y-6 xl:gap-y0 md:gap-9 mt-[10px] justify-center sm:justify-center md:justify-center items-center xl:justify-normal">
           <figure className="rounded-[15px] sm:rounded-3xl p-[19px] sm:p-[30px] bg-primary-500 h-[124px] sm:h-[181px] w-[140px] sm:w-[222px] drop-shadow-glow">
             <div className="flex flex-col gap-[15px] sm:gap-6">
               <div className="sm:w-12 sm:h-12 w-8 h-8 rounded-[10px] sm:rounded-2xl bg-white flex items-center justify-center">
