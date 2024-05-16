@@ -44,6 +44,16 @@ export default function PenilaianTable({
       sortable: true,
     },
     {
+      name: "Mascot",
+      selector: (row: PenilaianWithRelations) => row.mascot!,
+      sortable: true,
+    },
+    {
+      name: "Cerdas Cermat",
+      selector: (row: PenilaianWithRelations) => row.cerdas_cermat!,
+      sortable: true,
+    },
+    {
       name: "Detail URL",
       selector: (row: PenilaianWithRelations) => row.detail_url,
       sortable: true,

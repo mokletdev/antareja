@@ -85,22 +85,24 @@ model Anggota {
 }
 
 model Penilaian {
-  id           String    @id @default(uuid())
-  created_at   DateTime? @default(now())
-  updated_at   DateTime  @updatedAt
-  user         User      @relation(references: [id], fields: [user_id], onDelete: Cascade)
-  user_id      String
-  tim          Tim       @relation(fields: [tim_id], references: [id])
-  tim_id       String    @unique
-  published    Boolean   @default(false)
-  pbb          Int
-  variasi      Int
-  formasi      Int
-  danpas       Int
-  pasukan      Int
-  pbb_tambahan Int
-  detail_url   String
-  note         String
+  id            String    @id @default(uuid())
+  created_at    DateTime? @default(now())
+  updated_at    DateTime  @updatedAt
+  user          User      @relation(references: [id], fields: [user_id], onDelete: Cascade)
+  user_id       String
+  tim           Tim       @relation(fields: [tim_id], references: [id])
+  tim_id        String    @unique
+  published     Boolean   @default(false)
+  pbb           Int
+  variasi       Int
+  formasi       Int
+  danpas        Int
+  pasukan       Int
+  pbb_tambahan  Int
+  mascot        Int?
+  cerdas_cermat Int?
+  detail_url    String
+  note          String
 }
 
 model Tim {
