@@ -46,11 +46,9 @@ export default function DisplayAnggota({
         </div>
       </div>
       <div className="w-full justify-end flex mt-4">
-        <PrimaryButton
-          children={cn("back")}
-          type="button"
-          onClick={() => router.back()}
-        />
+        <PrimaryButton type="button" onClick={() => router.back()}>
+          back
+        </PrimaryButton>
       </div>
     </form>
   );
