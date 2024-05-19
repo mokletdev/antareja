@@ -24,6 +24,8 @@ jobs:
       GOOGLE_APP_PASSWORD: ${{secrets.GOOGLE_APP_PASSWORD}}
       GOOGLE_EMAIL: ${{secrets.GOOGLE_EMAIL}}
     steps:
+    - name: Installing packages
+      run: npm ci
     - name: Building the website
       run: npm run build --if-present
     - name: cd into project dir
