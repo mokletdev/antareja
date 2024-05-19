@@ -33,6 +33,6 @@ jobs:
     - name: installing dependencies
       run: npm ci
     - name: sync database
-      run: npm run prisma:push
+      run: npm run prisma:generate
     - name: building website
       run: npm run build --if-present
