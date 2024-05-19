@@ -16,13 +16,6 @@ jobs:
       matrix:
         node-version: [20.13.1]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    env: 
-      DATABASE_URL: ${{DATABASE_URL}}
-      NEXTAUTH_SECRET: ${{NEXTAUTH_SECRET}}
-      CLOUDINARY_URL: ${{CLOUDINARY_URL}}
-      NEXTAUTH_URL: ${{NEXTAUTH_URL}}
-      GOOGLE_APP_PASSWORD: ${{GOOGLE_APP_PASSWORD}}
-      GOOGLE_EMAIL: ${{GOOGLE_EMAIL}}
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
@@ -30,6 +23,15 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: create env file
+      run: |
+        touch .env.local
+        echo DATABASE_URL=${{DATABASE_URL}} >> .env.local
+        echo NEXTAUTH_SECRET=${{NEXTAUTH_SECRET}} >> .env.local
+        echo CLOUDINARY_URL=${{CLOUDINARY_URL}} >> .env.local
+        echo NEXTAUTH_URL=${{NEXTAUTH_URL}} >> .env.local
+        echo GOOGLE_APP_PASSWORD=${{GOOGLE_APP_PASSWORD}} >> .env.local
+        echo GOOGLE_EMAIL=${{GOOGLE_EMAIL}} >> .env.local
     - name: Building the website
       run: npm run build --if-present
     - name: cd into project dir
