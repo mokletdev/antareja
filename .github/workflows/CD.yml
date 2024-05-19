@@ -29,6 +29,22 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npx prisma generate
-    - run: npm run build --if-present
+    - name: create env
+      run: >
+        touch /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
+        echo DATABASE_URL=${{secrets.DATABASE_URL}} >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
+        echo NEXTAUTH_SECRET=${{secrets.NEXTAUTH_SECRET}} >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
+        echo CLOUDINARY_URL=${{secrets.CLOUDINARY_URL}} >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
+        echo NEXTAUTH_URL=${{secrets.NEXTAUTH_URL}} >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
+        echo GOOGLE_APP_PASSWORD=${{secrets.GOOGLE_APP_PASSWORD}} >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
+        echo GOOGLE_EMAIL=${{secrets.GOOGLE_EMAIL}} >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
+    - name: Install Modules
+      run: npm ci
+    - run: npm install dotenv-cli
+    - name: Generate prisma
+      run: npm run prisma:generate
+    - name: Build site
+      run: npm run build --if-present
+    - name: change dir
+      run: cd /home/mokletdev/actions-runner/_work/antareja/antareja
+    - run: pm2 restart 0
