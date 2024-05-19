@@ -112,6 +112,7 @@ model Tim {
   updated_at   DateTime    @updatedAt
   penilaian    Penilaian?
   pelatih      String
+  no_pelatih   String
   anggotas     Anggota[]
   jenjang      Jenjang
   pembayaran   Pembayaran?
@@ -123,11 +124,12 @@ model Tim {
 }
 
 model Pembayaran {
-  id       String @id @default(uuid())
-  tim      Tim    @relation(fields: [tim_id], references: [id], onDelete: Cascade)
-  tim_id   String @unique
+  id       String  @id @default(uuid())
+  tim      Tim     @relation(fields: [tim_id], references: [id], onDelete: Cascade)
+  tim_id   String  @unique
   bukti_tf String
   bank     String
+  isDP     Boolean
   nama_rek String
 }
 

@@ -1,16 +1,18 @@
 import { getServerSession } from "@/lib/next-auth";
-import { findAnggota } from "@/queries/anggota.query";
 import { findTim } from "@/queries/tim.query";
 import { Tim } from "@prisma/client";
 import EditAnggotaForm from "./components/Form";
+import { redirect } from "next/navigation";
 
-export default async function EditAnggota() {
+export default async function Mascot() {
   const session = await getServerSession();
   const tim = (await findTim({ userId: session?.user?.id })) as Tim;
 
-  return (
-    <div className="my-16">
-      <EditAnggotaForm tim={tim} />
-    </div>
-  );
+  if (tim.jenjang === "SMA")
+    return (
+      <div className="my-16">
+        <EditAnggotaForm tim={tim} />
+      </div>
+    );
+  else return redirect("/dashboard");
 }

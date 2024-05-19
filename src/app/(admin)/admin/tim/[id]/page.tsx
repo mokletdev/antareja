@@ -21,12 +21,13 @@ export default async function TimEdit({ params }: { params: { id: string } }) {
     nama_tim: "",
     asal_sekolah: "",
     pelatih: "",
+    no_pelatih: "",
     jenjang: "SMA",
     confirmed: false,
     userId: "",
     updated_at: new Date(),
     tipe_tim: "NORMAL",
-    foto_mascot:""
+    foto_mascot: "",
   };
 
   const trygetTim = await findTim({ id: params.id });
