@@ -24,7 +24,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: create env file
-      run: |
+      run: >
         touch .env.local
         echo DATABASE_URL=${{DATABASE_URL}} >> .env.local
         echo NEXTAUTH_SECRET=${{NEXTAUTH_SECRET}} >> .env.local
