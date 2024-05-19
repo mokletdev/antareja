@@ -7,7 +7,7 @@ export default withAuth(function middleware(req) {}, {
       const pathname = req.nextUrl.pathname;
       const unauthorizedConditions =
         (pathname.startsWith("/admin") && token?.role !== "ADMIN") ||
-        (pathname.startsWith("/juri") && token?.role !== "JURI");
+        (pathname.startsWith("/dashboard") && token?.role !== "USER");
 
       // Return true if there is no unauthorized conditions met
       return !unauthorizedConditions;
