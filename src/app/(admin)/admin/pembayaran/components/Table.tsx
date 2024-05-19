@@ -25,6 +25,21 @@ export default function TimTable({ data }: { data: TimWithRelations[] }) {
       sortable: true,
     },
     {
+      name: "Tipe Pembayran",
+      cell: (row: TimWithRelations) =>
+        row.pembayaran?.isDP ? (
+          <span className="bg-primary-500 text-white rounded-2xl py-2 px-3 text-center text-sm">
+            DP 50%
+          </span>
+        ) : (
+          <span className="bg-green-500 text-white rounded-2xl py-2 px-3 text-center text-sm">
+            Full
+          </span>
+        ),
+      selector: (row: TimWithRelations) => row.pembayaran?.isDP!,
+      sortable: true,
+    },
+    {
       name: "Status",
       cell: (row: TimWithRelations) =>
         row.confirmed ? (

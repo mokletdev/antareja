@@ -146,6 +146,10 @@ export default function ProfileTim({
           <P>{tim.pelatih}</P>
         </div>
         <div className="flex flex-col gap-1 mb-4">
+          <H3>No.Telp Pelatih</H3>
+          <P>{tim.no_pelatih}</P>
+        </div>
+        <div className="flex flex-col gap-1 mb-4">
           <H3>Terkonfirmasi (Pembayaran)</H3>
           <P
             className={`font-bold ${

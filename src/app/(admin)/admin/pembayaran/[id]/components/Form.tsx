@@ -53,7 +53,7 @@ export default function PembayaranForm({
         <div>
           <P className="font-bold text-black">
             <span className="font-normal">Yang harus dibayarkan: </span>
-            Rp. 400.000,00
+            {data?.pembayaran?.isDP ? "Rp. 200.000,00" : "Rp. 400.000,00"}
           </P>
           <P className="font-bold text-black">
             <span className="font-normal">Nama Rekening Pengirim: </span>

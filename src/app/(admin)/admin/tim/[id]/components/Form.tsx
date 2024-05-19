@@ -70,6 +70,16 @@ export default function TimForm({
           required={edit ? false : true}
           disabled={true}
         />
+        <TextField
+          id="nopelatih"
+          type="text"
+          label="No. Telp Pelatih"
+          name="nopelatih"
+          placeholder="nomor telepon pelatih"
+          value={data?.no_pelatih}
+          required={edit ? false : true}
+          disabled={true}
+        />
         <div className="flex flex-col gap-2">
           <label htmlFor={"jenjang"} className="text-[16px]">
             Jenjang
