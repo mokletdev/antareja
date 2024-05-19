@@ -25,7 +25,7 @@ jobs:
       GOOGLE_EMAIL: ${{secrets.GOOGLE_EMAIL}}
     steps:
     - name: installing dependencies
-      run: npm ci
+      run: npm i
     - name: sync database
       run: npm run prisma:generate
     - name: building website
