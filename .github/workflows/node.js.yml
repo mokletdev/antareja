@@ -24,12 +24,6 @@ jobs:
       GOOGLE_APP_PASSWORD: ${{secrets.GOOGLE_APP_PASSWORD}}
       GOOGLE_EMAIL: ${{secrets.GOOGLE_EMAIL}}
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     - name: installing dependencies
       run: npm ci
     - name: sync database
