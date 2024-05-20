@@ -38,6 +38,8 @@ enum Tipe {
 }
 
 enum Posisi {
+  CERDAS_CERMAT1
+  CERDAS_CERMAT2
   OFFICIAL
   DANTON
   B1S1

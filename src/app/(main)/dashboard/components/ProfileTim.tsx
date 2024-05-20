@@ -38,6 +38,12 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
   const [official] = useState(
     tim.anggotas.find((value) => value.posisi === "OFFICIAL")
   );
+  const [cerdas_cermat1] = useState(
+    tim.anggotas.find((value) => value.posisi === "CERDAS_CERMAT1")
+  );
+  const [cerdas_cermat2] = useState(
+    tim.anggotas.find((value) => value.posisi === "CERDAS_CERMAT2")
+  );
 
   return (
     <div className="block">
@@ -52,69 +58,92 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
         </P>
       )}
       <div className="py-5 px-10 bg-neutral-300 rounded-lg flex flex-col gap-12">
+        
+          <div className="pb-20">
+          {tim.jenjang === "SMP" && (
+            <AnggotaCardsWrapper>
+              <AnggotaCard
+                href={`/dashboard/anggota/cerdas_cermat1`}
+                image={
+                  cerdas_cermat1?.foto ?? "/placeholder-profile-picture.jpg"
+                }
+                name={cerdas_cermat1?.nama ?? "Belum diisi"}
+                posisi={"CERDAS CERMAT"}
+                />
+              <AnggotaCard
+                href={`/dashboard/anggota/cerdas_cermat2`}
+                image={
+                  cerdas_cermat2?.foto ?? "/placeholder-profile-picture.jpg"
+                }
+                name={cerdas_cermat2?.nama ?? "Belum diisi"}
+                posisi={"CERDAS CERMAT"}
+                />
+            </AnggotaCardsWrapper>
+          )}
+        </div>
         <AnggotaCardsWrapper>
           <AnggotaCard
             href={`/dashboard/anggota/danton`}
             image={danton?.foto ?? "/placeholder-profile-picture.jpg"}
             name={danton?.nama ?? "Belum diisi"}
             posisi={danton?.posisi ?? "DANTON"}
-          />
+            />
           <AnggotaCard
             href={`/dashboard/anggota/official`}
             image={official?.foto ?? "/placeholder-profile-picture.jpg"}
             name={official?.nama ?? "Belum diisi"}
             posisi={official?.posisi ?? "OFFICIAL"}
-          />
-          {tim.confirmed && tim.jenjang === "SMA" && (
+            />
+          {tim.jenjang === "SMA" && (
             <AnggotaCard
               href={`/dashboard/mascot`}
               image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
               name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum diisi"}
               posisi={"MASCOT"}
-            />
+              />
           )}
         </AnggotaCardsWrapper>
         {tim.tipe_tim === "NORMAL"
-          ? rowsMapNormal.map((row, i) => (
-              <AnggotaCardsWrapper key={i}>
-                {row.map((pos, i) => {
+        ? rowsMapNormal.map((row, i) => (
+          <AnggotaCardsWrapper key={i}>
+          {row.map((pos, i) => {
                   const anggotaInPos = anggotas.find(
                     (value) => value.posisi === pos.toUpperCase()
                   );
-
+                  
                   return (
                     <AnggotaCard
-                      href={`/dashboard/anggota/${pos}`}
-                      image={
-                        anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
-                      }
-                      name={anggotaInPos?.nama ?? "Belum diisi"}
-                      posisi={"Posisi " + (anggotaInPos?.posisi ?? pos)}
-                      key={anggotaInPos?.id ?? i}
+                    href={`/dashboard/anggota/${pos}`}
+                    image={
+                      anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
+                    }
+                    name={anggotaInPos?.nama ?? "Belum diisi"}
+                    posisi={"Posisi " + (anggotaInPos?.posisi ?? pos)}
+                    key={anggotaInPos?.id ?? i}
                     />
                   );
                 })}
-              </AnggotaCardsWrapper>
-            ))
-          : rowsMapSmall.map((row, i) => (
-              <AnggotaCardsWrapper key={i}>
+                </AnggotaCardsWrapper>
+              ))
+              : rowsMapSmall.map((row, i) => (
+                <AnggotaCardsWrapper key={i}>
                 {row.map((pos, i) => {
                   const anggotaInPos = anggotas.find(
                     (value) => value.posisi === pos.toUpperCase()
                   );
-
+                  
                   return (
                     <AnggotaCard
-                      href={`/dashboard/anggota/${pos}`}
+                    href={`/dashboard/anggota/${pos}`}
                       image={
                         anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
                       }
                       name={anggotaInPos?.nama ?? "Belum diisi"}
                       posisi={anggotaInPos?.posisi ?? pos}
                       key={anggotaInPos?.id ?? i}
-                    />
-                  );
-                })}
+                      />
+                    );
+                  })}
               </AnggotaCardsWrapper>
             ))}
       </div>
