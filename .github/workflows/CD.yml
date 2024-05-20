@@ -16,13 +16,6 @@ jobs:
       matrix:
         node-version: [20.13.1]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    env:
-      DATABASE_URL: ${{secrets.DATABASE_URL}}
-      NEXTAUTH_SECRET: ${{secrets.NEXTAUTH_SECRET}}
-      CLOUDINARY_URL: ${{secrets.CLOUDINARY_URL}}
-      NEXTAUTH_URL: ${{secrets.NEXTAUTH_URL}}
-      GOOGLE_APP_PASSWORD: ${{secrets.GOOGLE_APP_PASSWORD}}
-      GOOGLE_EMAIL: ${{secrets.GOOGLE_EMAIL}}
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
@@ -40,7 +33,6 @@ jobs:
         echo 'GOOGLE_EMAIL=${{secrets.GOOGLE_EMAIL}}' >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
     - name: Install Modules
       run: npm ci
-    - run: npm install dotenv-cli
     - name: Generate prisma
       run: npm run prisma:generate
     - name: Build site
