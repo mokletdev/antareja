@@ -21,10 +21,8 @@ export default function SubmitButton({
       type="submit"
     >
       {pending ? (
-        <div className="relative w-8 h-8">
-          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
-            <Spinner className="animate-spin" />
-          </div>
+        <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+          <Spinner className="animate-spin" />
         </div>
       ) : (
         text
