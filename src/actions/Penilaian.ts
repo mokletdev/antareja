@@ -37,7 +37,7 @@ export async function createPenilaianForm(data: FormData, userId: string) {
       user: { connect: { id: userId } },
       published: isPublished,
     });
-    revalidatePath("/admin/penilaian");
+    revalidatePath("/", "layout");
     return { success: true };
   } catch (e) {
     console.log(e);
@@ -75,7 +75,7 @@ export async function updatePenilaianForm(data: FormData, id: string) {
         published: isPublished,
       }
     );
-    revalidatePath("/admin/penilaian");
+    revalidatePath("/", "layout");
     return { success: true };
   } catch (e) {
     console.log(e);
@@ -86,7 +86,7 @@ export async function updatePenilaianForm(data: FormData, id: string) {
 export async function deletePenilaianForm(id: string) {
   try {
     await deletePenilaian({ id: id });
-    revalidatePath("/admin/penilaian");
+    revalidatePath("/", "layout");
     return { success: true };
   } catch (e) {
     console.log(e);

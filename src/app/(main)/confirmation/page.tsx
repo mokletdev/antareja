@@ -1,12 +1,14 @@
+"use client";
+
 import { SecondaryLinkButton } from "@/app/components/global/LinkButton";
 import { H5 } from "@/app/components/global/Text";
-import { getServerSession } from "@/lib/next-auth";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-export default async function Confirmation() {
-  const session = await getServerSession();
-  if (!session) return redirect("/");
+export default function Confirmation() {
+  const { status } = useSession();
+  if (status !== "authenticated" && status !== "loading") return redirect("/");
 
   return (
     <div className="flex h-screen justify-center items-center px-6 sm:px-0 ">

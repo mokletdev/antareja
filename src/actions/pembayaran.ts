@@ -12,7 +12,7 @@ export default async function konfirmasiPembayaran(
   console.log(status);
   try {
     await updateTim({ id: idTim }, { confirmed: status });
-    revalidatePath("/admin/pembayaran");
+    revalidatePath("/", "layout");
     return { success: true, message: "Berhasil mengupdate status pembayaran!" };
   } catch (e) {
     console.log(e);

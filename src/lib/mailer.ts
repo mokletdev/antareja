@@ -1,25 +1,77 @@
-import nodemailer from "nodemailer";
+import { google } from "googleapis";
+import MailComposer from "nodemailer/lib/mail-composer";
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.GOOGLE_EMAIL,
-    pass: process.env.GOOGLE_APP_PASSWORD,
-  },
-});
+const clientId = process.env.GOOGLE_CLIENT_ID;
+const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+const redirectUri = process.env.GOOGLE_REDIRECT_URI;
+const refreshToken = process.env.GOOGLE_REFRESH_TOKEN;
 
-export async function sendEmail(email: string, html: string) {
-  const info = await transporter
-    .sendMail({
-      from: "LKBB Antareja 2024 <antareja@smktelkom-mlg.sch.id>",
-      to: email,
-      subject: "Verifikasi Email",
-      html: html,
-      textEncoding: "base64",
-    })
-    .catch(console.error);
+const getGmailService = () => {
+  const oAuth2Client = new google.auth.OAuth2(
+    clientId,
+    clientSecret,
+    redirectUri
+  );
+  oAuth2Client.setCredentials({ refresh_token: refreshToken });
+  const gmail = google.gmail({ version: "v1", auth: oAuth2Client });
+  return gmail;
+};
 
-  return info ? info.messageId : null;
-}
+const encodeMessage = (message: Buffer) => {
+  return Buffer.from(message)
+    .toString("base64")
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+};
+
+const createMail = async (options: any) => {
+  const mailComposer = new MailComposer(options);
+  const message = await mailComposer.compile().build();
+  return encodeMessage(message);
+};
+
+export const sendMail = async (options: any) => {
+  const gmail = getGmailService();
+  const rawMessage = await createMail(options);
+  const data = await gmail.users.messages.send({
+    userId: "me",
+    resource: {
+      raw: rawMessage,
+    },
+  } as any);
+  return data;
+};
+
+export type mailMetaData = {
+  to: string;
+  subject: string;
+  text?: string;
+  html?: string;
+  fileAttachments?: Array<{
+    filename: string;
+    path?: string;
+    content?: string;
+  }>;
+};
+
+export const sendMailTo = async (metadata: mailMetaData) => {
+  const options = {
+    to: metadata.to,
+    from: "LKBB Antareja 2024 <antareja@smktelkom-mlg.sch.id>",
+    // cc: "cc@mail.com",
+    // replyTo: 'amit@labnol.org',
+    subject: metadata.subject,
+    text: metadata.text,
+    html: metadata.html,
+    attachments: metadata.fileAttachments,
+    textEncoding: "base64",
+    headers: [
+      { key: "X-Application-Developer", value: "Moklet Developers" },
+      { key: "X-Application-Version", value: "v1" },
+    ],
+  };
+
+  const mail = await sendMail(options);
+  return mail;
+};
