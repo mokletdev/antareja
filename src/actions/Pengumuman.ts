@@ -10,7 +10,7 @@ export async function createPengumumanForm(data: FormData) {
     await createPengumuman({
       content: content,
     });
-    revalidatePath("/admin/pengumuman");
+    revalidatePath("/", "layout");
     return { success: true };
   } catch (e) {
     console.log(e);
@@ -21,7 +21,7 @@ export async function createPengumumanForm(data: FormData) {
 export async function deletePengumumanForm(id: string) {
   try {
     await deletePengumuman({ id: id });
-    revalidatePath("/admin/pengumuman");
+    revalidatePath("/", "layout");
     return { success: true };
   } catch (e) {
     console.log(e);

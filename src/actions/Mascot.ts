@@ -2,6 +2,7 @@
 
 import { updateTim } from "@/queries/tim.query";
 import { imageUploader } from "./fileUploader";
+import { revalidatePath } from "next/cache";
 
 export async function upsertFotoMascotForm(data: FormData, id: string) {
   const fotoMascot = data.get("fotomascot") as File;
@@ -17,7 +18,7 @@ export async function upsertFotoMascotForm(data: FormData, id: string) {
     }
 
     await updateTim({ id }, { foto_mascot: fotoMascotUrl });
-
+    revalidatePath("/", "layout");
     return { success: true, message: "Berhasil memperbarui foto mascot!" };
   } catch (error) {
     console.error(error);
