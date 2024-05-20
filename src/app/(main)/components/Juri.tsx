@@ -6,8 +6,14 @@ import Image from "next/image";
 const dummy = {
   image: "/image/juri1.png",
   name: "Adi prasetyo utomo",
-  title: "Professional cummer",
+  title: "Juri",
 };
+
+const comingSoon = {
+  image: "/image/juri_placeholder.png",
+  name: "Coming Soon!",
+  title:  "",
+}
 
 interface JuriCardProps {
   image: string;
@@ -17,7 +23,7 @@ interface JuriCardProps {
 
 export function JuriCard({ image, name, title }: Readonly<JuriCardProps>) {
   return (
-    <figure className="relative w-full lg:w-[294px] flex items-center justify-center bg-white rounded-[20px] lg:bg-none lg:rounded-none py-6 lg:py-0">
+    <figure className="relative w-full lg:w-[294px] flex items-center justify-center bg-white rounded-[20px] lg:bg-transparent lg:rounded-none py-6 lg:py-0">
       <div className="relative bg-primary-500 w-[191px] h-[258px] rounded-[24px]">
         <Image
           src={image}
@@ -54,9 +60,9 @@ export default function Juri() {
         </div>
         <div className="relative flex justify-center items-center gap-28 lg:gap-4 flex-col lg:flex-row">
           <div className="absolute w-full rounded-[30px] bg-white min-h-[293px] -top-14 hidden lg:block"></div>
+          <JuriCard image={comingSoon.image} name={comingSoon.name} title={comingSoon.title} />
           <JuriCard image={dummy.image} name={dummy.name} title={dummy.title} />
-          <JuriCard image={dummy.image} name={dummy.name} title={dummy.title} />
-          <JuriCard image={dummy.image} name={dummy.name} title={dummy.title} />
+          <JuriCard image={comingSoon.image} name={comingSoon.name} title={comingSoon.title} />
         </div>
       </div>
     </SectionWrapper>

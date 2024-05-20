@@ -22,7 +22,7 @@ export default function Kategori() {
                 </div>
                 <div className="flex flex-col gap-2">
                   <span className="font-bold text-[20px] sm:text-[30px] text-white">
-                    Rp 350.000
+                    Rp 400.000
                   </span>
                   <span className="font-semibold text-xs sm:text-[18px] text-white">
                     Kategori SMP Paskibra

@@ -1,6 +1,29 @@
 import { H3, P } from "@/app/components/global/Text";
 import SectionWrapper from "@/app/components/global/Wrapper";
 import Image from "next/image";
+import Link from "next/link";
+
+export function SponsorCard({
+  ImageSponsor,
+  Height=34,
+  Width=154
+}: {
+  ImageSponsor: string;
+  Height?: number;
+  Width?: number;
+}) {
+  return (
+    <Link target="_blank" href={"https://www.kemenpora.go.id/"} className="py-[23px] sm:py-[28px] px-[18px] sm:px-6 bg-white rounded-[20px] justify-center items-center flex flex-col w-[145px] sm:w-[206px] hover:scale-105 duration-500 transition-all">
+      <Image
+        src={ImageSponsor}
+        alt={"waw"}
+        width={Width}
+        height={Height}
+        unoptimized
+      />
+    </Link>
+  );
+}
 
 export default function Sponsor() {
   return (
@@ -11,61 +34,8 @@ export default function Sponsor() {
           <P>Sampai bertemu di hari perlombaan!</P>
         </div>
         <div className="w-full flex gap-[10px] sm:gap-6 justify-center items-center flex-wrap">
-          <figure className="py-[23px] sm:py-[28px] px-[18px] sm:px-6 bg-white rounded-[20px] justify-center items-center flex flex-col w-[145px] sm:w-[206px]">
-            <Image
-              src={"https://dummyimage.com/154x34/ff1290/fff&text=sponsor"}
-              alt={"waw"}
-              width={154}
-              height={34}
-              unoptimized
-            />
-          </figure>
-          <figure className="py-[23px] sm:py-[28px] px-[18px] sm:px-6 bg-white rounded-[20px] justify-center items-center flex flex-col w-[145px] sm:w-[206px]">
-            <Image
-              src={"https://dummyimage.com/154x34/ff1290/fff&text=sponsor"}
-              alt={"waw"}
-              width={154}
-              height={34}
-              unoptimized
-            />
-          </figure>
-          <figure className="py-[23px] sm:py-[28px] px-[18px] sm:px-6 bg-white rounded-[20px] justify-center items-center flex flex-col w-[145px] sm:w-[206px]">
-            <Image
-              src={"/sponsors/byu.png"}
-              alt={"waw"}
-              width={54}
-              height={34}
-              unoptimized
-              className="w-[38px] h-6 sm:w-[54px] sm:h-[34px]"
-            />
-          </figure>
-          <figure className="py-[23px] sm:py-[28px] px-[18px] sm:px-6 bg-white rounded-[20px] justify-center items-center flex flex-col w-[145px] sm:w-[206px]">
-            <Image
-              src={"https://dummyimage.com/154x34/ff1290/fff&text=sponsor"}
-              alt={"waw"}
-              width={154}
-              height={34}
-              unoptimized
-            />
-          </figure>
-          <figure className="py-[23px] sm:py-[28px] px-[18px] sm:px-6 bg-white rounded-[20px] justify-center items-center flex flex-col w-[145px] sm:w-[206px]">
-            <Image
-              src={"https://dummyimage.com/154x34/ff1290/fff&text=sponsor"}
-              alt={"waw"}
-              width={154}
-              height={34}
-              unoptimized
-            />
-          </figure>
-          <figure className="py-[23px] sm:py-[28px] px-[18px] sm:px-6 bg-white rounded-[20px] justify-center items-center flex flex-col w-[145px] sm:w-[206px]">
-            <Image
-              src={"https://dummyimage.com/154x34/ff1290/fff&text=sponsor"}
-              alt={"waw"}
-              width={154}
-              height={34}
-              unoptimized
-            />
-          </figure>
+          <SponsorCard ImageSponsor={"sponsors/Kemenpora.png"} Height={34} Width={29}/>
+          
         </div>
       </div>
     </SectionWrapper>
