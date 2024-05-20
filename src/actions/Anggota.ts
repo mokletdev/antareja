@@ -9,6 +9,7 @@ import {
 import { findTim } from "@/queries/tim.query";
 import { Kelas, Posisi, Tim } from "@prisma/client";
 import { imageUploader } from "./fileUploader";
+import { revalidatePath } from "next/cache";
 
 export async function upsertAnggotaForm(
   data: FormData,
@@ -53,7 +54,7 @@ export async function upsertAnggotaForm(
 
     if (tryFindAnggota) await updateAnggota({ id }, anggotaUpdate);
     else await createAnggota(anggotaCreate);
-
+    revalidatePath("/", "layout");
     return { success: true, message: "Berhasil memperbarui anggota!" };
   } catch (error) {
     console.error(error);

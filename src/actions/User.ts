@@ -20,7 +20,7 @@ export async function createUserForm(data: FormData) {
       role: role,
       token: "tod",
     });
-    revalidatePath("/admin/user");
+    revalidatePath("/", "layout");
     return { success: true };
   } catch (e) {
     console.log(e);
@@ -46,7 +46,7 @@ export async function updateUserForm(data: FormData, id: string) {
           role: role,
         }
       );
-      revalidatePath("/admin/user");
+      revalidatePath("/", "layout");
       return { success: true };
     }
     await updateUser(
@@ -57,7 +57,7 @@ export async function updateUserForm(data: FormData, id: string) {
         role: role,
       }
     );
-    revalidatePath("/admin/user");
+    revalidatePath("/", "layout");
     return { success: true };
   } catch (e) {
     console.log(e);
@@ -68,7 +68,7 @@ export async function updateUserForm(data: FormData, id: string) {
 export async function deleteUserForm(id: string) {
   try {
     await deleteUser({ id: id });
-    revalidatePath("/admin/user");
+    revalidatePath("/", "layout");
     return { success: true };
   } catch (e) {
     console.log(e);

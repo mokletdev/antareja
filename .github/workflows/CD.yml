@@ -29,8 +29,9 @@ jobs:
         echo 'NEXTAUTH_SECRET=${{secrets.NEXTAUTH_SECRET}}' >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
         echo 'CLOUDINARY_URL=${{secrets.CLOUDINARY_URL}}' >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
         echo 'NEXTAUTH_URL=${{secrets.NEXTAUTH_URL}}' >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
-        echo 'GOOGLE_APP_PASSWORD=${{secrets.GOOGLE_APP_PASSWORD}}' >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
-        echo 'GOOGLE_EMAIL=${{secrets.GOOGLE_EMAIL}}' >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
+        echo 'GOOGLE_CLIENT_ID=${{secrets.GOOGLE_CLIENT_ID}}' >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
+        echo 'GOOGLE_CLIENT_SECRET=${{secrets.GOOGLE_CLIENT_SECRET}}' >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
+        echo 'GOOGLE_REFRESH_TOKEN=${{secrets.GOOGLE_REFRESH_TOKEN}}' >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
     - name: Install Modules
       run: npm ci
     - name: Generate prisma

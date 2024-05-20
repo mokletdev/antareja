@@ -1,10 +1,11 @@
 "use server";
 
-import { sendEmail } from "@/lib/mailer";
+import { sendMailTo, mailMetaData } from "@/lib/mailer";
 import { verifyEmailTemplate } from "@/utils/emailTemplate";
 import { v4 as uuidv4, v1 as uuidv1 } from "uuid";
 import { generateHash } from "@/lib/hash";
 import { createUser, findUser } from "@/queries/user.query";
+import { revalidatePath } from "next/cache";
 
 export default async function signUp(data: FormData) {
   const email = data.get("email") as string;
@@ -28,7 +29,19 @@ export default async function signUp(data: FormData) {
       role: "USER",
       token,
     });
-    await sendEmail(email, htmlMailBody);
+    const htmlMail = verifyEmailTemplate(
+      nama,
+      `${process.env.NEXTAUTH_URL}auth/token?code=${token}`
+    );
+
+    const mailMetaData: mailMetaData = {
+      subject: "Verifikasi akun LKBB Antareja",
+      to: email,
+      html: htmlMail,
+    };
+
+    await sendMailTo(mailMetaData);
+    revalidatePath("/", "layout");
     return { success: true };
   } catch (e) {
     console.log(e);

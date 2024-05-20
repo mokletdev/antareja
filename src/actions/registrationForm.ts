@@ -2,6 +2,7 @@
 import { createTim } from "@/queries/tim.query";
 import { Jenjang, Tipe } from "@prisma/client";
 import { imageUploader } from "./fileUploader";
+import { revalidatePath } from "next/cache";
 
 export default async function submitFormRegistrasi(
   data: FormData,
@@ -44,6 +45,7 @@ export default async function submitFormRegistrasi(
         },
       },
     });
+    revalidatePath("/", "layout");
     return { success: true, message: "Berhasil membuat Tim!" };
   } catch (e) {
     console.log(e);
