@@ -9,11 +9,17 @@ const dummy = {
   title: "Juri",
 };
 
-const comingSoon = {
-  image: "/image/juri_placeholder.png",
-  name: "Coming Soon!",
-  title:  "",
-}
+const juri2 = {
+  image: "/image/juri2.png",
+  name: "Sendy Cahyono S.Tr.T",
+  title: "Juri",
+};
+
+const juri3 = {
+  image: "/image/juri3.png",
+  name: "Peltu Herman Nurcahya",
+  title: "Juri",
+};
 
 interface JuriCardProps {
   image: string;
@@ -60,9 +66,9 @@ export default function Juri() {
         </div>
         <div className="relative flex justify-center items-center gap-28 lg:gap-4 flex-col lg:flex-row">
           <div className="absolute w-full rounded-[30px] bg-white min-h-[293px] -top-14 hidden lg:block"></div>
-          <JuriCard image={comingSoon.image} name={comingSoon.name} title={comingSoon.title} />
           <JuriCard image={dummy.image} name={dummy.name} title={dummy.title} />
-          <JuriCard image={comingSoon.image} name={comingSoon.name} title={comingSoon.title} />
+          <JuriCard image={juri2.image} name={juri2.name} title={juri2.title} />
+          <JuriCard image={juri3.image} name={juri3.name} title={juri3.title} />
         </div>
       </div>
     </SectionWrapper>
