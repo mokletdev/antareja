@@ -1,5 +1,5 @@
 "use server";
-import { createTim } from "@/queries/tim.query";
+import { createTim, findTims } from "@/queries/tim.query";
 import { Jenjang, Tipe } from "@prisma/client";
 import { imageUploader } from "./fileUploader";
 import { revalidatePath } from "next/cache";
@@ -19,6 +19,11 @@ export default async function submitFormRegistrasi(
   const tipe_pembayaran = data.get("tipe-pembayaran") as string;
   const no_pelatih = data.get("no-pelatih") as string;
   const maskot = data.get("no-maskot") as File;
+
+  const timCount = (await findTims({ jenjang: jenjang })).length;
+
+  if (timCount >= 30)
+    return { success: false, message: `Kuota jenjang ${jenjang} telah penuh!` };
 
   try {
     let maskotPic;

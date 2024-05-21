@@ -1,22 +1,17 @@
 "use server";
 
-import { sendMailTo, mailMetaData } from "@/lib/mailer";
-import { verifyEmailTemplate } from "@/utils/emailTemplate";
-import { v4 as uuidv4, v1 as uuidv1 } from "uuid";
 import { generateHash } from "@/lib/hash";
+import { mailMetaData, sendMailTo } from "@/lib/mailer";
 import { createUser, findUser } from "@/queries/user.query";
+import { verifyEmailTemplate } from "@/utils/emailTemplate";
 import { revalidatePath } from "next/cache";
+import { v1 as uuidv1, v4 as uuidv4 } from "uuid";
 
 export default async function signUp(data: FormData) {
   const email = data.get("email") as string;
   const nama = data.get("nama") as string;
   const password = data.get("password") as string;
   const token = [uuidv1(), uuidv4()].join("-");
-  const htmlMailBody = verifyEmailTemplate(
-    email,
-    process.env.NEXTAUTH_URL + "auth/verify?token=" + token
-  );
-
   const tryFindUser = await findUser({ email });
   if (tryFindUser) return { success: false, message: "User telah terdaftar!" };
 
@@ -31,7 +26,7 @@ export default async function signUp(data: FormData) {
     });
     const htmlMail = verifyEmailTemplate(
       nama,
-      `${process.env.NEXTAUTH_URL}auth/token?code=${token}`
+      `${process.env.NEXTAUTH_URL}auth/verify?token=${token}`
     );
 
     const mailMetaData: mailMetaData = {
