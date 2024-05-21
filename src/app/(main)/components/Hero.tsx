@@ -46,11 +46,11 @@ export default function Hero() {
             <div className="flex gap-6 max-h-[100px] flex-col xl:flex-row">
               <div className="flex items-center justify-center py-[20px] p-[15px] sm:p-6 bg-primary-500 drop-shadow-glow rounded-[8.5px] sm:rounded-2xl max-w-[71px] max-h-[71px] sm:max-h-full sm:max-w-[100px]">
                 <Image
-                  src={"image/new_logo/ICON-HT.svg"}
+                  src={"/icon.svg"}
                   width={55}
                   height={57}
                   alt="logo"
-                  className="w-[30px] h-[30px] sm:w-[62px] sm:h-[55px]"
+                  className="w-[30px] h-[30px] sm:w-[62px] sm:h-[55px] invert"
                 />
               </div>
               <div className="flex flex-col gap-2">

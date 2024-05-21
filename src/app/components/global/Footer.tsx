@@ -42,11 +42,11 @@ export default function Footer() {
         <div className="flex justify-normal lg:justify-between lg:flex-row flex-col lg:gap-0 gap-6">
           <div className="flex flex-col gap-[10px] lg:gap-6 max-w-[408px]">
             <Image
-              src={"image/new_logo/TULISAN.svg"}
+              src={"/logo-text.svg"}
               alt="logo"
-              width={164}
-              height={164}
-              className="w-12 h-12 xl:w-32 xl:h-32"
+              width={125}
+              height={44}
+              className="w-14 h-[19px] lg:w-[125px] lg:h-[44px]"
             />
             <P className="text-base text-wrap text-neutral-200">
               Website resmi LKBB Antareja tingkat Jawa Timur yang
