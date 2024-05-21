@@ -40,7 +40,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-[30px] xl:px-[50px] py-[22px] h-full">
         <Link href={"/"}>
           <Image
-            src={"/logo.png"}
+            src={"/logo.svg"}
             alt="logo"
             width={64}
             height={64}
