@@ -46,7 +46,7 @@ export default function Hero() {
             <div className="flex gap-6 max-h-[100px] flex-col xl:flex-row">
               <div className="flex items-center justify-center py-[20px] p-[15px] sm:p-6 bg-primary-500 drop-shadow-glow rounded-[8.5px] sm:rounded-2xl max-w-[71px] max-h-[71px] sm:max-h-full sm:max-w-[100px]">
                 <Image
-                  src={"/logomin.svg"}
+                  src={"image/new_logo/ICON-HT.svg"}
                   width={55}
                   height={57}
                   alt="logo"
@@ -66,8 +66,8 @@ export default function Hero() {
             <P className="font-normal sm:font-semibold text-wrap max-w-full xl:max-w-[635px] text-neutral-200">
               Antareja merupakan tokoh pewayangan yang memiliki sifat rela
               berkorban dan memiliki rasa percaya yang besar. <br />
-              <br /> Sedangkan Jaware mamiliki makna sang juara yang dipandang
-              hebat. Inti dibalik semua usnur Antareja adalah barisan yang
+              <br /> Sedangkan Jawara mamiliki makna sang juara yang dipandang
+              hebat. Inti dibalik semua unsur Antareja adalah barisan yang
               beraksi dengan penuh semangat dan percaya bahwa menjadi sang
               pemenang yang dipadang hebat.
             </P>
