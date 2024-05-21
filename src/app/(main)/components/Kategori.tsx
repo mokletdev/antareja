@@ -7,11 +7,11 @@ export default function Kategori() {
     <SectionWrapper id="Kategori">
       <div className="w-full flex justify-start md:justify-between items-start md:items-center flex-col md:flex-row gap-6 md:gap-0">
         <div className="flex flex-col gap-3">
-          <span className="flex flex-col">
-            <H3 className="font-bold text-black">Kategori Perlombaan</H3>
+          <span className="flex flex-col gap-1">
+            <H3 className="font-bold text-black">Jenjang Perlombaan</H3>
             <H3 className="font-bold text-primary-500">Antareja 2024</H3>
           </span>
-          <P>Antareja memiliki 2 kategori perlombaan</P>
+          <P>Antareja memiliki 2 Jenjang perlombaan</P>
         </div>
         <div className="w-full md:w-auto flex gap-10 flex-col xl:flex-row">
           <figure className="bg-primary-500 p-[30px] rounded-3xl drop-shadow-glow">
@@ -25,7 +25,7 @@ export default function Kategori() {
                     Rp 400.000
                   </span>
                   <span className="font-semibold text-xs sm:text-[18px] text-white">
-                    Kategori SMP Paskibra
+                    Paskibra Jenjang SMP
                   </span>
                 </div>
               </div>
@@ -45,7 +45,7 @@ export default function Kategori() {
                     Rp 400.000
                   </span>
                   <span className="font-semibold text-xs sm:text-[18px] text-white">
-                    Kategori SMA Paskibra
+                    Paskibra Jenjang SMA
                   </span>
                 </div>
               </div>
