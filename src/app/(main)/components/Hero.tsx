@@ -1,13 +1,15 @@
 import { RightArrow } from "@/app/components/global/Icons";
 import { SecondaryLinkButton } from "@/app/components/global/LinkButton";
 import { H1, H3, LargeP, P } from "@/app/components/global/Text";
-import Image from "next/image";
-
+import { getServerSession } from "@/lib/next-auth";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const Countdown = dynamic(() => import("./parts/Countdown"), { ssr: false });
 
-export default function Hero() {
+export default async function Hero() {
+  const session = await getServerSession();
+
   return (
     <section
       className="relative w-full h-screen mb-[370px] sm:mb-[500px] md:mb-[450px] xl:mb-[336px] flex flex-col justify-center"
@@ -82,12 +84,12 @@ export default function Hero() {
             BARISAN <span className="italic">JAWARA</span>
           </H1>
           <SecondaryLinkButton
-            href="/auth/register"
+            href={session ? "/dashboard" : "/auth/register"}
             target="_blank"
             className="group inline-flex py-[12px] px-[20px] justify-center items-center"
           >
             <span className="flex gap-2 text-sm font-bold">
-              Daftar Sekarang
+              {session ? "Lihat Dashboard" : "Daftar Sekarang"}
               <RightArrow className="group-hover:translate-x-2 transition-all duration-300" />
             </span>
           </SecondaryLinkButton>
