@@ -3,23 +3,23 @@ import { H3, P } from "@/app/components/global/Text";
 import SectionWrapper from "@/app/components/global/Wrapper";
 import Image from "next/image";
 
-const dummy = {
-  image: "/image/juri1.png",
-  name: "Adi Prasetyo Utomo",
-  title: "Juri",
-};
-
-const juri2 = {
-  image: "/image/juri2.png",
-  name: "Sendy Cahyono S.Tr.T",
-  title: "Juri",
-};
-
-const juri3 = {
-  image: "/image/juri3.png",
-  name: "Peltu Herman Nurcahya",
-  title: "Juri",
-};
+const juris = [
+  {
+    image: "/image/juri1.png",
+    name: "Adi Prasetyo Utomo",
+    title: "Juri",
+  },
+  {
+    image: "/image/juri2.png",
+    name: "Sendy Cahyono S.Tr.T",
+    title: "Juri",
+  },
+  {
+    image: "/image/juri3.png",
+    name: "Peltu Herman Nurcahya",
+    title: "Juri",
+  },
+];
 
 interface JuriCardProps {
   image: string;
@@ -66,9 +66,9 @@ export default function Juri() {
         </div>
         <div className="relative flex justify-center items-center gap-28 lg:gap-4 flex-col lg:flex-row">
           <div className="absolute w-full rounded-[30px] bg-white min-h-[293px] -top-14 hidden lg:block"></div>
-          <JuriCard image={dummy.image} name={dummy.name} title={dummy.title} />
-          <JuriCard image={juri2.image} name={juri2.name} title={juri2.title} />
-          <JuriCard image={juri3.image} name={juri3.name} title={juri3.title} />
+          <JuriCard image={juris[0].image} name={juris[0].name} title={juris[0].title} />
+          <JuriCard image={juris[1].image} name={juris[1].name} title={juris[1].title} />
+          <JuriCard image={juris[2].image} name={juris[2].name} title={juris[2].title} />
         </div>
       </div>
     </SectionWrapper>
