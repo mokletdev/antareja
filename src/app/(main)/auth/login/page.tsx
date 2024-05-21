@@ -69,8 +69,8 @@ export default function Login() {
           />
         </div>
         <H1>
-          Buktikan Kemampuanmu
-          <span className="text-primary-500"> Bersama Antareja</span>
+          Kami Tunggu Tim Kalian di
+          <span className="text-primary-500"> Antareja Season 2</span>
         </H1>
         <P className="text-sm sm:text-base">
           Sudah siap menjadi pemenang Antareja?

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const dummy = {
   image: "/image/juri1.png",
-  name: "Adi prasetyo utomo",
+  name: "Adi Prasetyo Utomo",
   title: "Juri",
 };
 
