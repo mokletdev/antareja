@@ -33,7 +33,7 @@ export default function AdminLayout({
         <div className="bg-white w-full h-[55px] justify-between items-center flex relative px-5 z-[999]">
           <Link href={"/admin"}>
             <Image
-              src={"/logo.png"}
+              src={"/logo.svg"}
               alt="logo"
               width={64}
               height={64}

@@ -46,11 +46,11 @@ export default function Register() {
         />
         <div className="bg-primary-500 w-[48px] h-[45px] lg:w-[76.15px] lg:h-[71.31px] flex flex-col justify-center items-center rounded-xl drop-shadow-glow">
           <Image
-            src={"/logomin.svg"}
+            src={"/icon.svg"}
             width={55}
             height={57}
             alt="logo"
-            className="lg:w-[55px] lg:h-[57px] h-[26px] w-[25px]"
+            className="lg:w-[55px] lg:h-[57px] h-[26px] w-[25px] invert"
           />
         </div>
         <H1>

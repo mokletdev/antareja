@@ -28,7 +28,7 @@ export default async function Verification({
   return (
     <div className="flex justify-center items-center text-center flex-col h-screen gap-5">
       <H1>Berhasil memverifikasi akun {session.user?.email}!</H1>
-      <SecondaryLinkButton href="/auth/login">Login</SecondaryLinkButton>
+      <SecondaryLinkButton href="/">Kembali</SecondaryLinkButton>
     </div>
   );
 }
