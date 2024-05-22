@@ -14,47 +14,47 @@ const galleryItems: GalleryItemProps[] = [
   {
     image: "/image/galeri/image-1.jpg",
     title: "Serah Terima Piala",
-    description: "Tim Angkasa 23 pada Antareja 2024",
+    description: "Juara Utama 1 pada LKBB Antareja 2023",
   },
   {
     image: "/image/galeri/image-2.jpg",
     title: "Serah Terima Piala",
-    description: "Tim Angkasa 23 pada Antareja 2024",
+    description: "Juara Bina 1 pada LKBB Antareja 2023",
   },
   {
     image: "/image/galeri/image-3.jpg",
-    title: "Serah Terima Piala",
-    description: "Tim Angkasa 23 pada Antareja 2024",
+    title: "Penampilan PBB Antareja 2023",
+    description: "Tim SMPN 6 Malang pada Antareja 2023",
   },
   {
     image: "/image/galeri/image-4.jpg",
-    title: "Serah Terima Piala",
-    description: "Tim Angkasa 23 pada Antareja 2024",
+    title: "Penampilan PBB Antareja 2023",
+    description: "Tim SMK Brantas Karangkates pada Antareja 2023",
   },
   {
     image: "/image/galeri/image-5.jpg",
-    title: "Serah Terima Piala",
-    description: "Tim Angkasa 23 pada Antareja 2024",
+    title: "Penampilan VarFor Antareja 2023",
+    description: "Tim SMK Brantas Karangkates pada Antareja 2023",
   },
   {
     image: "/image/galeri/image-6.jpg",
-    title: "Serah Terima Piala",
-    description: "Tim Angkasa 23 pada Antareja 2024",
+    title: "Penampilan VarFor Antareja 2023",
+    description: "Tim SMA Nasional Malang pada Antareja 2023",
   },
   {
     image: "/image/galeri/image-7.jpg",
-    title: "Serah Terima Piala",
-    description: "Tim Angkasa 23 pada Antareja 2024",
+    title: "Penampilan PBB Antareja 2023",
+    description: "Tim SMAN 1 Kesamben pada Antareja 2023",
   },
   {
     image: "/image/galeri/image-8.jpg",
-    title: "Serah Terima Piala",
-    description: "Tim Angkasa 23 pada Antareja 2024",
+    title: "Apel Pembukaan",
+    description: "Apel pembukaan LKBB Antareja 2023",
   },
   {
     image: "/image/galeri/image-9.jpg",
-    title: "Serah Terima Piala",
-    description: "Tim Angkasa 23 pada Antareja 2024",
+    title: "Penampilan  VarFor Antareja 2023",
+    description: "Tim SMAN 9 Malang pada Antareja 2023",
   },
 ];
 
