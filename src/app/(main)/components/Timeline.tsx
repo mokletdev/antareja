@@ -37,61 +37,61 @@ export default function Timeline() {
         <div className="w-full flex flex-col gap-8 xl:hidden items-center">
           <div className="w-full flex gap-[38px] justify-center items-center">
             <TimelineItem
-              title="Buka Pendaftaran"
-              dateString="22 Juni - 5 Agustus 2024"
-              description="Pembukaan pendaftaraan"
+              title="Pendaftaran Peserta"
+              dateString="20 Mei 2024 - 7 September 2024"
+              description="pendaftaran melalui website antareja.smktelkom-mlg.sch.id"
             />
             <TimelineLine />
           </div>
           <div className="w-full flex gap-[38px] justify-center items-center">
             <TimelineLine />
-            <TimelineItem
-              title="Tutup Pendaftaran"
-              dateString="22 Juni - 5 Agustus 2024"
-              description="Penutupan pendaftaran"
-            />
-          </div>
-          <div className="w-full flex gap-[38px] justify-center items-center">
             <TimelineItem
               title="Technical Meeting"
-              dateString="22 Juni - 5 Agustus 2024"
-              description="Pelaksanaan technical meeting"
+              dateString="Sabtu, 7 September 2024"
+              description="dilaksanakan di SMK Telkom Malang"
+            />
+          </div>
+          <div className="w-full flex gap-[38px] justify-center items-center">
+            <TimelineItem
+              title="UCL (Uji Coba Lapangan)"
+              dateString="Jumat, 11 Oktober 2024"
+              description="15.00 - 18.00 WIB (Malang) 19.00 - 22.30 WIB (Luar Malang)"
             />
             <TimelineLine />
           </div>
           <div className="w-full flex gap-[38px] justify-center items-center">
             <TimelineLine />
             <TimelineItem
-              title="Perlombaan"
-              dateString="22 Juni - 5 Agustus 2024"
-              description="Pelaksanaan perlombaan"
+              title="Pelaksanaan Lomba"
+              dateString="Sabtu, 12 Oktober 2024"
+              description="06.00 WIB - selesai di SMK Telkom Malang"
             />
           </div>
         </div>
         <div className="xl:flex items-center justify-between hidden">
-          <TimelineItem
-            title="Buka Pendaftaran"
-            dateString="22 Juni - 5 Agustus 2024"
-            description="Pembukaan pendaftaraan"
-          />
+        <TimelineItem
+              title="Pendaftaran Peserta"
+              dateString="20 Mei 2024 - 7 September 2024"
+              description="pendaftaran melalui website antareja.smktelkom-mlg.sch.id"
+            />
           <TimelineLine />
           <TimelineItem
-            title="Tutup Pendaftaran"
-            dateString="22 Juni - 5 Agustus 2024"
-            description="Penutupan pendaftaran"
-          />
+              title="Technical Meeting"
+              dateString="Sabtu, 7 September 2024"
+              description="dilaksanakan di SMK Telkom Malang"
+            />
           <TimelineLine />
           <TimelineItem
-            title="Technical Meeting"
-            dateString="22 Juni - 5 Agustus 2024"
-            description="Pelaksanaan technical meeting"
-          />
+              title="UCL (Uji Coba Lapangan)"
+              dateString="Jumat, 11 Oktober 2024"
+              description="15.00 - 18.00 WIB (Malang) 19.00 - 22.30 WIB (Luar Malang)"
+            />
           <TimelineLine />
           <TimelineItem
-            title="Perlombaan"
-            dateString="22 Juni - 5 Agustus 2024"
-            description="Pelaksanaan perlombaan"
-          />
+              title="Pelaksanaan Lomba"
+              dateString="Sabtu, 12 Oktober 2024"
+              description="06.00 WIB - selesai di SMK Telkom Malang"
+            />
         </div>
         <Image
           src={"/image/timelinelogo.png"}

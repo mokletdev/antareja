@@ -1,57 +1,90 @@
 "use client";
-import Carousel from "./parts/Carousel";
-import SectionWrapper from "@/app/components/global/Wrapper";
-import { H3, P } from "@/app/components/global/Text";
-import { useKeenSlider } from "keen-slider/react";
-import GalleryNav from "./parts/CarouselArrow";
 
-const thisYear = new Date().getFullYear();
+import { H6, P } from "@/app/components/global/Text";
+import "keen-slider/keen-slider.min.css";
+import Image from "next/image";
 
-export default function Throwback() {
-  const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
-    loop: true,
-    breakpoints: {
-      "(min-width: 300px)": {
-        slides: { perView: 1, spacing: 38 },
-      },
-      "(min-width: 768px)": {
-        slides: { perView: 3, spacing: 38 },
-      },
-    },
-  });
+interface GalleryItemProps {
+  image: string;
+  title: string;
+  description: string;
+}
 
+const galleryItems: GalleryItemProps[] = [
+  {
+    image: "/image/galeri/image-1.jpg",
+    title: "Serah Terima Piala",
+    description: "Juara Utama 1 pada LKBB Antareja 2023",
+  },
+  {
+    image: "/image/galeri/image-2.jpg",
+    title: "Serah Terima Piala",
+    description: "Juara Bina 1 pada LKBB Antareja 2023",
+  },
+  {
+    image: "/image/galeri/image-3.jpg",
+    title: "Penampilan PBB Antareja 2023",
+    description: "Tim SMPN 6 Malang pada Antareja 2023",
+  },
+  {
+    image: "/image/galeri/image-4.jpg",
+    title: "Penampilan PBB Antareja 2023",
+    description: "Tim SMK Brantas Karangkates pada Antareja 2023",
+  },
+  {
+    image: "/image/galeri/image-5.jpg",
+    title: "Penampilan VarFor Antareja 2023",
+    description: "Tim SMK Brantas Karangkates pada Antareja 2023",
+  },
+  {
+    image: "/image/galeri/image-6.jpg",
+    title: "Penampilan VarFor Antareja 2023",
+    description: "Tim SMA Nasional Malang pada Antareja 2023",
+  },
+  {
+    image: "/image/galeri/image-7.jpg",
+    title: "Penampilan PBB Antareja 2023",
+    description: "Tim SMAN 1 Kesamben pada Antareja 2023",
+  },
+  {
+    image: "/image/galeri/image-8.jpg",
+    title: "Apel Pembukaan",
+    description: "Apel pembukaan LKBB Antareja 2023",
+  },
+  {
+    image: "/image/galeri/image-9.jpg",
+    title: "Penampilan  VarFor Antareja 2023",
+    description: "Tim SMAN 9 Malang pada Antareja 2023",
+  },
+];
+
+function GalleryItem({ item }: Readonly<{ item: GalleryItemProps }>) {
   return (
-    <SectionWrapper id="throwback">
-      <div className="block mb-[38px]">
-        <H3 className="mb-3">
-          Throwback{" "}
-          <span className="text-primary-500">Antareja {thisYear - 1}</span>
-        </H3>
-        <P>Kami kembali untukmu di tahun {thisYear}!</P>
+    <figure className="relative keen-slider__slide flex flex-col gap-7">
+      <div className="relative rounded-xl w-full h-full overflow-hidden">
+        <div className="absolute w-full h-full bg-gradient-to-t from-primary-700/80 to-transparent bottom-0 object-cover to-25%"></div>
+        <Image
+          src={item.image}
+          alt={item.title}
+          width={450}
+          height={240}
+          className="object-cover w-full h-full"
+        />
       </div>
-      <div className="relative w-full">
-        <div className="relative w-[90.8%] sm:w-[97.1%]">
-          <div
-            ref={ref}
-            className="keen-slider w-full mx-[21px] max-h-[294px] md:max-h-none"
-          >
-            <Carousel />
-          </div>
-        </div>
-        <div className="absolute flex justify-between w-full top-16">
-          <GalleryNav
-            onClick={(e) => {
-              instanceRef.current?.prev();
-            }}
-          />
-          <GalleryNav
-            onClick={(e) => {
-              instanceRef.current?.next();
-            }}
-            right
-          />
-        </div>
+      <div className="h-[59px] flex flex-col gap-2">
+        <H6>{item.title}</H6>
+        <P className="text-neutral-200">{item.description}</P>
       </div>
-    </SectionWrapper>
+    </figure>
+  );
+}
+
+export default function Carousel() {
+  return (
+    <>
+      {galleryItems.map((item) => (
+        <GalleryItem item={item} key={item.title} />
+      ))}
+    </>
   );
 }
