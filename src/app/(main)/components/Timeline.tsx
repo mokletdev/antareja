@@ -82,7 +82,7 @@ export default function Timeline() {
             />
           <TimelineLine />
           <TimelineItem
-              title="UCL (Uji Coba Lapangan)"
+              title="Uji Coba Lapangan"
               dateString="Jumat, 11 Oktober 2024"
               description="15.00 - 18.00 WIB (Malang) 19.00 - 22.30 WIB (Luar Malang)"
             />
