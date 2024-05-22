@@ -26,7 +26,7 @@ export default async function Verification({
   await updateUser({ id: session.user?.id }, { verified: true });
 
   return (
-    <div className="flex justify-center items-center text-center flex-col h-screen gap-5">
+    <div className="flex justify-center items-center text-center text-wrap flex-col h-screen gap-5 px-6 sm:px-0">
       <H1>Berhasil memverifikasi akun {session.user?.email}!</H1>
       <SecondaryLinkButton href="/">Kembali</SecondaryLinkButton>
     </div>
