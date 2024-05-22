@@ -13,8 +13,10 @@ function TimelineItem({
         <span className="text-white font-bold">{title}</span>
       </div>
       <div className="flex flex-col items-center gap-1 w-full">
-        <span className="text-black font-bold">{dateString}</span>
-        <span className="text-[#858585] text-sm">{description}</span>
+        <span className="text-black font-bold text-center">{dateString}</span>
+        <span className="text-[#858585] text-sm text-center">
+          {description}
+        </span>
       </div>
     </div>
   );
@@ -69,29 +71,29 @@ export default function Timeline() {
           </div>
         </div>
         <div className="xl:flex items-center justify-between hidden">
-        <TimelineItem
-              title="Pendaftaran Peserta"
-              dateString="20 Mei 2024 - 7 September 2024"
-              description="pendaftaran melalui website antareja.smktelkom-mlg.sch.id"
-            />
+          <TimelineItem
+            title="Pendaftaran Peserta"
+            dateString="20 Mei - 7 September 2024"
+            description="pendaftaran melalui website antareja.smktelkom-mlg.sch.id"
+          />
           <TimelineLine />
           <TimelineItem
-              title="Technical Meeting"
-              dateString="Sabtu, 7 September 2024"
-              description="dilaksanakan di SMK Telkom Malang"
-            />
+            title="Technical Meeting"
+            dateString="Sabtu, 7 September 2024"
+            description="dilaksanakan di SMK Telkom Malang"
+          />
           <TimelineLine />
           <TimelineItem
-              title="Uji Coba Lapangan"
-              dateString="Jumat, 11 Oktober 2024"
-              description="15.00 - 18.00 WIB (Malang) 19.00 - 22.30 WIB (Luar Malang)"
-            />
+            title="Uji Coba Lapangan"
+            dateString="Jumat, 11 Oktober 2024"
+            description="15.00 - 18.00 WIB (Malang) 19.00 - 22.30 WIB (Luar Malang)"
+          />
           <TimelineLine />
           <TimelineItem
-              title="Pelaksanaan Lomba"
-              dateString="Sabtu, 12 Oktober 2024"
-              description="06.00 WIB - selesai di SMK Telkom Malang"
-            />
+            title="Pelaksanaan Lomba"
+            dateString="Sabtu, 12 Oktober 2024"
+            description="06.00 WIB - selesai di SMK Telkom Malang"
+          />
         </div>
         <Image
           src={"/image/timelinelogo.png"}
