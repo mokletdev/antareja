@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   keywords: "antareja, lkbb, moklet, SMK, malang, telkom, paskibra",
   creator: "MokletDev Team",
   publisher: "SMK Telkom Malang",
+  verification: { google: "5b4dyR8sHph6P_xwuaaNfnN4FMAlL4G_GsWznRP5tuA" },
 };
 
 export const viewport: Viewport = {
