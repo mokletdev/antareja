@@ -19,6 +19,11 @@ const juris = [
     name: "Peltu Herman Nurcahya",
     title: "Juri",
   },
+  {
+    image: "/image/juri4.png",
+    name: "Sersan Mayor Suroto",
+    title: "Juri",
+  },
 ];
 
 interface JuriCardProps {
@@ -66,9 +71,26 @@ export default function Juri() {
         </div>
         <div className="relative flex justify-center items-center gap-28 lg:gap-4 flex-col lg:flex-row">
           <div className="absolute w-full rounded-[30px] bg-white min-h-[293px] -top-14 hidden lg:block"></div>
-          <JuriCard image={juris[0].image} name={juris[0].name} title={juris[0].title} />
-          <JuriCard image={juris[1].image} name={juris[1].name} title={juris[1].title} />
-          <JuriCard image={juris[2].image} name={juris[2].name} title={juris[2].title} />
+          <JuriCard
+            image={juris[0].image}
+            name={juris[0].name}
+            title={juris[0].title}
+          />
+          <JuriCard
+            image={juris[1].image}
+            name={juris[1].name}
+            title={juris[1].title}
+          />
+          <JuriCard
+            image={juris[2].image}
+            name={juris[2].name}
+            title={juris[2].title}
+          />
+          <JuriCard
+            image={juris[3].image}
+            name={juris[3].name}
+            title={juris[3].title}
+          />
         </div>
       </div>
     </SectionWrapper>
