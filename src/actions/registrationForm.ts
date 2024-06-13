@@ -18,7 +18,6 @@ export default async function submitFormRegistrasi(
   const nama_rek = data.get("namarek") as string;
   const tipe_pembayaran = data.get("tipe-pembayaran") as string;
   const no_pelatih = data.get("no-pelatih") as string;
-  const maskot = data.get("no-maskot") as File;
 
   const timCount = (await findTims({ jenjang: jenjang })).length;
 
@@ -26,19 +25,15 @@ export default async function submitFormRegistrasi(
     return { success: false, message: `Kuota jenjang ${jenjang} telah penuh!` };
 
   try {
-    let maskotPic;
     const tryUploadImage = await imageUploader(
       Buffer.from(await bukti.arrayBuffer())
     );
-    if (jenjang === "SMA")
-      maskotPic = await imageUploader(Buffer.from(await maskot.arrayBuffer()));
     await createTim({
       nama_tim,
       asal_sekolah,
       jenjang,
       pelatih,
       tipe_tim,
-      foto_mascot: maskotPic?.data?.url,
       no_pelatih,
       user: { connect: { id: userId } },
       pembayaran: {

@@ -26,7 +26,6 @@ const paymentType = [
 
 export default function FormComponent({ id }: { id: string }) {
   const [isDP, setIsDP] = useState(false);
-  const [jenjangStatus, setJenjang] = useState("SMA" || "SMP");
   const router = useRouter();
 
   async function submitForm(data: FormData) {
@@ -91,7 +90,6 @@ export default function FormComponent({ id }: { id: string }) {
             required
             options={jenjang}
             id="jenjang"
-            onChange={(e) => setJenjang(e?.value!)}
             placeholder="Pilih Jenjang"
             classNames={{
               placeholder: () => "text-[#C8C8C8]",
@@ -136,23 +134,6 @@ export default function FormComponent({ id }: { id: string }) {
             }}
           />
         </div>
-        {jenjangStatus === "SMA" && (
-          <div className="flex flex-col gap-2">
-            <label htmlFor="maskot" className="text-[16px]">
-              Foto Maskot
-            </label>
-            <input
-              id="maskot"
-              type="file"
-              className="border border-neutral-200 py-4 px-3 rounded-xl file:bg-primary-500 file:text-white file:rounded-md file:border-none file:py-1 file:hover:bg-opacity-85 file:transition-all file:duration-300 hover:cursor-pointer file:hover:cursor-pointer"
-              title="Pilih foto maskot"
-              accept="image/*"
-              name="maskot"
-              placeholder="Pilih foto maskot"
-              required
-            />
-          </div>
-        )}
         <div className="flex flex-col gap-2">
           <label htmlFor={"tipe"} className="text-[16px]">
             Tipe Pembayaran
