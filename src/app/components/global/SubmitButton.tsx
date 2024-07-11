@@ -21,7 +21,7 @@ export default function SubmitButton({
       type="submit"
     >
       {pending ? (
-        <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+        <div className="flex items-center justify-center">
           <Spinner className="animate-spin" />
         </div>
       ) : (
@@ -43,7 +43,7 @@ export function LoginButton({
   return (
     <PrimaryButton
       disabled={disabled}
-      className={cn("relative ", className)}
+      className={cn("relative px-6 py-3 ", className)}
       type="submit"
     >
       {disabled ? (
