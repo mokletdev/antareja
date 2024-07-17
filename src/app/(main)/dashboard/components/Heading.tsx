@@ -22,7 +22,7 @@ export default async function Heading() {
       <div className="flex items-center justify-between w-full mb-3">
         <H2 className="mb-2">Selamat Datang, {session?.user?.nama}👋</H2>
         <PrimaryLinkButton
-          href="https://drive.google.com/file/d/1KqoEFRavgL_KlhoKUBbgX-GpRBpEdQ6B/view?usp=drive_link"
+          href="https://drive.google.com/file/d/1roOVRZNQFwdIeINGeLMvj3AYgATIHJDC/view?usp=sharing"
           className="inline-flex gap-2 items-center"
         >
           Unduh buku panduan <FaDownload />

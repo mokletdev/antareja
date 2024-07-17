@@ -24,6 +24,11 @@ const juris = [
     name: "Sersan Mayor Suroto",
     title: "Juri",
   },
+  {
+    image: "/image/juri5.svg",
+    name: "Bogie Nasution",
+    title: "Juri",
+  },
 ];
 
 interface JuriCardProps {
@@ -90,6 +95,11 @@ export default function Juri() {
             image={juris[3].image}
             name={juris[3].name}
             title={juris[3].title}
+          />
+          <JuriCard
+            image={juris[4].image}
+            name={juris[4].name}
+            title={juris[4].title}
           />
         </div>
       </div>
