@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 import Heading from "./components/Heading";
 import ProfileTim from "./components/ProfileTim";
 import { TimWithRelations } from "@/types/entityRelations";
+import { H3 } from "@/app/components/global/Text";
+import SectionWrapper from "@/app/components/global/Wrapper";
 
 export default async function TimDashboard() {
   const session = await getServerSession();

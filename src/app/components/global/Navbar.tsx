@@ -36,7 +36,7 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <nav className="w-full -mt-[58px] xl:-mt-[88px] h-[58px] xl:h-[88px] bg-neutral-500 fixed z-[999]">
+    <nav className="-mt-[58px] xl:-mt-[88px] w-full h-[58px] xl:h-[88px] bg-neutral-500 fixed z-[999]">
       <div className="flex items-center justify-between px-[30px] xl:px-[50px] py-[22px] h-full">
         <Link href={"/"}>
           <Image

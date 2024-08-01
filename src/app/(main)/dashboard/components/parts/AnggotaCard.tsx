@@ -19,7 +19,7 @@ export function AnggotaCard({
   return (
     <Link
       href={href}
-      className="relative flex w-1/6 items-center justify-center hover:scale-105 transition-all duration-300"
+      className="relative flex w-full sm:w-[40%] xl:w-1/6 items-center justify-center hover:scale-105 transition-all duration-300"
     >
       <Image
         src={image}

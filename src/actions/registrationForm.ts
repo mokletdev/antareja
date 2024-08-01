@@ -19,7 +19,7 @@ export default async function submitFormRegistrasi(
   const tipe_pembayaran = data.get("tipe-pembayaran") as string;
   const no_pelatih = data.get("no-pelatih") as string;
 
-  const timCount = (await findTims({ jenjang: jenjang })).length;
+  const timCount = (await findTims({ jenjang: jenjang, confirmed: true })).length;
 
   if (timCount >= 30)
     return { success: false, message: `Kuota jenjang ${jenjang} telah penuh!` };

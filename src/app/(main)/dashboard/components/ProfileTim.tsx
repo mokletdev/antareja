@@ -5,6 +5,7 @@ import SectionWrapper from "@/app/components/global/Wrapper";
 import { TimWithRelations } from "@/types/entityRelations";
 import { ReactNode, useState } from "react";
 import { AnggotaCard } from "./parts/AnggotaCard";
+import cn from "@/lib/clsx";
 
 const rowsMapNormal = [
   ["b1s1", "b1s2", "b1s3"],
@@ -24,9 +25,9 @@ const sizeMap = {
   NORMAL: 15,
 };
 
-function AnggotaCardsWrapper({ children }: Readonly<{ children: ReactNode }>) {
+function AnggotaCardsWrapper({ children,className }: Readonly<{ children: ReactNode,className?:string }>) {
   return (
-    <div className="flex items-center justify-center gap-16">{children}</div>
+    <div className={cn("flex items-center justify-center gap-16 ", className)}>{children}</div>
   );
 }
 
@@ -61,7 +62,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
         
           <div className="pb-20">
           {tim.jenjang === "SMP" && (
-            <AnggotaCardsWrapper>
+            <AnggotaCardsWrapper className="flex flex-wrap gap-10">
               <AnggotaCard
                 href={`/dashboard/anggota/cerdas_cermat1`}
                 image={
@@ -81,7 +82,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
             </AnggotaCardsWrapper>
           )}
         </div>
-        <AnggotaCardsWrapper>
+        <AnggotaCardsWrapper className="flex flex-wrap gap-10">
           <AnggotaCard
             href={`/dashboard/anggota/danton`}
             image={danton?.foto ?? "/placeholder-profile-picture.jpg"}
@@ -105,7 +106,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
         </AnggotaCardsWrapper>
         {tim.tipe_tim === "NORMAL"
         ? rowsMapNormal.map((row, i) => (
-          <AnggotaCardsWrapper key={i}>
+          <AnggotaCardsWrapper key={i} className="flex flex-wrap gap-10">
           {row.map((pos, i) => {
                   const anggotaInPos = anggotas.find(
                     (value) => value.posisi === pos.toUpperCase()
@@ -126,7 +127,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
                 </AnggotaCardsWrapper>
               ))
               : rowsMapSmall.map((row, i) => (
-                <AnggotaCardsWrapper key={i}>
+                <AnggotaCardsWrapper key={i} className="flex flex-wrap gap-10">
                 {row.map((pos, i) => {
                   const anggotaInPos = anggotas.find(
                     (value) => value.posisi === pos.toUpperCase()
@@ -188,7 +189,11 @@ export default function ProfileTim({
             {tim.confirmed ? "Sudah" : "Belum"}
           </P>
         </div>
-        <TimLayout tim={tim} />
+        {tim.confirmed ?  <TimLayout tim={tim} /> : (
+        <SectionWrapper className="!pt-[100px] flex items-center justify-center">
+          <H3 className="text-center">Silahkan untuk menunggu konfirmasi pembayaran dari admin</H3>
+        </SectionWrapper>
+      )}
       </div>
     </SectionWrapper>
   );

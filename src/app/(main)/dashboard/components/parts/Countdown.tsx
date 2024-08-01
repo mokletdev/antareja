@@ -27,7 +27,7 @@ export default function Countdown() {
   return (
     <figure className="flex flex-col gap-4">
       <H2>Waktu Tersisa Sebelum Hari-H</H2>
-      <div className="flex gap-[17px]">
+      <div className="flex gap-[17px] flex-wrap md:flex-nowrap w-full justify-center">
         <TimeFigure time={days} title="Hari" />
         <TimeFigure time={hours} title="Jam" />
         <TimeFigure time={minutes} title="Menit" />
