@@ -40,7 +40,7 @@ export default function Video() {
             </P>
           </div>
           <PrimaryLinkButton
-            href="https://drive.google.com/file/d/1roOVRZNQFwdIeINGeLMvj3AYgATIHJDC/view?usp=sharing"
+            href="https://drive.google.com/file/d/1JdewtpA0-Tcye436lVckEu5lY940Yy13/view?usp=sharing"
             className="inline-flex gap-2 items-center mb-[40px]"
           >
             Unduh buku panduan <FaDownload />
@@ -91,7 +91,7 @@ export default function Video() {
             </P>
           </div>
           <PrimaryLinkButton
-            href="https://drive.google.com/file/d/1roOVRZNQFwdIeINGeLMvj3AYgATIHJDC/view?usp=sharing"
+            href="https://drive.google.com/file/d/1JdewtpA0-Tcye436lVckEu5lY940Yy13/view?usp=sharing"
             className="inline-flex gap-2 items-center mb-[40px]"
           >
             Unduh buku panduan <FaDownload />
