@@ -7,7 +7,7 @@ import "./globals.css";
 import basierFont from "./font";
 
 export const metadata: Metadata = {
-  title: "LKBB Antareja",
+  title: "LPKBB Antareja",
   description: "Official Website of LKBB Antareja",
   authors: [
     { name: "Ahsan Azizan", url: "https://ahsanzizan.xyz" },

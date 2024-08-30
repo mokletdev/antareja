@@ -84,7 +84,11 @@ export default async function Hero() {
             BARISAN <span className="italic">JAWARA</span>
           </H1>
           <SecondaryLinkButton
-            href={session ? "/dashboard" : "/auth/register"}
+            href={
+              session?.user?.role == "ADMIN" 
+                ? (session ? "/admin" : "/auth/register")
+                : (session ? "/dashboard" : "/auth/register")
+            }
             target="_blank"
             className="group inline-flex py-[12px] px-[20px] justify-center items-center"
           >
@@ -99,7 +103,7 @@ export default async function Hero() {
             Antareja 2024
           </P>
           <LargeP className="font-semibold">
-            Selamat datang di website official lomba keterampilan baris berbaris
+            Selamat datang di website official lomba peraturan keterampilan baris berbaris
             dari paskibra SMK Telkom Malang
           </LargeP>
         </div>

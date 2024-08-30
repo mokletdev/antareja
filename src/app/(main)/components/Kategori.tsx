@@ -30,7 +30,7 @@ export default function Kategori() {
                 </div>
               </div>
               <SmallP className="text-white">
-                *Pendaftaran 20 Mei 2024 - 7 September 2024*
+                *Pendaftaran 20 Mei 2024 - 5 Oktober 2024*
               </SmallP>
             </div>
           </figure>
@@ -50,7 +50,7 @@ export default function Kategori() {
                 </div>
               </div>
               <SmallP className="text-white">
-                *Pendaftaran 20 Mei 2024 - 7 September 2024*
+                *Pendaftaran 20 Mei 2024 - 5 Oktober 2024*
               </SmallP>
             </div>
           </figure>

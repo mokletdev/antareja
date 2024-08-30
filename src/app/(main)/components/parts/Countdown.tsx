@@ -3,7 +3,7 @@
 import { H2, H5 } from "@/app/components/global/Text";
 import { useCountdown } from "@/app/hooks/useCountdown";
 
-const endDate = new Date("09/07/2024");
+const endDate = new Date("10/05/2024");
 
 function TimeFigure({
   time,
