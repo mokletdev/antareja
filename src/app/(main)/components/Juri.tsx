@@ -68,10 +68,10 @@ export default function Juri() {
       <div className="w-full flex flex-col gap-[40px] text-end">
         <div className="mb-24 w-full flex flex-col items-end">
           <H3 className="text-[#272727] font-bold">
-            Juri LKBB <span className="text-primary-500">Antareja 2024</span>
+            Juri LPKBB <span className="text-primary-500">Antareja 2024</span>
           </H3>
           <P className="text-wrap text-neutral-200 max-w-[300px] lg:max-w-none">
-            Yuk kenalan dulu dengan tim juri LKBB Antareja tahun 2024
+            Yuk kenalan dulu dengan tim juri LPKBB Antareja tahun 2024
           </P>
         </div>
         <div className="relative flex justify-center items-center gap-28 lg:gap-4 flex-col lg:flex-row">

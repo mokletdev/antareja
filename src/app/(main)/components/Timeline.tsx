@@ -40,7 +40,7 @@ export default function Timeline() {
           <div className="w-full flex gap-[38px] justify-center items-center">
             <TimelineItem
               title="Pendaftaran Peserta"
-              dateString="20 Mei 2024 - 7 September 2024"
+              dateString="20 Mei 2024 - 5 Oktober 2024"
               description="pendaftaran melalui website antareja.smktelkom-mlg.sch.id"
             />
             <TimelineLine />
@@ -49,7 +49,7 @@ export default function Timeline() {
             <TimelineLine />
             <TimelineItem
               title="Technical Meeting"
-              dateString="Sabtu, 7 September 2024"
+              dateString="Sabtu, 5 Oktober 2024"
               description="dilaksanakan di SMK Telkom Malang"
             />
           </div>
@@ -73,13 +73,13 @@ export default function Timeline() {
         <div className="xl:flex items-center justify-between hidden">
           <TimelineItem
             title="Pendaftaran Peserta"
-            dateString="20 Mei - 7 September 2024"
+            dateString="20 Mei - 5 Oktober 2024"
             description="pendaftaran melalui website antareja.smktelkom-mlg.sch.id"
           />
           <TimelineLine />
           <TimelineItem
             title="Technical Meeting"
-            dateString="Sabtu, 7 September 2024"
+            dateString="Sabtu, 5 Oktober 2024"
             description="dilaksanakan di SMK Telkom Malang"
           />
           <TimelineLine />
