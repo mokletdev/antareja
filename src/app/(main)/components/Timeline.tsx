@@ -49,7 +49,7 @@ export default function Timeline() {
             <TimelineLine />
             <TimelineItem
               title="Technical Meeting"
-              dateString="Sabtu, 5 Oktober 2024"
+              dateString="Sabtu, 7 September 2024"
               description="dilaksanakan di SMK Telkom Malang"
             />
           </div>
@@ -79,7 +79,7 @@ export default function Timeline() {
           <TimelineLine />
           <TimelineItem
             title="Technical Meeting"
-            dateString="Sabtu, 5 Oktober 2024"
+            dateString="Sabtu, 7 September 2024"
             description="dilaksanakan di SMK Telkom Malang"
           />
           <TimelineLine />
