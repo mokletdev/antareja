@@ -33,6 +33,7 @@ export async function updateUserForm(data: FormData, id: string) {
   const email = data.get("email") as string;
   const password = (data.get("password") as string) || undefined;
   const role = data.get("role") as Role;
+  const verified = data.get("verified") === "true";
 
   try {
     if (password) {
@@ -55,6 +56,7 @@ export async function updateUserForm(data: FormData, id: string) {
         nama: name,
         email: email,
         role: role,
+        verified : verified,
       }
     );
     revalidatePath("/", "layout");
