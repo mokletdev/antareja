@@ -10,6 +10,7 @@
     "prettier": "prettier --write .",
     "prisma": "dotenv -e .env.local prisma migrate dev",
     "prisma:generate": "dotenv -e .env.local prisma generate",
+    "prisma:deploy": "dotenv -e .env.local prisma migrate deploy",
     "prisma:push": "dotenv -e .env.local prisma db push",
     "prisma:studio": "dotenv -e .env.local prisma studio"
   },
