@@ -21,6 +21,11 @@ export default function PembayaranForm({
     { label: "Belum Terkonfirmasi", value: false },
   ];
 
+  const optionsPembayaran = [
+    { label: "Lunas", value: "false" },
+    { label: "DP 50%", value: "true" },
+  ];
+
   async function Update(dataForm: FormData) {
     const toastId = toast.loading("Loading...");
     const result = await konfirmasiPembayaran(dataForm, data?.id!);
@@ -79,6 +84,36 @@ export default function PembayaranForm({
             options={options}
             id="confirm"
             placeholder="Konfirmasi/Belum"
+            classNames={{
+              control: () =>
+                "rounded-[14px] border focus:bg-[#F1F6F9] border-neutral-400 px-[18px] active:border-black hover:border-black py-[14px] text-black placeholder-neutral-500 bg-white focus:outline-none transition-all duration-500 placeholder:text-[#C8C8C8]",
+              menu: () =>
+                "bg-white rounded-lg px-[18px] py-[14px] border border-neutral-400",
+              multiValue: () =>
+                "bg-primary-400 px-4 py-2 text-white rounded-2xl",
+              valueContainer: () => "flex gap-2",
+              menuList: () => "text-base flex flex-col gap-1",
+              option: () =>
+                "hover:bg-neutral-300 hover:cursor-pointer transition-all duration-500 rounded-lg p-2",
+              input: () => "focus:bg-[#F1F6F9]",
+            }}
+          />
+        </div>
+        
+        <div className="flex flex-col gap-2">
+          <label htmlFor={"isDP"} className="text-[16px]">
+            Status Pembayaran
+          </label>
+          <Select
+            name="isDP"
+            unstyled
+            defaultValue={{
+              label: data?.pembayaran?.isDP ? "DP 50%" : "Lunas",
+              value: data?.pembayaran?.isDP ? "true" : "false",
+            }}
+            options={optionsPembayaran}
+            id="isDP"
+            placeholder="Lunas/DP"
             classNames={{
               control: () =>
                 "rounded-[14px] border focus:bg-[#F1F6F9] border-neutral-400 px-[18px] active:border-black hover:border-black py-[14px] text-black placeholder-neutral-500 bg-white focus:outline-none transition-all duration-500 placeholder:text-[#C8C8C8]",
