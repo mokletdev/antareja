@@ -27,6 +27,11 @@ export default function TimForm({
     { label: "SMA", value: "SMA" },
   ];
 
+  const options_type = [
+    { label: "12 Anggota", value: "SMALL" },
+    { label: "15 Anggota", value: "NORMAL" },
+  ];
+
   async function Update(data: FormData) {
     const toastId = toast.loading("Loading...");
     const result = await updateTimForm(data, id!);
@@ -95,6 +100,37 @@ export default function TimForm({
             options={options}
             id="jenjang"
             placeholder="Jenjang"
+            classNames={{
+              control: () =>
+                "rounded-[14px] border focus:bg-[#F1F6F9] border-neutral-400 px-[18px] active:border-black hover:border-black py-[14px] text-black placeholder-neutral-500 bg-white focus:outline-none transition-all duration-500 placeholder:text-[#C8C8C8]",
+              menu: () =>
+                "bg-white rounded-lg px-[18px] py-[14px] border border-neutral-400",
+              multiValue: () =>
+                "bg-primary-400 px-4 py-2 text-white rounded-2xl",
+              valueContainer: () => "flex gap-2",
+              menuList: () => "text-base flex flex-col gap-1",
+              option: () =>
+                "hover:bg-neutral-300 hover:cursor-pointer transition-all duration-500 rounded-lg p-2",
+              input: () => "focus:bg-[#F1F6F9]",
+            }}
+          />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label htmlFor={"tipe_tim"} className="text-[16px]">
+            Tipe Tim
+          </label>
+          <Select
+            name="tipe_tim"
+            unstyled
+            defaultValue={{
+              label: data?.tipe_tim.toString() === "SMALL" ? "12 Anggota" : "15 Anggota" ,
+              value: data?.tipe_tim.toString(),
+            }}
+            isDisabled={false}
+            options={options_type}
+            id="tipe_tim"
+            placeholder="Tipe tim"
             classNames={{
               control: () =>
                 "rounded-[14px] border focus:bg-[#F1F6F9] border-neutral-400 px-[18px] active:border-black hover:border-black py-[14px] text-black placeholder-neutral-500 bg-white focus:outline-none transition-all duration-500 placeholder:text-[#C8C8C8]",
