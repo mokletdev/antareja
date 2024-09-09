@@ -34,8 +34,8 @@ jobs:
           echo 'GOOGLE_REDIRECT_URI=${{secrets.GOOGLE_REDIRECT_URI}}' >> /home/mokletdev/actions-runner/_work/antareja/antareja/.env.local
       - name: Install Modules
         run: npm ci
-      - name: Push prisma schema
-        run: npm run prisma:deploy
+      - name: Generate prisma schema
+        run: npm run prisma:generate
       - name: Build site
         run: npm run build --if-present
       - name: change dir
