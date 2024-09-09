@@ -32,6 +32,7 @@ export default async function EditAnggota({
       timId: "",
     } as unknown as Anggota);
 
+    console.log(anggota)
   return (
     <div className="my-16">
       <EditAnggotaForm anggota={anggota} />
