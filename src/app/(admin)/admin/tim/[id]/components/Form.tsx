@@ -43,7 +43,7 @@ export default function TimForm({
     }
   }
 
-  
+
   return (
     <form action={Update}>
       <H1>Profile Tim</H1>
@@ -99,7 +99,9 @@ export default function TimForm({
         />
 
         {data?.link_berkas ? (
-          <CopyLinkButton children="Copy Link" href={data.link_berkas ?? ''} />
+          <CopyLinkButton href={data.link_berkas ?? ''}>
+            Copy Link
+          </CopyLinkButton>
         ) : null}
 
         <div className="flex flex-col gap-2">
