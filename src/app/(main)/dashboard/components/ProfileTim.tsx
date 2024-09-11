@@ -6,6 +6,11 @@ import { TimWithRelations } from "@/types/entityRelations";
 import { ReactNode, useState } from "react";
 import { AnggotaCard } from "./parts/AnggotaCard";
 import cn from "@/lib/clsx";
+import { updateTimForm } from "@/actions/Tim";
+import TextField from "@/app/components/global/Input";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import SubmitButton from "@/app/components/global/SubmitButton";
 
 const rowsMapNormal = [
   ["b1s1", "b1s2", "b1s3"],
@@ -25,7 +30,7 @@ const sizeMap = {
   NORMAL: 15,
 };
 
-function AnggotaCardsWrapper({ children,className }: Readonly<{ children: ReactNode,className?:string }>) {
+function AnggotaCardsWrapper({ children, className }: Readonly<{ children: ReactNode, className?: string }>) {
   return (
     <div className={cn("flex items-center justify-center gap-16 ", className)}>{children}</div>
   );
@@ -59,8 +64,8 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
         </P>
       )}
       <div className="py-5 px-10 bg-neutral-300 rounded-lg flex flex-col gap-12">
-        
-          <div className="pb-20">
+
+        <div className="pb-20">
           {tim.jenjang === "SMP" && (
             <AnggotaCardsWrapper className="flex flex-wrap gap-10">
               <AnggotaCard
@@ -70,7 +75,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
                 }
                 name={cerdas_cermat1?.nama ?? "Belum diisi"}
                 posisi={"CERDAS CERMAT"}
-                />
+              />
               <AnggotaCard
                 href={`/dashboard/anggota/cerdas_cermat2`}
                 image={
@@ -78,7 +83,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
                 }
                 name={cerdas_cermat2?.nama ?? "Belum diisi"}
                 posisi={"CERDAS CERMAT"}
-                />
+              />
             </AnggotaCardsWrapper>
           )}
         </div>
@@ -88,32 +93,32 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
             image={danton?.foto ?? "/placeholder-profile-picture.jpg"}
             name={danton?.nama ?? "Belum diisi"}
             posisi={danton?.posisi ?? "DANTON"}
-            />
+          />
           <AnggotaCard
             href={`/dashboard/anggota/official`}
             image={official?.foto ?? "/placeholder-profile-picture.jpg"}
             name={official?.nama ?? "Belum diisi"}
             posisi={official?.posisi ?? "OFFICIAL"}
-            />
+          />
           {tim.jenjang === "SMA" && (
             <AnggotaCard
               href={`/dashboard/mascot`}
               image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
               name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum diisi"}
               posisi={"MASCOT"}
-              />
+            />
           )}
         </AnggotaCardsWrapper>
         {tim.tipe_tim === "NORMAL"
-        ? rowsMapNormal.map((row, i) => (
-          <AnggotaCardsWrapper key={i} className="flex flex-wrap gap-10">
-          {row.map((pos, i) => {
-                  const anggotaInPos = anggotas.find(
-                    (value) => value.posisi === pos.toUpperCase()
-                  );
-                  
-                  return (
-                    <AnggotaCard
+          ? rowsMapNormal.map((row, i) => (
+            <AnggotaCardsWrapper key={i} className="flex flex-wrap gap-10">
+              {row.map((pos, i) => {
+                const anggotaInPos = anggotas.find(
+                  (value) => value.posisi === pos.toUpperCase()
+                );
+
+                return (
+                  <AnggotaCard
                     href={`/dashboard/anggota/${pos}`}
                     image={
                       anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
@@ -121,32 +126,32 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
                     name={anggotaInPos?.nama ?? "Belum diisi"}
                     posisi={"Posisi " + (anggotaInPos?.posisi ?? pos)}
                     key={anggotaInPos?.id ?? i}
-                    />
-                  );
-                })}
-                </AnggotaCardsWrapper>
-              ))
-              : rowsMapSmall.map((row, i) => (
-                <AnggotaCardsWrapper key={i} className="flex flex-wrap gap-10">
-                {row.map((pos, i) => {
-                  const anggotaInPos = anggotas.find(
-                    (value) => value.posisi === pos.toUpperCase()
-                  );
-                  
-                  return (
-                    <AnggotaCard
+                  />
+                );
+              })}
+            </AnggotaCardsWrapper>
+          ))
+          : rowsMapSmall.map((row, i) => (
+            <AnggotaCardsWrapper key={i} className="flex flex-wrap gap-10">
+              {row.map((pos, i) => {
+                const anggotaInPos = anggotas.find(
+                  (value) => value.posisi === pos.toUpperCase()
+                );
+
+                return (
+                  <AnggotaCard
                     href={`/dashboard/anggota/${pos}`}
-                      image={
-                        anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
-                      }
-                      name={anggotaInPos?.nama ?? "Belum diisi"}
-                      posisi={anggotaInPos?.posisi ?? pos}
-                      key={anggotaInPos?.id ?? i}
-                      />
-                    );
-                  })}
-              </AnggotaCardsWrapper>
-            ))}
+                    image={
+                      anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
+                    }
+                    name={anggotaInPos?.nama ?? "Belum diisi"}
+                    posisi={anggotaInPos?.posisi ?? pos}
+                    key={anggotaInPos?.id ?? i}
+                  />
+                );
+              })}
+            </AnggotaCardsWrapper>
+          ))}
       </div>
     </div>
   );
@@ -155,6 +160,26 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
 export default function ProfileTim({
   tim,
 }: Readonly<{ tim: TimWithRelations }>) {
+  const router = useRouter();
+
+  async function submitForm(formData: FormData) {
+    const toastId = toast.loading(
+      tim.link_berkas === "" ? "Membuat link..." : "Memperbarui link..."
+    );
+    const result = await updateTimForm(tim.id, formData);
+
+    if ('message' in result) {
+      if (result.success) {
+        toast.success(result.message, { id: toastId });
+        router.refresh();
+      } else {
+        toast.error(result.message, { id: toastId });
+      }
+    } else {
+      toast.error("An error occurred", { id: toastId });
+    }
+  }
+
   return (
     <SectionWrapper id="profile-tim">
       <H2 className="mb-2">Profil Tim Anda</H2>
@@ -182,18 +207,35 @@ export default function ProfileTim({
         <div className="flex flex-col gap-1 mb-4">
           <H3>Terkonfirmasi (Pembayaran)</H3>
           <P
-            className={`font-bold ${
-              tim.confirmed ? "text-green-600" : "text-red-600"
-            }`}
+            className={`font-bold ${tim.confirmed ? "text-green-600" : "text-red-600"
+              }`}
           >
             {tim.confirmed ? "Sudah" : "Belum"}
           </P>
         </div>
-        {tim.confirmed ?  <TimLayout tim={tim} /> : (
-        <SectionWrapper className="!pt-[100px] flex items-center justify-center">
-          <H3 className="text-center">Silahkan untuk menunggu konfirmasi pembayaran dari admin</H3>
-        </SectionWrapper>
-      )}
+        <form action={submitForm} className="mb-4">
+          <H3 className="mb-4">Link Berkas</H3>
+          <TextField
+            id="link_berkas"
+            name="link_berkas"
+            placeholder="Masukkan link drive..."
+            type="url"
+            className="w-full"
+            value={tim.link_berkas ?? ''}
+            required
+          />
+          <div className="w-full justify-end flex mt-4">
+        <SubmitButton
+          text={tim.link_berkas === "" ? "Tambah" : "Ubah"}
+          className="float-end mt-4"
+        />
+      </div>
+        </form>
+        {tim.confirmed ? <TimLayout tim={tim} /> : (
+          <SectionWrapper className="!pt-[100px] flex items-center justify-center">
+            <H3 className="text-center">Silahkan untuk menunggu konfirmasi pembayaran dari admin</H3>
+          </SectionWrapper>
+        )}
       </div>
     </SectionWrapper>
   );
