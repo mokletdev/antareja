@@ -1,6 +1,6 @@
 "use client";
 
-import { updateTimForm } from "@/actions/Tim";
+import { updateTimForm, updateTimFormAdmin } from "@/actions/Tim";
 import { Anggota, Tim } from "@prisma/client";
 import { redirect } from "next/navigation";
 import Select from "react-select";
@@ -8,8 +8,8 @@ import { toast } from "sonner";
 import SubmitButton from "./parts/Button";
 import TextField from "./parts/Input";
 import { H1 } from "@/app/components/global/Text";
-import ProfileTim from "./ProfileTim";
-import { TimWithRelations } from "@/types/entityRelations";
+import { CopyLinkButton } from "@/app/components/global/Button";
+
 
 export default function TimForm({
   data,
@@ -34,7 +34,7 @@ export default function TimForm({
 
   async function Update(data: FormData) {
     const toastId = toast.loading("Loading...");
-    const result = await updateTimForm(data, id!);
+    const result = await updateTimFormAdmin(data, id!);
     if (!result.success) {
       toast.error("Gagal mengedit tim!", { id: toastId });
     } else {
@@ -42,6 +42,8 @@ export default function TimForm({
       redirect("/admin/tim");
     }
   }
+
+  
   return (
     <form action={Update}>
       <H1>Profile Tim</H1>
@@ -85,6 +87,21 @@ export default function TimForm({
           required={edit ? false : true}
           disabled={true}
         />
+        <TextField
+          id="link_berkas"
+          type="url"
+          label="Link Berkas"
+          name="link_berkas"
+          placeholder="Link Berkas"
+          value={data?.link_berkas ?? ''}
+          required={edit ? false : true}
+          disabled={true}
+        />
+
+        {data?.link_berkas ? (
+          <CopyLinkButton children="Copy Link" href={data.link_berkas ?? ''} />
+        ) : null}
+
         <div className="flex flex-col gap-2">
           <label htmlFor={"jenjang"} className="text-[16px]">
             Jenjang
@@ -124,7 +141,7 @@ export default function TimForm({
             name="tipe_tim"
             unstyled
             defaultValue={{
-              label: data?.tipe_tim.toString() === "SMALL" ? "12 Anggota" : "15 Anggota" ,
+              label: data?.tipe_tim.toString() === "SMALL" ? "12 Anggota" : "15 Anggota",
               value: data?.tipe_tim.toString(),
             }}
             isDisabled={false}

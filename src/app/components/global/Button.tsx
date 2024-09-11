@@ -1,5 +1,5 @@
 import cn from "@/lib/clsx";
-import { MouseEventHandler, ReactNode } from "react";
+import { MouseEventHandler, ReactNode, useState } from "react";
 
 export function PrimaryButton({
   children,
@@ -81,6 +81,40 @@ export function TertiaryButton({
       )}
     >
       {children}
+    </button>
+  );
+}
+
+export function CopyLinkButton({
+  children,
+  href,
+  className,
+}: Readonly<{
+  children: ReactNode;
+  href: string;
+  className?: string;
+}>) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(href);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className={cn(
+        "bg-secondary hover:opacity-75 duration-300 transition-all py-3 px-6 text-white rounded-full ",
+        className
+      )}
+    >
+      {copied ? "Copied!" : children}
     </button>
   );
 }
