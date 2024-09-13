@@ -15,7 +15,7 @@ import SubmitButton from "@/app/components/global/SubmitButton";
 const rowsMapNormal = [
   ["b1s1", "b1s2", "b1s3"],
   ["b2s1", "b2s2", "b2s3"],
-  ["b3s3", "b3s3", "b3s3"],
+  ["b3s1", "b3s2", "b3s3"],
   ["b4s1", "b4s2", "b4s3"],
   ["b5s1", "b5s2", "b5s3"],
 ];
