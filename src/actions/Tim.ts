@@ -1,28 +1,29 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { updateTim,deleteTim } from "@/queries/tim.query";
-import {Tipe} from "@prisma/client"
+import { updateTim, deleteTim } from "@/queries/tim.query";
+import { Tipe } from "@prisma/client"
 
 export async function updateTimForm(id: string, formData: FormData) {
   const link_berkas = formData.get("link_berkas") as string;
+  const link_video = formData.get("link_video") as string;
 
   try {
     await updateTim(
       { id },
-      { link_berkas }
+      { link_berkas, link_video }
     );
     revalidatePath("/", "layout");
-    return { success: true, message: "Berhasil memperbarui Link"};
+    return { success: true, message: "Berhasil memperbarui Link" };
   } catch (e) {
     console.log(e);
-    return { success: false, message: "Gagal memperbarui Link"};
+    return { success: false, message: "Gagal memperbarui Link" };
   }
 }
 
 export async function updateTimFormAdmin(data: FormData, id: string) {
   const asal_sekolah = data.get("asal_sekolah") as string;
-  const tipe_tim = data.get("tipe_tim") as Tipe; 
+  const tipe_tim = data.get("tipe_tim") as Tipe;
 
   try {
     await updateTim(
