@@ -72,6 +72,7 @@ model Tim {
   penilaian    Penilaian?
   user         User        @relation(fields: [userId], references: [id])
   link_berkas  String?
+  link_video   String?
 }
 
 model Pembayaran {
