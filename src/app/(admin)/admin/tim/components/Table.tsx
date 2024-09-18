@@ -39,8 +39,9 @@ export default function TimTable({ data }: { data: TimWithRelations[] }) {
       cell: (row: TimWithRelations) => (
         <span className={"bg-[#]"}>{row.anggotas.length}</span>
       ),
+      selector: (row: TimWithRelations) => row.anggotas.length,
 
-      sortable: false,
+      sortable: true,
     },
   ];
 
