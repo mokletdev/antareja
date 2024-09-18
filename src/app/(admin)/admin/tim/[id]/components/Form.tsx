@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import SubmitButton from "./parts/Button";
 import TextField from "./parts/Input";
 import { H1 } from "@/app/components/global/Text";
-import { CopyLinkButton } from "@/app/components/global/Button";
+import { ExternalLinkButton } from "@/app/components/global/LinkButton";
 
 
 export default function TimForm({
@@ -99,9 +99,26 @@ export default function TimForm({
         />
 
         {data?.link_berkas ? (
-          <CopyLinkButton href={data.link_berkas ?? ''}>
-            Copy Link
-          </CopyLinkButton>
+          <ExternalLinkButton href={data.link_berkas ?? ''}>
+            Go to Link
+          </ExternalLinkButton>
+        ) : null}
+
+        <TextField
+          id="link_video"
+          type="url"
+          label="Link Video Tiktok + Foto Pasukan"
+          name="link_video"
+          placeholder="Link Video Tiktok + Foto Pasukan"
+          value={data?.link_video ?? ''}
+          required={edit ? false : true}
+          disabled={true}
+        />
+
+        {data?.link_video ? (
+          <ExternalLinkButton href={data.link_video ?? ''}>
+            Go to Link
+          </ExternalLinkButton>
         ) : null}
 
         <div className="flex flex-col gap-2">

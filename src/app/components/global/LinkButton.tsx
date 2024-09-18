@@ -73,3 +73,26 @@ export function TertiaryLinkButton({
     </Link>
   );
 }
+
+export function ExternalLinkButton({
+  children,
+  href,
+  className,
+}: {
+  children: ReactNode;
+  href: string;
+  className?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      className={cn(
+        "bg-primary-500 drop-shadow-glow hover:opacity-75 duration-300 transition-all py-3 px-6 text-white rounded-full text-center",
+        className
+      )}
+    >
+      {children}
+    </Link>
+  );
+}
