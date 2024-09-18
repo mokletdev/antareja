@@ -5,11 +5,12 @@ import SectionWrapper from "@/app/components/global/Wrapper";
 import { TimWithRelations } from "@/types/entityRelations";
 import { ReactNode, useState } from "react";
 import { AnggotaCard } from "./parts/AnggotaCard";
+import { Posisi } from "@prisma/client";
 
 const rowsMapNormal = [
   ["b1s1", "b1s2", "b1s3"],
   ["b2s1", "b2s2", "b2s3"],
-  ["b3s3", "b3s3", "b3s3"],
+  ["b3s1", "b3s2", "b3s3"],
   ["b4s1", "b4s2", "b4s3"],
   ["b5s1", "b5s2", "b5s3"],
 ];
@@ -71,7 +72,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
         {tim.jenjang === "SMA" ? (
           <AnggotaCardsWrapper>
             <AnggotaCard
-              href={`/admin/tim/${tim_id}`}
+              href={`/admin/tim/${tim_id}/mascot`}
               image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
               name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum Diisi"}
               posisi={"MASCOT"}
@@ -80,16 +81,24 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
         ) : (
           <AnggotaCardsWrapper>
             <AnggotaCard
-              href={`/admin/tim/${tim_id}`}
+              href={`/admin/tim/${tim_id}/cerdas_cermat1`}
               image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
-              name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum Diisi"}
-              posisi={"Cerdas Cermat"}
+              name={
+                tim.foto_mascot
+                  ? "cerdas cermat 1 " + tim.nama_tim
+                  : "Belum Diisi"
+              }
+              posisi={"Cerdas Cermat 2"}
             />
             <AnggotaCard
-              href={`/admin/tim/${tim_id}`}
+              href={`/admin/tim/${tim_id}/cerdas_cermat2`}
               image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
-              name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum Diisi"}
-              posisi={"Cerdas Cermat"}
+              name={
+                tim.foto_mascot
+                  ? "cerdas cermat 2 " + tim.nama_tim
+                  : "Belum Diisi"
+              }
+              posisi={"Cerdas Cermat 1"}
             />
           </AnggotaCardsWrapper>
         )}
@@ -113,7 +122,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
               <AnggotaCardsWrapper key={i}>
                 {row.map((pos, i) => {
                   const anggotaInPos = anggotas.find(
-                    (value) => value.posisi === pos.toUpperCase()
+                    (value) => value.posisi === (pos.toUpperCase() as Posisi)
                   );
 
                   return (
@@ -134,12 +143,12 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
               <AnggotaCardsWrapper key={i}>
                 {row.map((pos, i) => {
                   const anggotaInPos = anggotas.find(
-                    (value) => value.posisi === pos
+                    (value) => value.posisi === (pos.toUpperCase() as Posisi)
                   );
 
                   return (
                     <AnggotaCard
-                      href={`/admin/tim/${pos}`}
+                      href={`/admin/tim/${tim_id}/${pos}`}
                       image={
                         anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
                       }
