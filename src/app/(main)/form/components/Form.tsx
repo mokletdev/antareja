@@ -183,7 +183,7 @@ export default function FormComponent({ id }: { id: string }) {
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <label htmlFor="bukti" className="text-[16px]">
-              Bukti Teansfer
+              Bukti Transfer
             </label>
             <input
               id="bukti"
