@@ -25,9 +25,11 @@ const sizeMap = {
   NORMAL: 15,
 };
 
-function AnggotaCardsWrapper({ children }: Readonly<{ children: ReactNode }>) {
+function AnggotaCardsWrapper({ children }: Readonly<{ children?: ReactNode }>) {
   return (
-    <div className="flex items-center justify-center gap-20">{children}</div>
+    <div className="flex items-center justify-center gap-5 sm:gap-20 flex-wrap">
+      {children}
+    </div>
   );
 }
 
@@ -76,13 +78,20 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
           (Data belum lengkap)
         </P>
       )}
-      <div className="py-5 right-0  rounded-lg flex flex-col gap-12">
+      <div className="py-5 right-0 rounded-lg flex flex-col gap-5 sm:gap-12 mb-10">
         {tim.jenjang === "SMA" ? (
           <AnggotaCardsWrapper>
             <AnggotaCard
-              href={`/admin/tim/${tim_id}/mascot`}
-              image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
-              name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum Diisi"}
+              image={
+                tim.foto_mascot && tim.foto_mascot !== ""
+                  ? tim.foto_mascot
+                  : "/placeholder-profile-picture.jpg"
+              }
+              name={
+                tim.foto_mascot && tim.foto_mascot !== ""
+                  ? "Mascot " + tim.nama_tim
+                  : "Belum Diisi"
+              }
               posisi={"MASCOT"}
             />
           </AnggotaCardsWrapper>
