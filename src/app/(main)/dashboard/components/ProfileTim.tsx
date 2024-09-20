@@ -235,7 +235,7 @@ export default function ProfileTim({
             />
             <div className="w-full justify-end flex mt-4">
               <SubmitButton
-                text={tim.link_berkas || tim.link_video === "" ? "Tambah" : "Ubah"}
+                text={"Submit"}
                 className="float-end mt-4"
               />
             </div>
