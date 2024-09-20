@@ -213,32 +213,34 @@ export default function ProfileTim({
             {tim.confirmed ? "Sudah" : "Belum"}
           </P>
         </div>
-        <form action={submitForm} className="mb-4">
-          <H3 className="mb-4">Video Tiktok + Foto Pasukan</H3>
-          <TextField
-            id="link_video"
-            name="link_video"
-            placeholder="Masukkan link drive video tiktok + foto pasukan"
-            type="url"
-            className="w-full mb-4"
-            value={tim.link_video ?? ''}
-          />
-          <H3 className="mb-4">Link Berkas</H3>
-          <TextField
-            id="link_berkas"
-            name="link_berkas"
-            placeholder="Masukkan link drive..."
-            type="url"
-            className="w-full"
-            value={tim.link_berkas ?? ''}
-          />
-          <div className="w-full justify-end flex mt-4">
-            <SubmitButton
-              text={tim.link_berkas || tim.link_video === "" ? "Tambah" : "Ubah"}
-              className="float-end mt-4"
+        {tim.confirmed ?
+          <form action={submitForm} className="mb-4">
+            <H3 className="mb-4">Video Tiktok + Foto Pasukan</H3>
+            <TextField
+              id="link_video"
+              name="link_video"
+              placeholder="Masukkan link drive video tiktok + foto pasukan"
+              type="url"
+              className="w-full mb-4"
+              value={tim.link_video ?? ''}
             />
-          </div>
-        </form>
+            <H3 className="mb-4">Link Berkas</H3>
+            <TextField
+              id="link_berkas"
+              name="link_berkas"
+              placeholder="Masukkan link drive..."
+              type="url"
+              className="w-full"
+              value={tim.link_berkas ?? ''}
+            />
+            <div className="w-full justify-end flex mt-4">
+              <SubmitButton
+                text={"Submit"}
+                className="float-end mt-4"
+              />
+            </div>
+          </form> : null
+        }
         {tim.confirmed ? <TimLayout tim={tim} /> : (
           <SectionWrapper className="!pt-[100px] flex items-center justify-center">
             <H3 className="text-center">Silahkan untuk menunggu konfirmasi pembayaran dari admin</H3>
