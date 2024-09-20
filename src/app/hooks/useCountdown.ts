@@ -9,7 +9,10 @@ export function useCountdown(targetDate: Date) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCountDown(countDownDate - new Date().getTime());
+      const counter = countDownDate - new Date().getTime();
+      if (counter > 0) {
+        setCountDown(counter);
+      } else return setCountDown(0);
     }, 1000);
 
     return () => clearInterval(interval);

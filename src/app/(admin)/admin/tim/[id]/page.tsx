@@ -29,7 +29,7 @@ export default async function TimEdit({ params }: { params: { id: string } }) {
     tipe_tim: "NORMAL",
     foto_mascot: "",
     link_berkas: "",
-    link_video: ""
+    link_video: "",
   };
 
   const trygetTim = await findTim({ id: params.id });
