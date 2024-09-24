@@ -30,9 +30,14 @@ const sizeMap = {
   NORMAL: 15,
 };
 
-function AnggotaCardsWrapper({ children, className }: Readonly<{ children: ReactNode, className?: string }>) {
+function AnggotaCardsWrapper({
+  children,
+  className,
+}: Readonly<{ children: ReactNode; className?: string }>) {
   return (
-    <div className={cn("flex items-center justify-center gap-16 ", className)}>{children}</div>
+    <div className={cn("flex items-center justify-center gap-16 ", className)}>
+      {children}
+    </div>
   );
 }
 
@@ -64,7 +69,6 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
         </P>
       )}
       <div className="py-5 px-10 bg-neutral-300 rounded-lg flex flex-col gap-12">
-
         <div className="pb-20">
           {tim.jenjang === "SMP" && (
             <AnggotaCardsWrapper className="flex flex-wrap gap-10">
@@ -75,6 +79,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
                 }
                 name={cerdas_cermat1?.nama ?? "Belum diisi"}
                 posisi={"CERDAS CERMAT"}
+                key={"CC1"}
               />
               <AnggotaCard
                 href={`/dashboard/anggota/cerdas_cermat2`}
@@ -83,6 +88,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
                 }
                 name={cerdas_cermat2?.nama ?? "Belum diisi"}
                 posisi={"CERDAS CERMAT"}
+                key={"CC2"}
               />
             </AnggotaCardsWrapper>
           )}
@@ -92,12 +98,14 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
             href={`/dashboard/anggota/danton`}
             image={danton?.foto ?? "/placeholder-profile-picture.jpg"}
             name={danton?.nama ?? "Belum diisi"}
+            key={"danton"}
             posisi={danton?.posisi ?? "DANTON"}
           />
           <AnggotaCard
             href={`/dashboard/anggota/official`}
             image={official?.foto ?? "/placeholder-profile-picture.jpg"}
             name={official?.nama ?? "Belum diisi"}
+            key={"official"}
             posisi={official?.posisi ?? "OFFICIAL"}
           />
           {tim.jenjang === "SMA" && (
@@ -106,52 +114,59 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
               image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
               name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum diisi"}
               posisi={"MASCOT"}
+              key={"mascot"}
             />
           )}
         </AnggotaCardsWrapper>
         {tim.tipe_tim === "NORMAL"
           ? rowsMapNormal.map((row, i) => (
-            <AnggotaCardsWrapper key={i} className="flex flex-wrap gap-10">
-              {row.map((pos, i) => {
-                const anggotaInPos = anggotas.find(
-                  (value) => value.posisi === pos.toUpperCase()
-                );
+              <AnggotaCardsWrapper
+                key={"n" + i}
+                className="flex flex-wrap gap-10"
+              >
+                {row.map((pos, i) => {
+                  const anggotaInPos = anggotas.find(
+                    (value) => value.posisi === pos.toUpperCase()
+                  );
 
-                return (
-                  <AnggotaCard
-                    href={`/dashboard/anggota/${pos}`}
-                    image={
-                      anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
-                    }
-                    name={anggotaInPos?.nama ?? "Belum diisi"}
-                    posisi={"Posisi " + (anggotaInPos?.posisi ?? pos)}
-                    key={anggotaInPos?.id ?? i}
-                  />
-                );
-              })}
-            </AnggotaCardsWrapper>
-          ))
+                  return (
+                    <AnggotaCard
+                      href={`/dashboard/anggota/${pos}`}
+                      image={
+                        anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
+                      }
+                      name={anggotaInPos?.nama ?? "Belum diisi"}
+                      posisi={"Posisi " + (anggotaInPos?.posisi ?? pos)}
+                      key={anggotaInPos?.id ?? i}
+                    />
+                  );
+                })}
+              </AnggotaCardsWrapper>
+            ))
           : rowsMapSmall.map((row, i) => (
-            <AnggotaCardsWrapper key={i} className="flex flex-wrap gap-10">
-              {row.map((pos, i) => {
-                const anggotaInPos = anggotas.find(
-                  (value) => value.posisi === pos.toUpperCase()
-                );
+              <AnggotaCardsWrapper
+                key={"s" + i}
+                className="flex flex-wrap gap-10"
+              >
+                {row.map((pos, i) => {
+                  const anggotaInPos = anggotas.find(
+                    (value) => value.posisi === pos.toUpperCase()
+                  );
 
-                return (
-                  <AnggotaCard
-                    href={`/dashboard/anggota/${pos}`}
-                    image={
-                      anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
-                    }
-                    name={anggotaInPos?.nama ?? "Belum diisi"}
-                    posisi={anggotaInPos?.posisi ?? pos}
-                    key={anggotaInPos?.id ?? i}
-                  />
-                );
-              })}
-            </AnggotaCardsWrapper>
-          ))}
+                  return (
+                    <AnggotaCard
+                      href={`/dashboard/anggota/${pos}`}
+                      image={
+                        anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
+                      }
+                      name={anggotaInPos?.nama ?? "Belum diisi"}
+                      posisi={anggotaInPos?.posisi ?? pos}
+                      key={anggotaInPos?.id ?? i}
+                    />
+                  );
+                })}
+              </AnggotaCardsWrapper>
+            ))}
       </div>
     </div>
   );
@@ -168,7 +183,7 @@ export default function ProfileTim({
     );
     const result = await updateTimForm(tim.id, formData);
 
-    if ('message' in result) {
+    if ("message" in result) {
       if (result.success) {
         toast.success(result.message, { id: toastId });
         router.refresh();
@@ -207,13 +222,14 @@ export default function ProfileTim({
         <div className="flex flex-col gap-1 mb-4">
           <H3>Terkonfirmasi (Pembayaran)</H3>
           <P
-            className={`font-bold ${tim.confirmed ? "text-green-600" : "text-red-600"
-              }`}
+            className={`font-bold ${
+              tim.confirmed ? "text-green-600" : "text-red-600"
+            }`}
           >
             {tim.confirmed ? "Sudah" : "Belum"}
           </P>
         </div>
-        {tim.confirmed ?
+        {tim.confirmed ? (
           <form action={submitForm} className="mb-4">
             <H3 className="mb-4">Video Tiktok + Foto Pasukan</H3>
             <TextField
@@ -222,7 +238,7 @@ export default function ProfileTim({
               placeholder="Masukkan link drive video tiktok + foto pasukan"
               type="url"
               className="w-full mb-4"
-              value={tim.link_video ?? ''}
+              value={tim.link_video ?? ""}
             />
             <H3 className="mb-4">Link Berkas</H3>
             <TextField
@@ -231,19 +247,20 @@ export default function ProfileTim({
               placeholder="Masukkan link drive..."
               type="url"
               className="w-full"
-              value={tim.link_berkas ?? ''}
+              value={tim.link_berkas ?? ""}
             />
             <div className="w-full justify-end flex mt-4">
-              <SubmitButton
-                text={"Submit"}
-                className="float-end mt-4"
-              />
+              <SubmitButton text={"Submit"} className="float-end mt-4" />
             </div>
-          </form> : null
-        }
-        {tim.confirmed ? <TimLayout tim={tim} /> : (
+          </form>
+        ) : null}
+        {tim.confirmed ? (
+          <TimLayout tim={tim} />
+        ) : (
           <SectionWrapper className="!pt-[100px] flex items-center justify-center">
-            <H3 className="text-center">Silahkan untuk menunggu konfirmasi pembayaran dari admin</H3>
+            <H3 className="text-center">
+              Silahkan untuk menunggu konfirmasi pembayaran dari admin
+            </H3>
           </SectionWrapper>
         )}
       </div>
