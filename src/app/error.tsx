@@ -4,7 +4,7 @@ import Image from "next/image";
 import Navbar from "./components/global/Navbar";
 import { P } from "./components/global/Text";
 
-export default function GlobalError({
+export default function Error({
   error,
   reset,
 }: {
