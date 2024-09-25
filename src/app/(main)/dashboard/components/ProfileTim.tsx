@@ -68,9 +68,9 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
           (Data belum lengkap)
         </P>
       )}
-      <div className="py-5 px-10 bg-neutral-300 rounded-lg flex flex-col gap-12">
-        <div className="pb-20">
-          {tim.jenjang === "SMP" && (
+      <div className="py-16 px-10 bg-neutral-300 rounded-lg flex flex-col gap-12">
+        {tim.jenjang === "SMP" && (
+          <div className="pb-20">
             <AnggotaCardsWrapper className="flex flex-wrap gap-10">
               <AnggotaCard
                 href={`/dashboard/anggota/cerdas_cermat1`}
@@ -91,8 +91,8 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
                 key={"CC2"}
               />
             </AnggotaCardsWrapper>
-          )}
-        </div>
+          </div>
+        )}
         <AnggotaCardsWrapper className="flex flex-wrap gap-10">
           <AnggotaCard
             href={`/dashboard/anggota/danton`}
@@ -111,7 +111,11 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
           {tim.jenjang === "SMA" && (
             <AnggotaCard
               href={`/dashboard/mascot`}
-              image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
+              image={
+                tim.foto_mascot && tim.foto_mascot !== ""
+                  ? tim.foto_mascot
+                  : "/placeholder-profile-picture.jpg"
+              }
               name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum diisi"}
               posisi={"MASCOT"}
               key={"mascot"}
