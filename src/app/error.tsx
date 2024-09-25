@@ -12,21 +12,19 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <html>
-      <body>
-        <Navbar />
-        <main className="mt-[58px] xl:mt-[88px] overflow-hidden h-[70vh] flex flex-col justify-center items-center">
-          <Image
-            src="/globalerror.svg"
-            alt="Error"
-            loading="lazy"
-            width={400}
-            height={400}
-          />
-          <P>Terjadi Kesalahan</P>
-          <P>Silahkan Hubungi Administrator</P>
-        </main>
-      </body>
-    </html>
+    <>
+      <Navbar />
+      <main className="mt-[58px] xl:mt-[88px] overflow-hidden h-[70vh] flex flex-col justify-center items-center">
+        <Image
+          src="/globalerror.svg"
+          alt="Error"
+          loading="lazy"
+          width={400}
+          height={400}
+        />
+        <P>Terjadi Kesalahan</P>
+        <P>Silahkan Hubungi Administrator</P>
+      </main>
+    </>
   );
 }
