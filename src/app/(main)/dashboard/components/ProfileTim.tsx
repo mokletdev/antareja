@@ -111,7 +111,11 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
           {tim.jenjang === "SMA" && (
             <AnggotaCard
               href={`/dashboard/mascot`}
-              image={tim.foto_mascot ?? "/placeholder-profile-picture.jpg"}
+              image={
+                tim.foto_mascot && tim.foto_mascot !== ""
+                  ? tim.foto_mascot
+                  : "/placeholder-profile-picture.jpg"
+              }
               name={tim.foto_mascot ? "Mascot " + tim.nama_tim : "Belum diisi"}
               posisi={"MASCOT"}
               key={"mascot"}
