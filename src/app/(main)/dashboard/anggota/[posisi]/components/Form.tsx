@@ -38,7 +38,7 @@ export default function EditAnggotaForm({
   }
 
   return (
-    <form className="mx-[100px] my-[24px]" action={submitForm}>
+    <form className="mx-[20px] md:mx-[100px] my-[24px]" action={submitForm}>
       <H2>
         {anggota.id === ""
           ? `Buat Posisi ${anggota.posisi.toUpperCase()}`
