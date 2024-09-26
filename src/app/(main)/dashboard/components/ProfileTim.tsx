@@ -70,7 +70,7 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
       )}
       <div className="py-16 px-10 bg-neutral-300 rounded-lg flex flex-col gap-12">
         {tim.jenjang === "SMP" && (
-          <div className="pb-20">
+          <div className="pb-10">
             <AnggotaCardsWrapper className="flex flex-wrap gap-10">
               <AnggotaCard
                 href={`/dashboard/anggota/cerdas_cermat1`}

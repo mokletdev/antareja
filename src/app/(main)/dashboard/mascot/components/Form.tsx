@@ -26,7 +26,7 @@ export default function EditFotoMascotForm({ tim }: Readonly<{ tim: Tim }>) {
 
   return (
     <form className="mx-[100px] my-[24px] h-[50vh]" action={submitForm}>
-      <H2>Edit Foto Mascot</H2>
+      <H2>Edit Foto Mascot (Max. 10MB)</H2>
       <div className="flex flex-col gap-4 mt-4">
         <input
           id="fotomascot"
