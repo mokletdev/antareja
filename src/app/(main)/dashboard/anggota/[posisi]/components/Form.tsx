@@ -89,7 +89,7 @@ export default function EditAnggotaForm({
         )}
         <div className="flex flex-col gap-2">
           <label htmlFor={"size"} className="text-[16px]">
-            Foto (3x4)
+            Pas Foto 3x4 (Max. 10MB)
           </label>
           <input
             type="file"

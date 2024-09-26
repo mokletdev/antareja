@@ -25,6 +25,9 @@ export async function upsertAnggotaForm(
   const foto = data.get("foto") as File;
   const kelas = data.get("kelas") as Kelas;
 
+  if (foto.size / 1024 / 1024 > 10)
+    return { success: false, message: "Max. Ukuran foto adalah 10MB" };
+
   const tim = (await findTim({ userId: session?.user?.id })) as Tim;
   const tryFindAnggota = await findAnggota({ id });
 
