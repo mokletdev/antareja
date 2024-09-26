@@ -7,6 +7,9 @@ import { revalidatePath } from "next/cache";
 export async function upsertFotoMascotForm(data: FormData, id: string) {
   const fotoMascot = data.get("fotomascot") as File;
 
+  if (fotoMascot.size / 1024 / 1024 > 10)
+    return { success: false, message: "Max. Ukuran foto adalah 10MB" };
+
   try {
     let fotoMascotUrl: string | undefined;
     if (fotoMascot.name !== "undefined") {
