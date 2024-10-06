@@ -3,6 +3,9 @@ import { TimWithRelations } from "@/types/entityRelations";
 import { useRouter } from "next-nprogress-bar";
 import { useEffect, useState } from "react";
 import DataTable, { TableColumn } from "react-data-table-component";
+import { FaRegTrashCan } from "react-icons/fa6";
+import { toast } from "sonner";
+import { deleteTimForm } from "@/actions/Tim"; 
 
 export default function TimTable({ data }: { data: TimWithRelations[] }) {
   const [loader, setLoader] = useState(true);
@@ -40,8 +43,33 @@ export default function TimTable({ data }: { data: TimWithRelations[] }) {
         <span className={"bg-[#]"}>{row.anggotas.length}</span>
       ),
       selector: (row: TimWithRelations) => row.anggotas.length,
-
       sortable: true,
+    },
+    {
+      name: "Hapus",
+      cell: (row: TimWithRelations) => (
+        <div className="flex justify-center items-center">
+          <button
+            onClick={async () => {
+              const confirmDelete = confirm(
+                "Apakah anda yakin ingin menghapus tim?"
+              );
+              if (confirmDelete) {
+                const toastId = toast.loading("Loading...");
+                const result = await deleteTimForm(row.id);
+                if (!result.success) {
+                  toast.error("Gagal menghapus tim!", { id: toastId });
+                } else {
+                  toast.success("Berhasil menghapus tim!", { id: toastId });
+                }
+              }
+            }}
+          >
+            <FaRegTrashCan className="hover:text-[#afafaf] transition-all duration-500 text-[20px]" />
+          </button>
+        </div>
+      ),
+      sortable: false,
     },
   ];
 
