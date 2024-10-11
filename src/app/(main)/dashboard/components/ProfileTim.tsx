@@ -8,9 +8,11 @@ import { AnggotaCard } from "./parts/AnggotaCard";
 import cn from "@/lib/clsx";
 import { updateTimForm } from "@/actions/Tim";
 import TextField from "@/app/components/global/Input";
+import Field from "../components/parts/input";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import SubmitButton from "@/app/components/global/SubmitButton";
+import { findPenilaian } from "@/queries/penilaian.query";
 
 const rowsMapNormal = [
   ["b1s1", "b1s2", "b1s3"],
@@ -124,59 +126,59 @@ function TimLayout({ tim }: Readonly<{ tim: TimWithRelations }>) {
         </AnggotaCardsWrapper>
         {tim.tipe_tim === "NORMAL"
           ? rowsMapNormal.map((row, i) => (
-              <AnggotaCardsWrapper
-                key={"n" + i}
-                className="flex flex-wrap gap-10"
-              >
-                {row.map((pos, i) => {
-                  const anggotaInPos = anggotas.find(
-                    (value) => value.posisi === pos.toUpperCase()
-                  );
+            <AnggotaCardsWrapper
+              key={"n" + i}
+              className="flex flex-wrap gap-10"
+            >
+              {row.map((pos, i) => {
+                const anggotaInPos = anggotas.find(
+                  (value) => value.posisi === pos.toUpperCase()
+                );
 
-                  return (
-                    <AnggotaCard
-                      href={`/dashboard/anggota/${pos}`}
-                      image={
-                        anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
-                      }
-                      name={anggotaInPos?.nama ?? "Belum diisi"}
-                      posisi={"Posisi " + (anggotaInPos?.posisi ?? pos)}
-                      key={anggotaInPos?.id ?? i}
-                    />
-                  );
-                })}
-              </AnggotaCardsWrapper>
-            ))
+                return (
+                  <AnggotaCard
+                    href={`/dashboard/anggota/${pos}`}
+                    image={
+                      anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
+                    }
+                    name={anggotaInPos?.nama ?? "Belum diisi"}
+                    posisi={"Posisi " + (anggotaInPos?.posisi ?? pos)}
+                    key={anggotaInPos?.id ?? i}
+                  />
+                );
+              })}
+            </AnggotaCardsWrapper>
+          ))
           : rowsMapSmall.map((row, i) => (
-              <AnggotaCardsWrapper
-                key={"s" + i}
-                className="flex flex-wrap gap-10"
-              >
-                {row.map((pos, i) => {
-                  const anggotaInPos = anggotas.find(
-                    (value) => value.posisi === pos.toUpperCase()
-                  );
+            <AnggotaCardsWrapper
+              key={"s" + i}
+              className="flex flex-wrap gap-10"
+            >
+              {row.map((pos, i) => {
+                const anggotaInPos = anggotas.find(
+                  (value) => value.posisi === pos.toUpperCase()
+                );
 
-                  return (
-                    <AnggotaCard
-                      href={`/dashboard/anggota/${pos}`}
-                      image={
-                        anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
-                      }
-                      name={anggotaInPos?.nama ?? "Belum diisi"}
-                      posisi={anggotaInPos?.posisi ?? pos}
-                      key={anggotaInPos?.id ?? i}
-                    />
-                  );
-                })}
-              </AnggotaCardsWrapper>
-            ))}
+                return (
+                  <AnggotaCard
+                    href={`/dashboard/anggota/${pos}`}
+                    image={
+                      anggotaInPos?.foto ?? "/placeholder-profile-picture.jpg"
+                    }
+                    name={anggotaInPos?.nama ?? "Belum diisi"}
+                    posisi={anggotaInPos?.posisi ?? pos}
+                    key={anggotaInPos?.id ?? i}
+                  />
+                );
+              })}
+            </AnggotaCardsWrapper>
+          ))}
       </div>
     </div>
   );
 }
 
-export default function ProfileTim({
+export default async function ProfileTim({
   tim,
 }: Readonly<{ tim: TimWithRelations }>) {
   const router = useRouter();
@@ -199,6 +201,8 @@ export default function ProfileTim({
     }
   }
 
+  const trygetPenilaian = await findPenilaian({ tim_id: tim.id });
+  
   return (
     <SectionWrapper id="profile-tim">
       <H2 className="mb-2">Profil Tim Anda</H2>
@@ -226,9 +230,8 @@ export default function ProfileTim({
         <div className="flex flex-col gap-1 mb-4">
           <H3>Terkonfirmasi (Pembayaran)</H3>
           <P
-            className={`font-bold ${
-              tim.confirmed ? "text-green-600" : "text-red-600"
-            }`}
+            className={`font-bold ${tim.confirmed ? "text-green-600" : "text-red-600"
+              }`}
           >
             {tim.confirmed ? "Sudah" : "Belum"}
           </P>
@@ -258,6 +261,20 @@ export default function ProfileTim({
             </div>
           </form>
         ) : null}
+  
+        {trygetPenilaian?.published === true ? <div className="flex flex-col gap-1 mb-4">
+          <H3 className="pb-4">Hasil Penilaian</H3>
+          <Field
+            id="link_penilaian"
+            type="url"
+            label=""
+            name="link_penilaian"
+            placeholder="Link Hasil Penilaian"
+            value={trygetPenilaian.detail_url}
+            disabled = {true}
+          />
+        </div> : null}
+
         {tim.confirmed ? (
           <TimLayout tim={tim} />
         ) : (
