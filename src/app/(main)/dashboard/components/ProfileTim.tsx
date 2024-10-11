@@ -202,7 +202,7 @@ export default async function ProfileTim({
   }
 
   const trygetPenilaian = await findPenilaian({ tim_id: tim.id });
-  
+
   return (
     <SectionWrapper id="profile-tim">
       <H2 className="mb-2">Profil Tim Anda</H2>
@@ -261,8 +261,8 @@ export default async function ProfileTim({
             </div>
           </form>
         ) : null}
-  
-        {trygetPenilaian?.published === true ? <div className="flex flex-col gap-1 mb-4">
+
+        {trygetPenilaian?.published === true ? <><div className="flex flex-col gap-1 mb-4">
           <H3 className="pb-4">Hasil Penilaian</H3>
           <Field
             id="link_penilaian"
@@ -271,9 +271,22 @@ export default async function ProfileTim({
             name="link_penilaian"
             placeholder="Link Hasil Penilaian"
             value={trygetPenilaian.detail_url}
-            disabled = {true}
+            disabled={true}
           />
-        </div> : null}
+        </div>
+          <div className="flex flex-col gap-1 mb-4">
+            <H3 className="pb-4">Cacatan Juri</H3>
+            <Field
+              id="note"
+              type="text"
+              label=""
+              name="note"
+              placeholder="Cacatan Juri"
+              value={trygetPenilaian.note}
+              disabled={true}
+            />
+          </div></>
+          : null}
 
         {tim.confirmed ? (
           <TimLayout tim={tim} />

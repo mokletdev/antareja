@@ -95,7 +95,7 @@ export default function PenilaianForm({
           label="PBB"
           name="pbb"
           placeholder="Nilai PBB"
-          value={data?.pbb}
+          value={data?.pbb ?? 0} // Set default value to 0
           required={edit ?? false}
           onWheel={(e) => e.currentTarget.blur()}
         />
@@ -105,7 +105,7 @@ export default function PenilaianForm({
           label="Variasi"
           name="variasi"
           placeholder="Nilai Variasi"
-          value={data?.variasi}
+          value={data?.variasi ?? 0} // Set default value to 0
           required={edit ?? false}
           onWheel={(e) => e.currentTarget.blur()}
         />
@@ -114,7 +114,7 @@ export default function PenilaianForm({
           type="number"
           label="Formasi"
           name="formasi"
-          value={data?.formasi}
+          value={data?.formasi ?? 0} // Set default value to 0
           placeholder="Nilai Formasi"
           required={edit ?? false}
           onWheel={(e) => e.currentTarget.blur()}
@@ -124,7 +124,7 @@ export default function PenilaianForm({
           type="number"
           label="Danpas"
           name="danpas"
-          value={data?.danpas}
+          value={data?.danpas ?? 0} // Set default value to 0
           placeholder="Nilai Danpas"
           required={edit ?? false}
           onWheel={(e) => e.currentTarget.blur()}
@@ -134,7 +134,7 @@ export default function PenilaianForm({
           type="number"
           label="Pasukan"
           name="pasukan"
-          value={data?.pasukan}
+          value={data?.pasukan ?? 0} // Set default value to 0
           placeholder="Nilai Pasukan"
           required={edit ?? false}
           onWheel={(e) => e.currentTarget.blur()}
@@ -144,7 +144,7 @@ export default function PenilaianForm({
           type="number"
           label="PBB Tambahan"
           name="pbb_tambahan"
-          value={data?.pbb_tambahan}
+          value={data?.pbb_tambahan ?? 0} // Set default value to 0
           placeholder="Nilai PBB Tambahan"
           required={edit ?? false}
           onWheel={(e) => e.currentTarget.blur()}
@@ -154,7 +154,7 @@ export default function PenilaianForm({
           type="number"
           label="Mascot"
           name="mascot"
-          value={data?.mascot!}
+          value={data?.mascot ?? 0} // Set default value to 0
           placeholder="Nilai Mascot"
           required={edit ?? false}
           onWheel={(e) => e.currentTarget.blur()}
@@ -164,7 +164,7 @@ export default function PenilaianForm({
           type="number"
           label="Cerdas Cermat"
           name="cerdas_cermat"
-          value={data?.cerdas_cermat!}
+          value={data?.cerdas_cermat ?? 0} // Set default value to 0
           placeholder="Nilai Cerdas Cermat"
           required={edit ?? false}
           onWheel={(e) => e.currentTarget.blur()}
